@@ -4,3 +4,6 @@
 [submodule "Simulation/Unity Robotics Warehouse/AirsimDemo"]
 	path = Simulation/Unity Robotics Warehouse/AirsimDemo
 	url = https://github.com/buvnswrn/AirsimDemo.git
+[submodule "Services/ajan_pomdp_py"]
+	path = Services/ajan_pomdp_py
+	url = https://github.com/buvnswrn/ajan_pomdp_py
