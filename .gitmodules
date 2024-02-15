@@ -1,3 +1,6 @@
 [submodule "simulation/Unity-Simulation"]
 	path = simulation/Unity-Simulation
 	url = https://github.com/buvnswrn/AirsimDemo
+[submodule "Simulation/Unity Robotics Warehouse/AirsimDemo"]
+	path = Simulation/Unity Robotics Warehouse/AirsimDemo
+	url = https://github.com/buvnswrn/AirsimDemo.git
