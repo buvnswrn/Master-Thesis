@@ -16,3 +16,6 @@
 [submodule "Services/AJAN-editor"]
 	path = Services/AJAN-editor
 	url = https://github.com/aantakli/AJAN-editor.git
+[submodule "Services/Deprecated/AJAN_DESPOT"]
+	path = Services/Deprecated/AJAN_DESPOT
+	url = https://github.com/buvnswrn/AJAN_DESPOT.git
