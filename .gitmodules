@@ -7,3 +7,6 @@
 [submodule "Services/ajan_pomdp_py"]
 	path = Services/ajan_pomdp_py
 	url = https://github.com/buvnswrn/ajan_pomdp_py
+[submodule "Services/AJAN-Airsim-Python"]
+	path = Services/AJAN-Airsim-Python
+	url = https://github.com/buvnswrn/AJAN-Airsim-Python
