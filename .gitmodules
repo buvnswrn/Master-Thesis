@@ -10,3 +10,6 @@
 [submodule "Services/AJAN-Airsim-Python"]
 	path = Services/AJAN-Airsim-Python
 	url = https://github.com/buvnswrn/AJAN-Airsim-Python
+[submodule "Services/AJAN-service"]
+	path = Services/AJAN-service
+	url = https://github.com/aantakli/AJAN-service.git
