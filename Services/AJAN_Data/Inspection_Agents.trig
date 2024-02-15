@@ -1,0 +1,109 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sesame: <http://www.openrdf.org/schema/sesame#> .
+@prefix rdf4j: <http://rdf4j.org/schema/rdf4j#> .
+
+{
+  <http://localhost:8090/rdf4j/repositories/agents#AG_Inspection_Trial_f5ae686a-4629-4048-b2ba-d69c84a6b0cb>
+    a <http://www.ajan.de/ajan-ns#AgentTemplate>;
+    rdfs:label "Inspection_Trial AgentTemplate";
+    <http://www.ajan.de/ajan-ns#agentInitKnowledge> <http://localhost:8090/rdf4j/repositories/agents#AG_Inspection_Trial_f5ae686a-4629-4048-b2ba-d69c84a6b0cb/InitKnowledge>;
+    <http://www.ajan.de/ajan-ns#event> <http://localhost:8090/rdf4j/repositories/agents#EV_83d4697d-9d8a-44fb-8d8b-2beddb6c12b9>;
+    <http://www.ajan.de/ajan-ns#behavior> <http://localhost:8090/rdf4j/repositories/agents#BE_82312146-39b4-4aca-8426-fd49862ec01d>;
+    <http://www.ajan.de/ajan-ns#endpoint> <http://localhost:8090/rdf4j/repositories/agents#EP_7ed7410b-71be-48b9-b0b1-1ea7904eea5e> .
+  
+  <http://localhost:8090/rdf4j/repositories/agents#EV_83d4697d-9d8a-44fb-8d8b-2beddb6c12b9>
+    a <http://www.ajan.de/ajan-ns#ModelEvent>;
+    rdfs:label "Inspection_Trial Event" .
+  
+  <http://localhost:8090/rdf4j/repositories/agents#BE_82312146-39b4-4aca-8426-fd49862ec01d>
+    a <http://www.ajan.de/ajan-ns#Behavior>;
+    rdfs:label "Inspection_Trial Behavior";
+    <http://www.ajan.de/ajan-ns#bt> <http://localhost:8090/rdf4j/repositories/behaviors#BT_4c4301ee-7f25-4c7d-92e1-7b9ee33aed9b>;
+    <http://www.ajan.de/ajan-ns#trigger> <http://localhost:8090/rdf4j/repositories/agents#EV_83d4697d-9d8a-44fb-8d8b-2beddb6c12b9>;
+    <http://www.ajan.de/ajan-ns#clearEKB> false .
+  
+  <http://localhost:8090/rdf4j/repositories/agents#EP_7ed7410b-71be-48b9-b0b1-1ea7904eea5e>
+    a <http://www.ajan.de/ajan-ns#Endpoint>;
+    rdfs:label "Inspection_Trial Endpoint";
+    <http://www.ajan.de/ajan-ns#event> <http://localhost:8090/rdf4j/repositories/agents#EV_83d4697d-9d8a-44fb-8d8b-2beddb6c12b9>;
+    <http://www.ajan.de/ajan-ns#capability> "Inspection_Trial" .
+  
+  <http://localhost:8090/rdf4j/repositories/agents#AG_InitInspectionStates_b609c702-b214-4f63-bc83-b96bfd916f6d>
+    a <http://www.ajan.de/ajan-ns#AgentTemplate>;
+    rdfs:label "InitInspectionStates AgentTemplate";
+    <http://www.ajan.de/ajan-ns#agentInitKnowledge> <http://localhost:8090/rdf4j/repositories/agents#AG_InitInspectionStates_b609c702-b214-4f63-bc83-b96bfd916f6d/InitKnowledge>;
+    <http://www.ajan.de/ajan-ns#event> <http://localhost:8090/rdf4j/repositories/agents#EV_520ed31a-2bce-424f-b0a0-1108855bd893>;
+    <http://www.ajan.de/ajan-ns#behavior> <http://localhost:8090/rdf4j/repositories/agents#BE_bf28094d-3111-4465-82b3-da0f6f9af3c5>;
+    <http://www.ajan.de/ajan-ns#endpoint> <http://localhost:8090/rdf4j/repositories/agents#EP_26807386-6006-421a-a7dd-fef4110232b2> .
+  
+  <http://localhost:8090/rdf4j/repositories/agents#EV_520ed31a-2bce-424f-b0a0-1108855bd893>
+    a <http://www.ajan.de/ajan-ns#ModelEvent>;
+    rdfs:label "InitInspectionStates Event" .
+  
+  <http://localhost:8090/rdf4j/repositories/agents#BE_bf28094d-3111-4465-82b3-da0f6f9af3c5>
+    a <http://www.ajan.de/ajan-ns#Behavior>;
+    rdfs:label "InitInspectionStates Behavior";
+    <http://www.ajan.de/ajan-ns#bt> <http://localhost:8090/rdf4j/repositories/behaviors#BT_465a1eef-27e6-48ff-8748-54f68a07bd8e>;
+    <http://www.ajan.de/ajan-ns#trigger> <http://localhost:8090/rdf4j/repositories/agents#EV_520ed31a-2bce-424f-b0a0-1108855bd893>;
+    <http://www.ajan.de/ajan-ns#clearEKB> false .
+  
+  <http://localhost:8090/rdf4j/repositories/agents#EP_26807386-6006-421a-a7dd-fef4110232b2>
+    a <http://www.ajan.de/ajan-ns#Endpoint>;
+    rdfs:label "InitInspectionStates Endpoint";
+    <http://www.ajan.de/ajan-ns#event> <http://localhost:8090/rdf4j/repositories/agents#EV_520ed31a-2bce-424f-b0a0-1108855bd893>;
+    <http://www.ajan.de/ajan-ns#capability> "InitInspectionStates" .
+  
+  <http://localhost:8090/rdf4j/repositories/agents#AG_Inspection_POMDP_Initialization_6de16b85-70a7-44f5-b8b7-6fc9fb789fa0>
+    a <http://www.ajan.de/ajan-ns#AgentTemplate>;
+    rdfs:label "Inspection_POMDP_Initialization AgentTemplate";
+    <http://www.ajan.de/ajan-ns#agentInitKnowledge> <http://localhost:8090/rdf4j/repositories/agents#AG_Inspection_POMDP_Initialization_6de16b85-70a7-44f5-b8b7-6fc9fb789fa0/InitKnowledge>;
+    <http://www.ajan.de/ajan-ns#event> <http://localhost:8090/rdf4j/repositories/agents#EV_c061d3bc-c798-495a-9947-a44442a1deb8>;
+    <http://www.ajan.de/ajan-ns#behavior> <http://localhost:8090/rdf4j/repositories/agents#BE_274e07ee-50d5-45c6-9d5c-872a34e893f3>;
+    <http://www.ajan.de/ajan-ns#endpoint> <http://localhost:8090/rdf4j/repositories/agents#EP_749fb69c-a2fc-4fe7-b765-4b84a1cb44aa> .
+  
+  <http://localhost:8090/rdf4j/repositories/agents#EV_c061d3bc-c798-495a-9947-a44442a1deb8>
+    a <http://www.ajan.de/ajan-ns#ModelEvent>;
+    rdfs:label "Inspection_POMDP_Initialization Event" .
+  
+  <http://localhost:8090/rdf4j/repositories/agents#BE_274e07ee-50d5-45c6-9d5c-872a34e893f3>
+    a <http://www.ajan.de/ajan-ns#Behavior>;
+    rdfs:label "Inspection_POMDP_Initialization Behavior";
+    <http://www.ajan.de/ajan-ns#bt> <http://localhost:8090/rdf4j/repositories/behaviors#BT_c91e1f0d-728e-45d8-8052-e451dfc3618a>;
+    <http://www.ajan.de/ajan-ns#trigger> <http://localhost:8090/rdf4j/repositories/agents#EV_c061d3bc-c798-495a-9947-a44442a1deb8>;
+    <http://www.ajan.de/ajan-ns#clearEKB> false .
+  
+  <http://localhost:8090/rdf4j/repositories/agents#EP_749fb69c-a2fc-4fe7-b765-4b84a1cb44aa>
+    a <http://www.ajan.de/ajan-ns#Endpoint>;
+    rdfs:label "Inspection_POMDP_Initialization Endpoint";
+    <http://www.ajan.de/ajan-ns#event> <http://localhost:8090/rdf4j/repositories/agents#EV_c061d3bc-c798-495a-9947-a44442a1deb8>;
+    <http://www.ajan.de/ajan-ns#capability> "Inspection_POMDP_Initialization" .
+  
+  <http://localhost:8090/rdf4j/repositories/agents#AG_Inspection_POMDP_Initialization_49ff559b-fd59-402d-bc28-e24069478bd0>
+    a <http://www.ajan.de/ajan-ns#AgentTemplate>;
+    rdfs:label "Inspection_POMDP_Initialization AgentTemplate";
+    <http://www.ajan.de/ajan-ns#agentInitKnowledge> <http://localhost:8090/rdf4j/repositories/agents#AG_Inspection_POMDP_Initialization_49ff559b-fd59-402d-bc28-e24069478bd0/InitKnowledge>;
+    <http://www.ajan.de/ajan-ns#event> <http://localhost:8090/rdf4j/repositories/agents#EV_b47c166a-4ec3-4a20-b8e2-30380d72c4a7>;
+    <http://www.ajan.de/ajan-ns#behavior> <http://localhost:8090/rdf4j/repositories/agents#BE_4ff4eb51-f379-4275-9109-cf8826fd7792>;
+    <http://www.ajan.de/ajan-ns#endpoint> <http://localhost:8090/rdf4j/repositories/agents#EP_49fe999a-d0fd-450c-9bb5-535a7cd86bdf> .
+  
+  <http://localhost:8090/rdf4j/repositories/agents#EV_b47c166a-4ec3-4a20-b8e2-30380d72c4a7>
+    a <http://www.ajan.de/ajan-ns#ModelEvent>;
+    rdfs:label "Inspection_POMDP_Initialization Event" .
+  
+  <http://localhost:8090/rdf4j/repositories/agents#BE_4ff4eb51-f379-4275-9109-cf8826fd7792>
+    a <http://www.ajan.de/ajan-ns#Behavior>;
+    rdfs:label "Inspection_POMDP_Initialization Behavior";
+    <http://www.ajan.de/ajan-ns#bt> <http://localhost:8090/rdf4j/repositories/behaviors#BT_c91e1f0d-728e-45d8-8052-e451dfc3618a>;
+    <http://www.ajan.de/ajan-ns#trigger> <http://localhost:8090/rdf4j/repositories/agents#EV_b47c166a-4ec3-4a20-b8e2-30380d72c4a7>;
+    <http://www.ajan.de/ajan-ns#clearEKB> false .
+  
+  <http://localhost:8090/rdf4j/repositories/agents#EP_49fe999a-d0fd-450c-9bb5-535a7cd86bdf>
+    a <http://www.ajan.de/ajan-ns#Endpoint>;
+    rdfs:label "Inspection_POMDP_Initialization Endpoint";
+    <http://www.ajan.de/ajan-ns#event> <http://localhost:8090/rdf4j/repositories/agents#EV_b47c166a-4ec3-4a20-b8e2-30380d72c4a7>;
+    <http://www.ajan.de/ajan-ns#capability> "Inspection_POMDP_Initialization" .
+}

@@ -1,0 +1,34 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sesame: <http://www.openrdf.org/schema/sesame#> .
+@prefix rdf4j: <http://rdf4j.org/schema/rdf4j#> .
+
+{
+  <http://localhost:8090/rdf4j/repositories/agents#AG_Trial_13b55f12-220f-403c-86a3-2c6dbb17444f>
+    a <http://www.ajan.de/ajan-ns#AgentTemplate>;
+    rdfs:label "Trial AgentTemplate";
+    <http://www.ajan.de/ajan-ns#agentInitKnowledge> <http://localhost:8090/rdf4j/repositories/agents#AG_Trial_13b55f12-220f-403c-86a3-2c6dbb17444f/InitKnowledge>;
+    <http://www.ajan.de/ajan-ns#event> <http://localhost:8090/rdf4j/repositories/agents#EV_8764db89-6233-46c4-ab50-7094291f5193>;
+    <http://www.ajan.de/ajan-ns#behavior> <http://localhost:8090/rdf4j/repositories/agents#BE_7c1b22fb-7655-451f-98fe-318b8e01c579>;
+    <http://www.ajan.de/ajan-ns#endpoint> <http://localhost:8090/rdf4j/repositories/agents#EP_691dc445-06ed-495c-953a-e14856af49ff> .
+  
+  <http://localhost:8090/rdf4j/repositories/agents#EV_8764db89-6233-46c4-ab50-7094291f5193>
+    a <http://www.ajan.de/ajan-ns#ModelEvent>;
+    rdfs:label "Trial Event" .
+  
+  <http://localhost:8090/rdf4j/repositories/agents#BE_7c1b22fb-7655-451f-98fe-318b8e01c579>
+    a <http://www.ajan.de/ajan-ns#Behavior>;
+    rdfs:label "Trial Behavior";
+    <http://www.ajan.de/ajan-ns#bt> <http://localhost:8090/rdf4j/repositories/behaviors#BT_eaeb6967-0553-43c9-8775-118abb1efa59>;
+    <http://www.ajan.de/ajan-ns#trigger> <http://localhost:8090/rdf4j/repositories/agents#EV_8764db89-6233-46c4-ab50-7094291f5193>;
+    <http://www.ajan.de/ajan-ns#clearEKB> false .
+  
+  <http://localhost:8090/rdf4j/repositories/agents#EP_691dc445-06ed-495c-953a-e14856af49ff>
+    a <http://www.ajan.de/ajan-ns#Endpoint>;
+    rdfs:label "Trial Endpoint";
+    <http://www.ajan.de/ajan-ns#event> <http://localhost:8090/rdf4j/repositories/agents#EV_8764db89-6233-46c4-ab50-7094291f5193>;
+    <http://www.ajan.de/ajan-ns#capability> "Trial" .
+}

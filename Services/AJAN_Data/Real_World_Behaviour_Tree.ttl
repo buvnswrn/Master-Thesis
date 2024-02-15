@@ -1,0 +1,3044 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf4j: <http://rdf4j.org/schema/rdf4j#> .
+@prefix sesame: <http://www.openrdf.org/schema/sesame#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+
+_:genid-71b22584687f472f85c720846214db6e-b571 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#queryTemplate> "{\"id\":\"State Keys to Print Template (1 Key)\",\"title\":\"State Keys to Print Template (1 Key)\",\"description\":\"Template for Keys to Print Field. POMDP Service takes these string values as attribute key values to create a unique representation for States. Only one key is exposed. Switch to advanced view to use multiple keys.\",\"nodes\":[\"All\"],\"targetBase\":\"http://www.ajan.de/ajan-ns#AgentKnowledge\",\"query\":\"\",\"queryVariables\":\"state_id,to_print_node,key1,to_print_node)\",\"parameters\":[{\"label\":\"State ID\",\"variable\":\"state_id\",\"variableBinding\":\"112\",\"title\":\"State ID\",\"mode\":\"Input\",\"note\":\"\",\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]},{\"label\":\"Key Value\",\"variable\":\"key1\",\"variableBinding\":\"'gesture'\",\"title\":\"Key Value\",\"mode\":\"Input\",\"note\":\"Key value to be included in the State Representation\",\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]}]}";
+  <http://www.ajan.de/behavior/bt-ns#queryTemplateDefaultQuery> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:State_?state_id pomdp-ns:to_print ?to_print_node .
+    ?to_print_node rdfs:value ?key1 .
+}
+WHERE{
+	BIND(BNODE() as ?to_print_node) .
+}""";
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:State_112 pomdp-ns:to_print ?to_print_node .
+    ?to_print_node rdfs:value 'gesture' .
+}
+WHERE{
+	BIND(BNODE() as ?to_print_node) .
+}""";
+  <http://www.ajan.de/behavior/bt-ns#beliefBase> <http://www.ajan.de/ajan-ns#AgentKnowledge> .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#Condition-59a535e2-4e61-4bda-9879-bafa9d1628f1>
+  a <http://www.ajan.de/behavior/bt-ns#Condition>;
+  rdfs:label "isGestureFound?";
+  rdfs:comment "";
+  <http://www.ajan.de/behavior/bt-ns#query> _:genid-71b22584687f472f85c720846214db6e-b545 .
+
+_:genid-71b22584687f472f85c720846214db6e-b572 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#beliefBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#queryTemplate> "{\"id\":\"State Attribute Template (2 Key)\",\"title\":\"State Attribute Template (2 Key)\",\"description\":\"Template for State Attributes. Only two parameter values is added in this template. But duplicate them according to your needs.\",\"nodes\":[\"All\"],\"targetBase\":\"http://www.ajan.de/ajan-ns#AgentKnowledge\",\"query\":\"\",\"queryVariables\":\"state_id,attributesNode,key1,value1,key2,value2,attributesNode)\",\"parameters\":[{\"label\":\"State ID:\",\"variable\":\"state_id\",\"variableBinding\":\"112\",\"title\":\"State ID:\",\"mode\":\"Input\",\"note\":null,\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]},{\"label\":\"Paramter 1\",\"variable\":\"key1\",\"variableBinding\":\"gesture_found\",\"title\":\"Paramter 1\",\"mode\":\"Input\",\"note\":null,\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]},{\"label\":\"Value for Parameter 1\",\"variable\":\"value1\",\"variableBinding\":\"false\",\"title\":\"Value for Parameter 1\",\"mode\":\"Input\",\"note\":null,\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]},{\"label\":\"Parameter Name 2\",\"variable\":\"key2\",\"variableBinding\":\"pose\",\"title\":\"Parameter Name 2\",\"mode\":\"Input\",\"note\":\"\",\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]},{\"label\":\"Value for Parameter 2\",\"variable\":\"value2\",\"variableBinding\":\"\",\"title\":\"Value for Parameter 2\",\"mode\":\"Input\",\"note\":null,\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]}]}";
+  <http://www.ajan.de/behavior/bt-ns#queryTemplateDefaultQuery> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:State_?state_id pomdp-ns:attributes ?attributesNode .
+    ?attributesNode pomdp-ns-key:?key1 ?value1 .
+    ?attributesNode pomdp-ns-key:?key2 ?value2 .
+}
+WHERE{
+	BIND(BNODE() as ?attributesNode) .
+}""";
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX pomdp-data-ns:<http://www.dfki.de/pomdp-ns/POMDP/data/>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:State_100 pomdp-ns:attributes ?attributesNode .
+    ?attributesNode pomdp-ns-key:gesture_found false .
+    ?attributesNode pomdp-ns-key:pose ?poseNode .
+    ?poseNode rdfs:type pomdp-data-ns:2dVector .
+    ?poseNode rdfs:x 0 .
+    ?poseNode rdfs:y 0 .
+}
+WHERE{
+	BIND(BNODE() as ?attributesNode) .
+	BIND(BNODE() as ?poseNode) .
+}""" .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#Action-a7f1e1ac-5b87-4d2f-bcc8-ee4fabcb65f7>
+  a <http://www.ajan.de/behavior/bt-ns#Action>;
+  <http://www.ajan.de/behavior/bt-ns#targetBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  rdfs:label "land";
+  rdfs:comment "";
+  <http://www.ajan.de/behavior/bt-ns#definition> <http://localhost:8090/rdf4j/repositories/services#SA_c9349559-1391-40a1-a6ab-8e013cb3d21f>;
+  <http://www.ajan.de/behavior/bt-ns#evaluate> false;
+  <http://www.ajan.de/behavior/bt-ns#inputs> _:genid-71b22584687f472f85c720846214db6e-b643 .
+
+_:genid-71b22584687f472f85c720846214db6e-b573 a <http://www.ajan.de/behavior/bt-ns#SelectQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """    PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+    PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+    PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    
+    SELECT ?argmax
+    WHERE {
+        pomdp-ns:current_action rdfs:value ?action .
+        pomdp-ns:RewardModel pomdp-ns:attributes ?modelAttributesNode .
+        
+        OPTIONAL {
+        ?action pomdp-ns:attributes ?actionAttributeNode .
+        ?actionAttributeNode pomdp-ns1:_motion ?motionType .
+        }
+        
+        OPTIONAL {
+        ?modelAttributesNode pomdp-ns1:_drone_id ?droneId.
+        pomdp-ns:current_state rdfs:value ?currentOOState .
+        ?currentOOState rdfs:type pomdp-ns:OOState .
+        ?currentOOState rdfs:value ?currentDroneState .
+        ?currentDroneState pomdp-ns:id ?droneId .
+        }
+        
+        OPTIONAL {
+        ?modelAttributesNode pomdp-ns1:_person_id ?personId.
+        pomdp-ns:current_state rdfs:value ?currentOOState .
+        ?currentOOState rdfs:type pomdp-ns:OOState .
+        ?currentOOState rdfs:value ?currentPersonState .
+        ?currentPersonState pomdp-ns:id ?personId .
+        }
+        
+        OPTIONAL {
+        pomdp-ns:current_state rdfs:value ?currentDroneState .}
+        
+        pomdp-ns:next_state rdfs:value ?nextState .
+        
+        ?modelAttributesNode pomdp-ns1:_big ?bigReward .
+        BIND(0.0 as ?probability) .
+        BIND(0.0 as ?temp_reward) .
+        
+        OPTIONAL {
+        ?currentDroneState pomdp-ns:attributes ?cattributeNode .
+        ?cattributeNode rdfs:type pomdp-ns:current_state .
+        ?cattributeNode pomdp-ns1:_gesture_found ?current_gesture_found .
+        
+        ?currentDroneState pomdp-ns:attributes ?nattributeNode .
+        ?nattributeNode rdfs:type pomdp-ns:next_state .
+        ?nattributeNode pomdp-ns1:_gesture_found ?next_gesture_found .
+        }
+        
+        OPTIONAL {
+        ?currentPersonState pomdp-ns:attributes ?cpattributeNode .
+        ?cpattributeNode rdfs:type pomdp-ns:current_state .
+        ?cpattributeNode pomdp-ns1:_gesture ?person_current_gesture .
+        
+        ?currentPersonState pomdp-ns:attributes ?npattributeNode .
+        ?npattributeNode rdfs:type pomdp-ns:next_state .
+        ?npattributeNode pomdp-ns1:_gesture ?person_next_gesture .
+        }
+        
+        BIND (IF(?action = pomdp-ns1:Action_perceive &&
+        (!?current_gesture_found && ?next_gesture_found), ?temp_reward+?bigReward, ?temp_reward) as ?perceiveReward) .
+        
+        BIND (IF(?person_current_gesture != rdfs:nil && 
+        ?person_current_gesture = ?person_next_gesture &&
+        ?action = pomdp-ns1:Action_move,
+        IF(?person_current_gesture = ?motionType,?perceiveReward+?bigReward,?perceiveReward-?bigReward), ?perceiveReward)
+        as ?perceiveReward) .
+        
+        BIND(?perceiveReward as ?argmax) .
+        
+    }""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b574 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """    PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+    PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+    PREFIX pomdp-ns-data:<http://www.dfki.de/pomdp-ns/POMDP/data/>
+    PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX ajan-math-ns:<http://www.ajan.de/ajan/functions/math-ns#>
+    
+    CONSTRUCT {
+        pomdp-ns:Observation pomdp-ns:attributes ?attributes .
+        pomdp-ns:Observation pomdp-ns:for_hash ?for_hash .
+        ?attributes pomdp-ns1:_person_id ?person_id .
+        ?attributes pomdp-ns1:_pose ?poseNode .
+        
+        ?for_hash rdfs:value \"person_id\" .
+        ?for_hash rdfs:value \"pose\" .
+        
+        
+        ?poseNode rdfs:type ?poseType .
+        
+        ?poseNode rdfs:value ?keypoint9.
+        ?poseNode rdfs:value ?keypoint10 .
+        ?poseNode rdfs:value ?keypoint11 .
+        ?poseNode rdfs:value ?keypoint12 .
+    
+        
+        ?keypoint9 rdfs:x ?xValue9 .
+        ?keypoint10 rdfs:x ?xValue10 .
+        ?keypoint11 rdfs:x ?xValue11 .
+        ?keypoint12 rdfs:x ?xValue12 .
+        
+        ?keypoint9 rdfs:y ?yValue9 .
+        ?keypoint10 rdfs:y ?yValue10 .
+        ?keypoint11 rdfs:y ?yValue11 .
+        ?keypoint12 rdfs:y ?yValue12 .
+    
+    }
+    WHERE{
+        pomdp-ns:ObservationModel pomdp-ns:attributes ?attributesNode .
+        ?attributesNode pomdp-ns1:_person_id ?person_id .
+        pomdp-ns:current_action rdfs:value ?action .
+        
+        BIND(BNODE() as ?attributes) .
+        BIND(BNODE() as ?for_hash) .
+        BIND(IF(?action = pomdp-ns1:Action_perceive, BNODE(), rdfs:nil) as ?poseNode) .
+        BIND(pomdp-ns-data:Point_9  as ?keypoint9) .
+        BIND(pomdp-ns-data:Point_10 as ?keypoint10) .
+        BIND(pomdp-ns-data:Point_11 as ?keypoint11) .
+        BIND(pomdp-ns-data:Point_12 as ?keypoint12) .
+        BIND(pomdp-ns-data:pandasDataFrame as ?poseType)
+        BIND(ajan-math-ns:sample(0, 640) as ?xValue9) .
+        BIND(ajan-math-ns:sample(0, 480) as ?yValue9) .
+        BIND(ajan-math-ns:sample(0, 640) as ?xValue10) .
+        BIND(ajan-math-ns:sample(0, 480) as ?yValue10) .
+        BIND(ajan-math-ns:sample(0, 640) as ?xValue11) .
+        BIND(ajan-math-ns:sample(0, 480) as ?yValue11) .
+        BIND(ajan-math-ns:sample(0, 640) as ?xValue12) .
+        BIND(ajan-math-ns:sample(0, 480) as ?yValue12) .
+    }""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b577 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """    PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+    PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+    PREFIX pomdp-data-ns:<http://www.dfki.de/pomdp-ns/POMDP/data/>
+    PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+    CONSTRUCT {
+        pomdp-ns:State rdfs:value ?state .
+        ?state rdfs:type pomdp-ns:State .
+        ?state pomdp-ns:id ?stateId .
+        ?state pomdp-ns:name \"Drone\" .
+        ?state pomdp-ns:type \"agent\" .
+        ?state pomdp-ns:attributes ?attributes .
+        ?state pomdp-ns:to_print ?to_print_node .
+        ?to_print_node rdfs:value \"gesture_found\" .
+        ?attributes pomdp-ns1:_id ?stateId .
+
+        ?attributes pomdp-ns1:_gesture_found ?gestureValue .
+
+        ?attributes pomdp-ns1:_pose ?poseNew .
+        ?poseNew rdfs:type pomdp-data-ns:2dVector .
+        ?poseNew rdfs:x ?xValue .
+        ?poseNew rdfs:y ?yValue .
+
+    }
+    WHERE{
+        pomdp-ns:current_state rdfs:value ?state .
+        pomdp-ns:current_action rdfs:value ?action .
+        ?state pomdp-ns:id ?stateId .
+        [pomdp-ns1:_pose ?poseNode ;
+         pomdp-ns1:_gesture_found ?gesture ] .
+        
+        OPTIONAL {
+            ?poseNode rdfs:x ?xPose .
+            ?poseNode rdfs:y ?yPose .
+        }
+        
+        OPTIONAL{    
+            ?action pomdp-ns:attributes/pomdp-ns1:_motion ?motionType .
+        }
+
+        BIND(BNODE() as ?attributes) .
+        BIND(BNODE() as ?to_print_node) .
+        BIND(BNODE() as ?pose) .
+        
+        BIND(IF(?poseNode = rdfs:nil && ?action=pomdp-ns1:Action_perceive, rdfs:nil, ?pose) as ?poseNew) .
+
+        BIND(IF (?action=pomdp-ns1:Action_move && ?motionType =\"right\",
+                ?xPose+1,?xPose) as ?xValue) .
+        BIND(IF (?action=pomdp-ns1:Action_move && ?motionType =\"left\",
+                ?xPose-1,?xValue) as ?xValue) .
+        BIND(IF(?action=pomdp-ns1:Action_move,?yPose+1,?yPose) as ?yValue) .
+        BIND(IF(?action=pomdp-ns1:Action_perceive, 
+                IF(RAND()>0.5,\"true\"^^xsd:boolean,\"false\"^^xsd:boolean), 
+            \"false\"^^xsd:boolean) as ?gestureValue) .
+        ?s ?p ?o  .
+    }""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b579 a <http://www.ajan.de/behavior/mdp-ns#attributes>;
+  <http://www.ajan.de/behavior/mdp-ns#attribute-name> "";
+  <http://www.ajan.de/behavior/mdp-ns#attribute-value> "" .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#Sequence-7cd79006-fded-4e42-9931-fc65dc917149>
+  a <http://www.ajan.de/behavior/bt-ns#Sequence>;
+  rdfs:label "defaultSequence";
+  <http://www.ajan.de/behavior/bt-ns#hasChildren> _:genid-71b22584687f472f85c720846214db6e-b720 .
+
+_:genid-71b22584687f472f85c720846214db6e-b580 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>,
+    <http://www.ajan.de/behavior/bt-ns#Input>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> "CONSTRUCT WHERE {?s ?o ?p}" .
+
+_:genid-71b22584687f472f85c720846214db6e-b581 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>,
+    <http://www.ajan.de/behavior/bt-ns#Input>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> "CONSTRUCT WHERE {?s ?o ?p}" .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#ActionSelector-b3225970-1ea9-4ef5-ac27-a4dbf87649db>
+  a <http://www.ajan.de/behavior/mdp-ns#ActionSelector>;
+  rdfs:comment "";
+  rdfs:label "defaultActionSelector";
+  <http://www.ajan.de/behavior/bt-ns#hasChildren> _:genid-71b22584687f472f85c720846214db6e-b646 .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#CreateEnvironment-33f8ea6d-026e-4666-a61a-1be9cee6f874>
+  a <http://www.ajan.de/behavior/mdp-ns#createEnvironment>;
+  <http://www.ajan.de/behavior/mdp-ns#pomdpId> "0"^^xsd:int;
+  rdfs:comment "";
+  rdfs:label "defaultCreateEnvironment";
+  <http://www.ajan.de/behavior/mdp-ns#env-data> _:genid-71b22584687f472f85c720846214db6e-b603 .
+
+_:genid-71b22584687f472f85c720846214db6e-b585 a <http://www.ajan.de/behavior/mdp-ns#belief>;
+  <http://www.ajan.de/behavior/mdp-ns#attributesQuery> _:genid-71b22584687f472f85c720846214db6e-b586;
+  <http://www.ajan.de/behavior/mdp-ns#state-id> "112"^^xsd:int;
+  <http://www.ajan.de/behavior/mdp-ns#state-name> "Person";
+  <http://www.ajan.de/behavior/mdp-ns#state-probability> "0.25"^^xsd:float;
+  <http://www.ajan.de/behavior/mdp-ns#state-type> "env";
+  <http://www.ajan.de/behavior/mdp-ns#toPrintQuery> _:genid-71b22584687f472f85c720846214db6e-b587 .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#CreateAction-10d0c582-1d85-4101-a08f-70677645b2d3>
+  a <http://www.ajan.de/behavior/mdp-ns#CreateAction>;
+  <http://www.ajan.de/behavior/mdp-ns#action-name> "move";
+  <http://www.ajan.de/behavior/mdp-ns#pomdpId> "0"^^xsd:int;
+  rdfs:comment "";
+  rdfs:label "moveAction";
+  <http://www.ajan.de/behavior/mdp-ns#attributesQuery> _:genid-71b22584687f472f85c720846214db6e-b550;
+  <http://www.ajan.de/behavior/mdp-ns#toPrintQuery> _:genid-71b22584687f472f85c720846214db6e-b588 .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#GetEnvironmentState-2c4ffd0d-9699-4aa9-a1fb-a056b83dad95>
+  a <http://www.ajan.de/behavior/mdp-ns#getEnvironmentState>;
+  <http://www.ajan.de/behavior/mdp-ns#pomdpId> "0"^^xsd:int;
+  <http://www.ajan.de/behavior/mdp-ns#stateId> "100"^^xsd:int;
+  <http://www.ajan.de/behavior/mdp-ns#type> "next";
+  rdfs:comment "";
+  rdfs:label "defaultGetEnvironmentState" .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#Action-186fd507-78e2-4eca-a943-56f91917af0c>
+  a <http://www.ajan.de/behavior/bt-ns#Action>;
+  <http://www.ajan.de/behavior/bt-ns#evaluate> false;
+  <http://www.ajan.de/behavior/bt-ns#definition> <http://localhost:8090/rdf4j/repositories/services#SA_7926a3b8-97af-4562-ba2f-c54f72136902>;
+  <http://www.ajan.de/behavior/bt-ns#inputs> _:genid-71b22584687f472f85c720846214db6e-b640;
+  <http://www.ajan.de/behavior/bt-ns#targetBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  rdfs:comment "";
+  rdfs:label "move" .
+
+_:genid-71b22584687f472f85c720846214db6e-b588 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#beliefBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#queryTemplate> "{\"id\":\"Action Keys to Print Template (1 Key)\",\"title\":\"Action Keys to Print Template (1 Key)\",\"description\":\"Template for Keys to Print Field. POMDP Service takes these string values as attribute key values to create a unique representation for Actions. Only one key is exposed. Switch to advanced view to use multiple keys.\",\"nodes\":[\"All\"],\"targetBase\":\"http://www.ajan.de/ajan-ns#AgentKnowledge\",\"query\":\"\",\"queryVariables\":\"action_name,to_print_node,key1,to_print_node)\",\"parameters\":[{\"label\":\"Action Name\",\"variable\":\"action_name\",\"variableBinding\":\"move\",\"title\":\"Action Name\",\"mode\":\"Input\",\"note\":\"\",\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]},{\"label\":\"Key 1\",\"variable\":\"key1\",\"variableBinding\":\"'motion'\",\"title\":\"Key 1\",\"mode\":\"Input\",\"note\":null,\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]}]}";
+  <http://www.ajan.de/behavior/bt-ns#queryTemplateDefaultQuery> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:Action_?action_name pomdp-ns:to_print ?to_print_node .
+    ?to_print_node rdfs:value ?key1 .
+}
+WHERE{
+	BIND(BNODE() as ?to_print_node) .
+}""";
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:Action_move pomdp-ns:to_print ?to_print_node .
+    ?to_print_node rdfs:value \"motion\" .
+}
+WHERE{
+	BIND(BNODE() as ?to_print_node) .
+}""" .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#Sequence-6c4d00a6-2375-4653-855e-8bcc77d88d6c>
+  a <http://www.ajan.de/behavior/bt-ns#Sequence>;
+  rdfs:label "defaultSequence";
+  <http://www.ajan.de/behavior/bt-ns#hasChildren> _:genid-71b22584687f472f85c720846214db6e-b706 .
+
+_:genid-71b22584687f472f85c720846214db6e-b589 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#beliefBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#queryTemplate> "{\"id\":\"Action Keys to Print Template (None)\",\"title\":\"Action Keys to Print Template (None)\",\"description\":\"Template for Keys to Print Field. POMDP Service takes these string values as attribute key values to create a unique representation for Actions. Choose this if the action has no keys to be chosen for representation.\",\"nodes\":[\"All\"],\"targetBase\":\"http://www.ajan.de/ajan-ns#AgentKnowledge\",\"query\":\"\",\"queryVariables\":\"action_name,to_print_node,to_print_node)\",\"parameters\":[{\"label\":\"Action Name\",\"variable\":\"action_name\",\"variableBinding\":\"perceive\",\"title\":\"Action Name\",\"mode\":\"Input\",\"note\":null,\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]}]}";
+  <http://www.ajan.de/behavior/bt-ns#queryTemplateDefaultQuery> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:Action_?action_name pomdp-ns:to_print ?to_print_node .
+}
+WHERE{
+	BIND(rdfs:nil as ?to_print_node) .
+}""";
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:Action_perceive pomdp-ns:to_print ?to_print_node .
+}
+WHERE{
+	BIND(rdfs:nil as ?to_print_node) .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b590 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+
+CONSTRUCT {
+    pomdp-ns:TransitionModel pomdp-ns:attributes ?attributes .
+   ?attributes pomdp-ns-key:person_id 112 .
+   ?attributes pomdp-ns-key:epsilon 1e-9 .
+}
+WHERE {
+   BIND(BNODE() AS ?attributes) .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b591 a <http://www.ajan.de/behavior/mdp-ns#belief>;
+  <http://www.ajan.de/behavior/mdp-ns#attributesQuery> _:genid-71b22584687f472f85c720846214db6e-b592;
+  <http://www.ajan.de/behavior/mdp-ns#state-id> "112"^^xsd:int;
+  <http://www.ajan.de/behavior/mdp-ns#state-name> "Person";
+  <http://www.ajan.de/behavior/mdp-ns#state-probability> "0.5"^^xsd:float;
+  <http://www.ajan.de/behavior/mdp-ns#state-type> "env";
+  <http://www.ajan.de/behavior/mdp-ns#toPrintQuery> _:genid-71b22584687f472f85c720846214db6e-b593 .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#CreateAction-1d34f447-8228-4825-9d7b-65f120de7101>
+  a <http://www.ajan.de/behavior/mdp-ns#CreateAction>;
+  <http://www.ajan.de/behavior/mdp-ns#action-name> "perceive";
+  <http://www.ajan.de/behavior/mdp-ns#pomdpId> "0"^^xsd:int;
+  rdfs:comment "";
+  rdfs:label "perceiveAction";
+  <http://www.ajan.de/behavior/mdp-ns#attributesQuery> _:genid-71b22584687f472f85c720846214db6e-b589;
+  <http://www.ajan.de/behavior/mdp-ns#toPrintQuery> _:genid-71b22584687f472f85c720846214db6e-b527 .
+
+_:genid-71b22584687f472f85c720846214db6e-b592 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#beliefBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:State_112 pomdp-ns:attributes ?attributesNode .
+    ?attributesNode pomdp-ns-key:gesture rdfs:nil .
+    ?attributesNode pomdp-ns-key:pose rdfs:nil .
+}
+WHERE{
+	BIND(BNODE() as ?attributesNode) .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b593 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#beliefBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:State_112 pomdp-ns:to_print ?to_print_node .
+    ?to_print_node rdfs:value \"gesture\" .
+}
+WHERE{
+	BIND(BNODE() as ?to_print_node) .
+}""" .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#PolicyModel-7f3c66d9-464f-4470-9fed-43fb84ba6af0>
+  a <http://www.ajan.de/behavior/mdp-ns#PolicyModel>;
+  <http://www.ajan.de/behavior/mdp-ns#pomdpId> "0"^^xsd:int;
+  rdfs:comment "";
+  rdfs:label "AgentPolicyModel";
+  <http://www.ajan.de/behavior/mdp-ns#policy-data> _:genid-71b22584687f472f85c720846214db6e-b493;
+  <http://www.ajan.de/behavior/mdp-ns#policy-getAllActions> _:genid-71b22584687f472f85c720846214db6e-b624;
+  <http://www.ajan.de/behavior/mdp-ns#policy-model-attributes> _:genid-71b22584687f472f85c720846214db6e-b660;
+  <http://www.ajan.de/behavior/mdp-ns#policy-rollout> _:genid-71b22584687f472f85c720846214db6e-b608;
+  <http://www.ajan.de/behavior/mdp-ns#policy-sample> _:genid-71b22584687f472f85c720846214db6e-b562 .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#GetObservationFromEnvironment-f800b1fb-15f1-43c2-9751-edeaa8c76ec6>
+  a <http://www.ajan.de/behavior/mdp-ns#getObservationFromEnvironment>;
+  <http://www.ajan.de/behavior/mdp-ns#observation-url> "http://192.168.32.1:5002/real_world_controller/get-pose-sensor-reading";
+  <http://www.ajan.de/behavior/mdp-ns#pomdpId> "0"^^xsd:int;
+  rdfs:comment "";
+  rdfs:label "defaultGetObservationFromEnvironment" .
+
+_:genid-71b22584687f472f85c720846214db6e-b594 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#beliefBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> "" .
+
+_:genid-71b22584687f472f85c720846214db6e-b595 a <http://www.ajan.de/behavior/bt-ns#UpdateQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#ExecutionKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+DELETE {
+?current_pomdp pomdp-ns:plannedAction ?plannedAction .
+?a ?p ?o .
+}
+WHERE{
+    pomdp-ns:POMDP pomdp-ns:current ?current_pomdp .
+    ?current_pomdp pomdp-ns:plannedAction ?plannedAction .
+    OPTIONAL {
+    ?plannedAction pomdp-ns:attributes ?a .
+    ?a rdfs:type pomdp-ns:plannedAction .
+    ?a ?p ?o .
+    }
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b596 a <http://www.ajan.de/behavior/bt-ns#SelectQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX mosim: <http://www.dfki.de/mosim-ns#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+SELECT ?host ?port 
+WHERE {
+	?cosim rdf:type mosim:CoSimulator .
+	?cosim mosim:host ?host .
+	?cosim mosim:port ?port .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b586 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#beliefBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:State_112 pomdp-ns:attributes ?attributesNode .
+    ?attributesNode pomdp-ns-key:gesture \"right\" .
+    ?attributesNode pomdp-ns-key:pose rdfs:nil .
+}
+WHERE{
+	BIND(BNODE() as ?attributesNode) .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b601 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#ExecutionKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+
+CONSTRUCT {
+    pomdp-ns:TransitionModel pomdp-ns:attributes ?attributes .
+   ?attributes pomdp-ns-key:drone_id 100 .
+   ?attributes pomdp-ns-key:epsilon 1e-9 .
+}
+WHERE {
+   BIND(BNODE() AS ?attributes) .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b603 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """CONSTRUCT {} WHERE {}
+# Need to fetch the position from the environment and store the information in the execution knowledge""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b604 a <http://www.ajan.de/behavior/bt-ns#SelectQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX mosim: <http://www.dfki.de/mosim-ns#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+SELECT ?host ?port 
+WHERE {
+	?cosim rdf:type mosim:CoSimulator .
+	?cosim mosim:host ?host .
+	?cosim mosim:port ?port .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b587 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#beliefBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:State_112 pomdp-ns:to_print ?to_print_node .
+    ?to_print_node rdfs:value \"gesture\" .
+}
+WHERE{
+	BIND(BNODE() as ?to_print_node) .
+}""" .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#Sequence-33b3f239-56ff-455c-871f-3bd381b566b3>
+  a <http://www.ajan.de/behavior/bt-ns#Sequence>;
+  rdfs:label "Sequence";
+  rdfs:comment "";
+  <http://www.ajan.de/behavior/bt-ns#hasChildren> _:genid-71b22584687f472f85c720846214db6e-b680 .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#Action-d388dc09-18fc-4201-a7e7-ae2af0af1ed4>
+  a <http://www.ajan.de/behavior/bt-ns#Action>;
+  <http://www.ajan.de/behavior/bt-ns#definition> <http://localhost:8090/rdf4j/repositories/services#SA_1b7fc62e-ef4c-4654-bfd3-088e6c27442a>;
+  <http://www.ajan.de/behavior/bt-ns#inputs> _:genid-71b22584687f472f85c720846214db6e-b645;
+  <http://www.ajan.de/behavior/bt-ns#evaluate> true;
+  <http://www.ajan.de/behavior/bt-ns#targetBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  rdfs:comment "";
+  rdfs:label "perceive" .
+
+_:genid-71b22584687f472f85c720846214db6e-b608 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#ExecutionKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """    PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+    PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+    PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    CONSTRUCT {pomdp-ns:Action rdf:value ?actionNode .
+        ?actionNode pomdp-ns:attributes ?attributeNode .
+        ?attributeNode ?attribute ?attrValue .
+    } WHERE {
+        [pomdp-ns1:_gesture_found ?gesture_found] .
+        [pomdp-ns1:_gesture ?gesture] .
+    BIND( IF(?gesture_found && ?gesture!=rdf:nil, pomdp-ns1:Action_move, pomdp-ns1:Action_perceive) as ?actionNode).
+    
+    OPTIONAL {
+    FILTER(?gesture_found && ?gesture!=rdf:nil) .
+    {SELECT DISTINCT ?attributeNode WHERE {
+    ?actionNode pomdp-ns:attributes ?attributeNode .
+    }ORDER BY RAND() LIMIT 1}
+    ?attributeNode ?attribute ?attrValue . 
+    }
+    }""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b609 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#beliefBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#queryTemplate> "{\"id\":\"Action Attribute Template (1 Key)\",\"title\":\"Action Attribute Template (1 Key)\",\"description\":\"Template for Action Attributes. Only one parameter is allowed in the template. Inspect the query and add more if needed.\",\"nodes\":[\"All\"],\"targetBase\":\"http://www.ajan.de/ajan-ns#AgentKnowledge\",\"query\":\"\",\"queryVariables\":\"action_name,attributesNode,key1,value1,attributesNode)\",\"parameters\":[{\"label\":\"Action Name\",\"variable\":\"action_name\",\"variableBinding\":\"move\",\"title\":\"Action Name\",\"mode\":\"Input\",\"note\":null,\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]},{\"label\":\"Parameter 1\",\"variable\":\"key1\",\"variableBinding\":\"motion\",\"title\":\"Parameter 1\",\"mode\":\"Input\",\"note\":null,\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]},{\"label\":\"Value for Parameter 1\",\"variable\":\"value1\",\"variableBinding\":\"'left'\",\"title\":\"Value for Parameter 1\",\"mode\":\"Input\",\"note\":null,\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]}]}";
+  <http://www.ajan.de/behavior/bt-ns#queryTemplateDefaultQuery> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:Action_?action_name pomdp-ns:attributes ?attributesNode .
+    ?attributesNode pomdp-ns-key:?key1 ?value1 .
+}
+WHERE{
+	BIND(BNODE() as ?attributesNode) .
+}""";
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:Action_move pomdp-ns:attributes ?attributesNode .
+    ?attributesNode pomdp-ns-key:motion 'left' .
+}
+WHERE{
+	BIND(BNODE() as ?attributesNode) .
+}""" .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#CreateAction-d10b96d9-118d-450c-8d2c-8a0434673090>
+  a <http://www.ajan.de/behavior/mdp-ns#CreateAction>;
+  <http://www.ajan.de/behavior/mdp-ns#action-name> "move";
+  <http://www.ajan.de/behavior/mdp-ns#pomdpId> "0"^^xsd:int;
+  rdfs:comment "";
+  rdfs:label "moveAction";
+  <http://www.ajan.de/behavior/mdp-ns#attributesQuery> _:genid-71b22584687f472f85c720846214db6e-b609;
+  <http://www.ajan.de/behavior/mdp-ns#toPrintQuery> _:genid-71b22584687f472f85c720846214db6e-b511 .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#CreateAgent-73ca7067-6687-432a-baf3-cd2757e599fc>
+  a <http://www.ajan.de/behavior/mdp-ns#createAgent>;
+  <http://www.ajan.de/behavior/mdp-ns#agentId> "100"^^xsd:int;
+  <http://www.ajan.de/behavior/mdp-ns#pomdpId> "0"^^xsd:int;
+  rdfs:comment "";
+  rdfs:label "defaultCreateAgent";
+  <http://www.ajan.de/behavior/mdp-ns#agent-data> _:genid-71b22584687f472f85c720846214db6e-b522 .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#ApplyEnvironmentTransition-495a0ca8-6638-436e-976a-0d2c368abfae>
+  a <http://www.ajan.de/behavior/mdp-ns#applyEnvironmentTransition>;
+  <http://www.ajan.de/behavior/mdp-ns#pomdpId> "0"^^xsd:int;
+  <http://www.ajan.de/behavior/mdp-ns#stateId> "100"^^xsd:int;
+  <http://www.ajan.de/behavior/mdp-ns#apply-transition> true;
+  rdfs:label "defaultApplyEnvironmentTransition";
+  rdfs:comment "";
+  <http://www.ajan.de/behavior/mdp-ns#env-data> _:genid-71b22584687f472f85c720846214db6e-b479 .
+
+_:genid-71b22584687f472f85c720846214db6e-b610 a <http://www.ajan.de/behavior/bt-ns#SelectQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?probability
+WHERE{
+    BIND(1e-9 as ?probability) .
+
+    pomdp-ns:next_state rdf:value ?next_state .
+    pomdp-ns:current_state rdf:value ?current_state .
+
+    FILTER(?next_state = ?current_state) .
+
+    [ rdf:type pomdp-ns:next_state ;
+     pomdp-ns1:_gesture_found ?next_gesture ] .
+
+    [ rdf:type pomdp-ns:current_state ;
+     pomdp-ns1:_gesture_found ?current_gesture ] .
+
+    BIND(IF(?next_gesture=?current_gesture, true, false) as ?gesture_equal) .
+
+    BIND(IF(?next_state=?current_state && ?gesture_equal, 1-1e-9, 1e-9) as ?probability) .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b612 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> "CONSTRUCT {} WHERE {}" .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#Sequence-767705ce-ac25-4efa-b7b1-13b39b1ce0e5>
+  a <http://www.ajan.de/behavior/bt-ns#Sequence>;
+  rdfs:label "defaultSequence";
+  <http://www.ajan.de/behavior/bt-ns#hasChildren> _:genid-71b22584687f472f85c720846214db6e-b717 .
+
+_:genid-71b22584687f472f85c720846214db6e-b613 a <http://www.ajan.de/behavior/bt-ns#SelectQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX mosim: <http://www.dfki.de/mosim-ns#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ((xsd:int(?int) + 1) as ?port)
+WHERE {
+  ?a rdf:type mosim:Avatar .
+  ?a mosim:clPort ?int .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b614 a <http://www.ajan.de/behavior/bt-ns#UpdateQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#ExecutionKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns: <http://www.dfki.de/pomdp-ns#>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+DELETE {
+  pomdp-ns:steps rdfs:value ?counter .
+}
+INSERT {
+  pomdp-ns:steps rdfs:value ?newCounter .
+}
+WHERE {
+  pomdp-ns:steps rdfs:value ?counter .
+  BIND (?counter + 1 AS ?newCounter)
+}
+""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b615 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#beliefBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#queryTemplate> "{\"id\":\"State Attribute Template (2 Key)\",\"title\":\"State Attribute Template (2 Key)\",\"description\":\"Template for State Attributes. Only two parameter values is added in this template. But duplicate them according to your needs.\",\"nodes\":[\"All\"],\"targetBase\":\"http://www.ajan.de/ajan-ns#AgentKnowledge\",\"query\":\"\",\"queryVariables\":\"state_id,attributesNode,key1,value1,key2,value2,attributesNode)\",\"parameters\":[{\"label\":\"State ID:\",\"variable\":\"state_id\",\"variableBinding\":\"112\",\"title\":\"State ID:\",\"mode\":\"Input\",\"note\":null,\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]},{\"label\":\"Paramter 1\",\"variable\":\"key1\",\"variableBinding\":\"gesture\",\"title\":\"Paramter 1\",\"mode\":\"Input\",\"note\":null,\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]},{\"label\":\"Value for Parameter 1\",\"variable\":\"value1\",\"variableBinding\":\"'left'\",\"title\":\"Value for Parameter 1\",\"mode\":\"Input\",\"note\":null,\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]},{\"label\":\"Parameter Name 2\",\"variable\":\"key2\",\"variableBinding\":\"pose\",\"title\":\"Parameter Name 2\",\"mode\":\"Input\",\"note\":\"\",\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]},{\"label\":\"Value for Parameter 2\",\"variable\":\"value2\",\"variableBinding\":\"rdfs:nil\",\"title\":\"Value for Parameter 2\",\"mode\":\"Input\",\"note\":null,\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]}]}";
+  <http://www.ajan.de/behavior/bt-ns#queryTemplateDefaultQuery> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:State_?state_id pomdp-ns:attributes ?attributesNode .
+    ?attributesNode pomdp-ns-key:?key1 ?value1 .
+    ?attributesNode pomdp-ns-key:?key2 ?value2 .
+}
+WHERE{
+	BIND(BNODE() as ?attributesNode) .
+}""";
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:State_112 pomdp-ns:attributes ?attributesNode .
+    ?attributesNode pomdp-ns-key:gesture \"left\" .
+    ?attributesNode pomdp-ns-key:pose rdfs:nil .
+}
+WHERE{
+	BIND(BNODE() as ?attributesNode) .
+}""" .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#Sequence-cc7b62d1-0e8f-4703-a256-d1d3f4d77117>
+  a <http://www.ajan.de/behavior/bt-ns#Sequence>;
+  rdfs:label "defaultSequence";
+  <http://www.ajan.de/behavior/bt-ns#hasChildren> _:genid-71b22584687f472f85c720846214db6e-b728 .
+
+_:genid-71b22584687f472f85c720846214db6e-b616 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#beliefBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#queryTemplate> "{\"id\":\"State Keys to Print Template (1 Key)\",\"title\":\"State Keys to Print Template (1 Key)\",\"description\":\"Template for Keys to Print Field. POMDP Service takes these string values as attribute key values to create a unique representation for States. Only one key is exposed. Switch to advanced view to use multiple keys.\",\"nodes\":[\"All\"],\"targetBase\":\"http://www.ajan.de/ajan-ns#AgentKnowledge\",\"query\":\"\",\"queryVariables\":\"state_id,to_print_node,key1,to_print_node)\",\"parameters\":[{\"label\":\"State ID\",\"variable\":\"state_id\",\"variableBinding\":\"112\",\"title\":\"State ID\",\"mode\":\"Input\",\"note\":\"\",\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]},{\"label\":\"Key Value\",\"variable\":\"key1\",\"variableBinding\":\"'gesture'\",\"title\":\"Key Value\",\"mode\":\"Input\",\"note\":\"Key value to be included in the State Representation\",\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]}]}";
+  <http://www.ajan.de/behavior/bt-ns#queryTemplateDefaultQuery> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:State_?state_id pomdp-ns:to_print ?to_print_node .
+    ?to_print_node rdfs:value ?key1 .
+}
+WHERE{
+	BIND(BNODE() as ?to_print_node) .
+}""";
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:State_112 pomdp-ns:to_print ?to_print_node .
+    ?to_print_node rdfs:value \"gesture\" .
+}
+WHERE{
+	BIND(BNODE() as ?to_print_node) .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b618 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """   PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+    PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+    PREFIX pomdp-data-ns:<http://www.dfki.de/pomdp-ns/POMDP/data/>
+    PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+    CONSTRUCT {
+        pomdp-ns:State rdfs:value ?state .
+        ?state rdfs:type pomdp-ns:State .
+        ?state pomdp-ns:id ?stateId .
+        ?state pomdp-ns:name \"Person\" .
+        ?state pomdp-ns:type \"env\" .
+        ?state pomdp-ns:attributes ?attributes .
+        ?state pomdp-ns:to_print ?to_print_node .
+        ?to_print_node rdfs:value \"gesture\" .
+        ?attributes pomdp-ns1:_id ?stateId .
+
+        ?attributes pomdp-ns1:_gesture ?gestureValue .
+
+        ?attributes pomdp-ns1:_pose ?pose .
+        ?pose rdfs:type ?poseType .
+        ?pose rdfs:x ?xValue .
+        ?pose rdfs:y ?yValue .
+
+    }
+    WHERE{
+        pomdp-ns:current_state rdfs:value ?state .
+        pomdp-ns:current_action rdfs:value ?action .
+        ?state pomdp-ns:id ?stateId .
+        ?state pomdp-ns:attributes [
+        pomdp-ns1:_pose ?poseNode ;
+        pomdp-ns1:_gesture ?gesture ] .
+
+        OPTIONAL{    
+            ?poseNode rdfs:x ?xValue .
+            ?poseNode rdfs:y ?yValue .
+            BIND(pomdp-data-ns:2dVector as ?poseType) .
+            ?action pomdp-ns:attributes/pomdp-ns1:_motion ?motionType .
+        }
+
+        BIND(BNODE() as ?attributes) .
+        BIND(BNODE() as ?to_print_node) .
+        BIND(IF(?action=pomdp-ns1:Action_perceive, rdfs:nil, BNODE()) as ?pose) .
+
+        BIND(IF(?action=pomdp-ns1:Action_perceive, 
+                IF(RAND()>0.5,
+                    IF(RAND()>0.5, \"left\",rdfs:nil)
+                    ,\"right\"), 
+                ?gesture) as ?gestureValue) .
+        ?s ?p ?o  .
+    }""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b621 a <http://www.ajan.de/behavior/mdp-ns#belief>;
+  <http://www.ajan.de/behavior/mdp-ns#attributesQuery> _:genid-71b22584687f472f85c720846214db6e-b622;
+  <http://www.ajan.de/behavior/mdp-ns#state-id> "112"^^xsd:int;
+  <http://www.ajan.de/behavior/mdp-ns#state-name> "Person";
+  <http://www.ajan.de/behavior/mdp-ns#state-probability> "0.25"^^xsd:float;
+  <http://www.ajan.de/behavior/mdp-ns#state-type> "env";
+  <http://www.ajan.de/behavior/mdp-ns#toPrintQuery> _:genid-71b22584687f472f85c720846214db6e-b623 .
+
+_:genid-71b22584687f472f85c720846214db6e-b622 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#beliefBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:State_112 pomdp-ns:attributes ?attributesNode .
+    ?attributesNode pomdp-ns-key:gesture \"left\" .
+    ?attributesNode pomdp-ns-key:pose rdfs:nil .
+}
+WHERE{
+	BIND(BNODE() as ?attributesNode) .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b623 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#beliefBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:State_112 pomdp-ns:to_print ?to_print_node .
+    ?to_print_node rdfs:value \"gesture\" .
+}
+WHERE{
+	BIND(BNODE() as ?to_print_node) .
+}""" .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#BT_eaeb6967-0553-43c9-8775-118abb1efa59>
+  a <http://www.ajan.de/behavior/bt-ns#BehaviorTree>, <http://www.ajan.de/behavior/bt-ns#Root>;
+  <http://www.ajan.de/behavior/bt-ns#hasChild> <http://localhost:8090/rdf4j/repositories/behaviors#Sequence-70d6f00e-91d5-422c-9f8a-3cf49c5ee0c4>;
+  rdfs:label "Trial" .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#Sequence-70d6f00e-91d5-422c-9f8a-3cf49c5ee0c4>
+  a <http://www.ajan.de/behavior/bt-ns#Sequence>;
+  rdfs:label "defaultSequence";
+  <http://www.ajan.de/behavior/bt-ns#hasChildren> _:genid-71b22584687f472f85c720846214db6e-b709 .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#Action-37774265-ae87-41bc-89a1-d4558a2dba5b>
+  a <http://www.ajan.de/behavior/bt-ns#Action>;
+  <http://www.ajan.de/behavior/bt-ns#evaluate> false;
+  <http://www.ajan.de/behavior/bt-ns#inputs> _:genid-71b22584687f472f85c720846214db6e-b641;
+  <http://www.ajan.de/behavior/bt-ns#definition> <http://localhost:8090/rdf4j/repositories/services#SA_d747c441-75a9-4e1a-b795-086145e8feb4>;
+  <http://www.ajan.de/behavior/bt-ns#targetBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  rdfs:label "takeoff";
+  rdfs:comment "" .
+
+_:genid-71b22584687f472f85c720846214db6e-b624 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """    PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+    PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+    PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    CONSTRUCT {pomdp-ns:Action rdf:value ?actionNode .
+        ?actionNode pomdp-ns:attributes ?attributeNode .
+        ?attributeNode ?attribute ?attrValue .
+    } WHERE {
+        [pomdp-ns1:_gesture_found ?gesture_found] .
+        [pomdp-ns1:_gesture ?gesture] .
+    
+    BIND( IF(?gesture_found && ?gesture!=rdf:nil, pomdp-ns1:Action_move, pomdp-ns1:Action_perceive) as ?actionNode).
+    
+    OPTIONAL {
+    FILTER(?gesture_found && ?gesture!=rdf:nil) .
+    {SELECT DISTINCT ?attributeNode WHERE {
+    ?actionNode pomdp-ns:attributes ?attributeNode .
+    }}
+    ?attributeNode ?attribute ?attrValue . 
+    }
+    }""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b626 a <http://www.ajan.de/behavior/bt-ns#SelectQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """    PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+    PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+    PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+    SELECT ?probability
+    WHERE{
+        pomdp-ns:TransitionModel pomdp-ns:attributes ?attributesNode .
+        ?attributesNode pomdp-ns1:_epsilon ?epsilon .
+        BIND(?epsilon as ?probability) .
+        
+        pomdp-ns:next_state rdf:value ?next_state .
+        pomdp-ns:current_state rdf:value ?current_state .
+        
+        ?next_state pomdp-ns:attributes ?next_state_attributes .
+        ?next_state_attributes rdf:type pomdp-ns:next_state .
+        ?next_state_attributes pomdp-ns1:_gesture ?next_gesture .
+        ?next_state_attributes pomdp-ns1:_pose ?next_pose .
+        
+        OPTIONAL {
+            ?next_pose rdf:x ?next_x .
+            ?next_pose rdf:y ?next_y .
+        }
+        
+        
+        ?current_state pomdp-ns:attributes ?current_state_attributes .
+        ?current_state_attributes rdf:type pomdp-ns:current_state .
+        ?current_state_attributes pomdp-ns1:_gesture ?current_gesture .
+        ?current_state_attributes pomdp-ns1:_pose ?current_pose .
+        
+        OPTIONAL {
+            ?current_pose rdf:x ?current_x .
+            ?current_pose rdf:y ?current_y .
+        }
+        
+        BIND(IF(?next_gesture=?current_gesture, true, false) as ?gesture_equal) .
+        
+        BIND(IF(?next_state=?current_state && ?gesture_equal, 1-?epsilon, ?epsilon) as ?probability) .
+        
+    }""" .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#GetPlannedAction-ebe9d164-3723-4a34-90fe-2a47a6a49d5a>
+  a <http://www.ajan.de/behavior/mdp-ns#get-planner-actions>;
+  <http://www.ajan.de/behavior/mdp-ns#pomdpId> "0"^^xsd:int;
+  rdfs:comment "";
+  rdfs:label "defaultGetPlannedAction" .
+
+_:genid-71b22584687f472f85c720846214db6e-b628 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+
+CONSTRUCT {
+    pomdp-ns:TransitionModel pomdp-ns:attributes ?attributes .
+   ?attributes pomdp-ns-key:drone_id 100 .
+   ?attributes pomdp-ns-key:epsilon 1e-9 .
+}
+WHERE {
+   BIND(BNODE() AS ?attributes) .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b629 a <http://www.ajan.de/behavior/bt-ns#UpdateQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#ExecutionKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns: <http://www.dfki.de/pomdp-ns#>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+DELETE {
+  pomdp-ns:steps rdfs:value ?counter .
+}
+WHERE {
+  pomdp-ns:steps rdfs:value ?counter .
+}
+""" .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#Sequence-3adc8206-9917-43fc-88dc-55076fb57901>
+  a <http://www.ajan.de/behavior/bt-ns#Sequence>;
+  rdfs:label "defaultSequence";
+  <http://www.ajan.de/behavior/bt-ns#hasChildren> _:genid-71b22584687f472f85c720846214db6e-b691 .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#Sequence-ff787f8b-a158-4e3b-b795-29dd3587774d>
+  a <http://www.ajan.de/behavior/bt-ns#Sequence>;
+  rdfs:label "defaultSequence";
+  <http://www.ajan.de/behavior/bt-ns#hasChildren> _:genid-71b22584687f472f85c720846214db6e-b730 .
+
+_:genid-71b22584687f472f85c720846214db6e-b631 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """    PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+    PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+    PREFIX pomdp-data-ns:<http://www.dfki.de/pomdp-ns/POMDP/data/>
+    PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+    CONSTRUCT {
+        pomdp-ns:State rdfs:value ?state .
+        ?state rdfs:type pomdp-ns:State .
+        ?state pomdp-ns:id ?stateId .
+        ?state pomdp-ns:name \"Drone\" .
+        ?state pomdp-ns:type \"agent\" .
+        ?state pomdp-ns:attributes ?attributes .
+        ?state pomdp-ns:to_print ?to_print_node .
+        ?to_print_node rdfs:value \"gesture_found\" .
+        ?attributes pomdp-ns1:_id ?stateId .
+
+        ?attributes pomdp-ns1:_gesture_found ?gestureValue .
+
+        ?attributes pomdp-ns1:_pose ?poseNew .
+        ?poseNew rdfs:type pomdp-data-ns:2dVector .
+        ?poseNew rdfs:x ?xValue .
+        ?poseNew rdfs:y ?yValue .
+
+    }
+    WHERE{
+        pomdp-ns:current_state rdfs:value ?state .
+        pomdp-ns:current_action rdfs:value ?action .
+        ?state pomdp-ns:id ?stateId .
+        [pomdp-ns1:_pose ?poseNode ;
+         pomdp-ns1:_gesture_found ?gesture ] .
+        
+        OPTIONAL {
+            ?poseNode rdfs:x ?xPose .
+            ?poseNode rdfs:y ?yPose .
+        }
+        
+        OPTIONAL{    
+            ?action pomdp-ns:attributes/pomdp-ns1:_motion ?motionType .
+        }
+
+        BIND(BNODE() as ?attributes) .
+        BIND(BNODE() as ?to_print_node) .
+        BIND(BNODE() as ?pose) .
+        
+        BIND(IF(?poseNode = rdfs:nil && ?action=pomdp-ns1:Action_perceive, rdfs:nil, ?pose) as ?poseNew) .
+
+        BIND(IF (?action=pomdp-ns1:Action_move && ?motionType =\"right\",
+                ?xPose+1,?xPose) as ?xValue) .
+        BIND(IF (?action=pomdp-ns1:Action_move && ?motionType =\"left\",
+                ?xPose-1,?xValue) as ?xValue) .
+        BIND(IF(?action=pomdp-ns1:Action_move,?yPose+1,?yPose) as ?yValue) .
+        BIND(IF(?action=pomdp-ns1:Action_perceive, 
+                IF(RAND()>0.5,\"true\"^^xsd:boolean,\"false\"^^xsd:boolean), 
+            \"false\"^^xsd:boolean) as ?gestureValue) .
+        ?s ?p ?o  .
+    }""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b633 a <http://www.ajan.de/behavior/bt-ns#SelectQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """    PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+    PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+    PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    
+    SELECT ?argmax
+    WHERE {
+        pomdp-ns:current_action rdfs:value ?action .
+        pomdp-ns:RewardModel pomdp-ns:attributes ?modelAttributesNode .
+        
+        OPTIONAL {
+        ?action pomdp-ns:attributes ?actionAttributeNode .
+        ?actionAttributeNode pomdp-ns1:_motion ?motionType .
+        }
+        
+        OPTIONAL {
+        ?modelAttributesNode pomdp-ns1:_drone_id ?droneId.
+        pomdp-ns:current_state rdfs:value ?currentOOState .
+        ?currentOOState rdfs:type pomdp-ns:OOState .
+        ?currentOOState rdfs:value ?currentDroneState .
+        ?currentDroneState pomdp-ns:id ?droneId .
+        }
+        
+        OPTIONAL {
+        ?modelAttributesNode pomdp-ns1:_person_id ?personId.
+        pomdp-ns:current_state rdfs:value ?currentOOState .
+        ?currentOOState rdfs:type pomdp-ns:OOState .
+        ?currentOOState rdfs:value ?currentPersonState .
+        ?currentPersonState pomdp-ns:id ?personId .
+        }
+        
+        OPTIONAL {
+        pomdp-ns:current_state rdfs:value ?currentDroneState .}
+        
+        pomdp-ns:next_state rdfs:value ?nextState .
+        
+        ?modelAttributesNode pomdp-ns1:_big ?bigReward .
+        BIND(0.0 as ?probability) .
+        BIND(0.0 as ?temp_reward) .
+        
+        OPTIONAL {
+        ?currentDroneState pomdp-ns:attributes ?cattributeNode .
+        ?cattributeNode rdfs:type pomdp-ns:current_state .
+        ?cattributeNode pomdp-ns1:_gesture_found ?current_gesture_found .
+        
+        ?currentDroneState pomdp-ns:attributes ?nattributeNode .
+        ?nattributeNode rdfs:type pomdp-ns:next_state .
+        ?nattributeNode pomdp-ns1:_gesture_found ?next_gesture_found .
+        }
+        
+        OPTIONAL {
+        ?currentPersonState pomdp-ns:attributes ?cpattributeNode .
+        ?cpattributeNode rdfs:type pomdp-ns:current_state .
+        ?cpattributeNode pomdp-ns1:_gesture ?person_current_gesture .
+        
+        ?currentPersonState pomdp-ns:attributes ?npattributeNode .
+        ?npattributeNode rdfs:type pomdp-ns:next_state .
+        ?npattributeNode pomdp-ns1:_gesture ?person_next_gesture .
+        }
+        
+        BIND (IF(?action = pomdp-ns1:Action_perceive &&
+        (!?current_gesture_found && ?next_gesture_found), ?temp_reward+?bigReward, ?temp_reward) as ?perceiveReward) .
+        
+        BIND (IF(?person_current_gesture != rdfs:nil && 
+        ?person_current_gesture = ?person_next_gesture &&
+        ?action = pomdp-ns1:Action_move,
+        IF(?person_current_gesture = ?motionType,?perceiveReward+?bigReward,?perceiveReward-?bigReward), ?perceiveReward)
+        as ?perceiveReward) .
+        
+        BIND(?perceiveReward as ?argmax) .
+        
+    }""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b635 a <http://www.ajan.de/behavior/bt-ns#SelectQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """    PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+    PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+    PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+    SELECT ?probability
+    WHERE{
+        pomdp-ns:TransitionModel pomdp-ns:attributes ?attributesNode .
+        ?attributesNode pomdp-ns1:_epsilon ?epsilon .
+        BIND(?epsilon as ?probability) .
+        
+        pomdp-ns:next_state rdf:value ?next_state .
+        pomdp-ns:current_state rdf:value ?current_state .
+        
+        ?next_state pomdp-ns:attributes ?next_state_attributes .
+        ?next_state_attributes rdf:type pomdp-ns:next_state .
+        ?next_state_attributes pomdp-ns1:_gesture ?next_gesture .
+        ?next_state_attributes pomdp-ns1:_pose ?next_pose .
+        
+        OPTIONAL {
+            ?next_pose rdf:x ?next_x .
+            ?next_pose rdf:y ?next_y .
+        }
+        
+        
+        ?current_state pomdp-ns:attributes ?current_state_attributes .
+        ?current_state_attributes rdf:type pomdp-ns:current_state .
+        ?current_state_attributes pomdp-ns1:_gesture ?current_gesture .
+        ?current_state_attributes pomdp-ns1:_pose ?current_pose .
+        
+        OPTIONAL {
+            ?current_pose rdf:x ?current_x .
+            ?current_pose rdf:y ?current_y .
+        }
+        
+        BIND(IF(?next_gesture=?current_gesture, true, false) as ?gesture_equal) .
+        
+        BIND(IF(?next_state=?current_state && ?gesture_equal, 1-?epsilon, ?epsilon) as ?probability) .
+        
+    }""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b636 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """    PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+    PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+    PREFIX pomdp-data-ns:<http://www.dfki.de/pomdp-ns/POMDP/data/>
+    PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+    CONSTRUCT {
+        pomdp-ns:State rdfs:value ?state .
+        ?state rdfs:type pomdp-ns:State .
+        ?state pomdp-ns:id ?stateId .
+        ?state pomdp-ns:name ?stateName .
+        ?state pomdp-ns:type ?stateType .
+        ?state pomdp-ns:attributes ?attributes .
+        ?state pomdp-ns:to_print ?to_print_node .
+        ?to_print_node rdfs:value \"gesture\" .
+        ?attributes pomdp-ns1:_id ?stateId .
+
+        ?attributes pomdp-ns1:_gesture ?gestureValue .
+
+        ?attributes pomdp-ns1:_pose ?pose .
+        ?pose rdfs:type ?poseType .
+        ?pose rdfs:x ?xValue .
+        ?pose rdfs:y ?yValue .
+
+    }
+    WHERE{
+        pomdp-ns:current_state rdfs:value ?state .
+        ?state pomdp-ns:name ?stateName .
+        ?state pomdp-ns:type ?stateType .
+
+        pomdp-ns:current_action rdfs:value ?action .
+        ?state pomdp-ns:id ?stateId .
+        ?state pomdp-ns:attributes ?attributesNode .
+        ?attributesNode pomdp-ns1:_pose ?poseNode .
+        ?attributesNode pomdp-ns1:_gesture ?gesture .
+
+        OPTIONAL{    
+            ?poseNode rdfs:x ?xValue .
+            ?poseNode rdfs:y ?yValue .
+            BIND(pomdp-data-ns:2dVector as ?poseType) .
+            ?action pomdp-ns:attributes ?actionAttributes .
+            ?actionAttributes pomdp-ns1:_motion ?motionType .
+        }
+
+        BIND(BNODE() as ?attributes) .
+        BIND(BNODE() as ?to_print_node) .
+        BIND(IF(?action=pomdp-ns1:Action_perceive, rdfs:nil, BNODE()) as ?pose) .
+
+        BIND(IF(?action=pomdp-ns1:Action_perceive, 
+                IF(RAND()>0.5,
+                    IF(RAND()>0.5, \"left\",rdfs:nil)
+                    ,\"right\"), 
+                ?gesture) as ?gestureValue) .
+        ?s ?p ?o  .
+    }""" .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#ClearAgentHistory-4284289d-e446-44bb-b47d-78c1acbd3b2c>
+  a <http://www.ajan.de/behavior/mdp-ns#clearAgentHistory>;
+  <http://www.ajan.de/behavior/mdp-ns#pomdpId> "0"^^xsd:int;
+  rdfs:comment "";
+  rdfs:label "defaultClearAgentHistory" .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#UpdateAgentHistory-bb7a1c0f-5da2-4f6a-9990-bd155a1758d4>
+  a <http://www.ajan.de/behavior/mdp-ns#updateAgentHistory>;
+  <http://www.ajan.de/behavior/mdp-ns#pomdpId> "0"^^xsd:int;
+  rdfs:label "defaultUpdateAgentHistory";
+  rdfs:comment "" .
+
+_:genid-71b22584687f472f85c720846214db6e-b637 a <http://www.ajan.de/behavior/bt-ns#SelectQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX mosim: <http://www.dfki.de/mosim-ns#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+SELECT ?host ?port 
+WHERE {
+	?cosim rdf:type mosim:CoSimulator .
+	?cosim mosim:host ?host .
+	?cosim mosim:port ?port .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b638 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#ExecutionKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns-data:<http://www.dfki.de/pomdp-ns/POMDP/data/>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ajan-math-ns:<http://www.ajan.de/ajan/functions/math-ns#>
+
+CONSTRUCT {
+    pomdp-ns:Observation pomdp-ns:attributes ?attributes .
+    pomdp-ns:Observation pomdp-ns:for_hash ?for_hash .
+    ?attributes pomdp-ns1:_person_id ?person_id .
+    ?attributes pomdp-ns1:_pose ?poseNode .
+    
+    ?for_hash rdfs:value \"person_id\" .
+    ?for_hash rdfs:value \"pose\" .
+    
+    
+    ?poseNode rdfs:type ?poseType .
+    
+    ?poseNode rdfs:value ?keypoint9.
+    ?poseNode rdfs:value ?keypoint10 .
+    ?poseNode rdfs:value ?keypoint11 .
+    ?poseNode rdfs:value ?keypoint12 .
+
+    
+    ?keypoint9 rdfs:x ?xValue9 .
+    ?keypoint10 rdfs:x ?xValue10 .
+    ?keypoint11 rdfs:x ?xValue11 .
+    ?keypoint12 rdfs:x ?xValue12 .
+    
+    ?keypoint9 rdfs:y ?yValue9 .
+    ?keypoint10 rdfs:y ?yValue10 .
+    ?keypoint11 rdfs:y ?yValue11 .
+    ?keypoint12 rdfs:y ?yValue12 .
+
+}
+WHERE{
+    pomdp-ns:ObservationModel pomdp-ns:attributes ?attributesNode .
+    ?attributesNode pomdp-ns1:_person_id ?person_id .
+    pomdp-ns:current_action rdfs:value ?action .
+    
+    BIND(BNODE() as ?attributes) .
+    BIND(BNODE() as ?for_hash) .
+    BIND(IF(?action = pomdp-ns1:Action_perceive, BNODE(), rdfs:nil) as ?poseNode) .
+    BIND(pomdp-ns-data:Point_9  as ?keypoint9) .
+    BIND(pomdp-ns-data:Point_10 as ?keypoint10) .
+    BIND(pomdp-ns-data:Point_11 as ?keypoint11) .
+    BIND(pomdp-ns-data:Point_12 as ?keypoint12) .
+    BIND(pomdp-ns-data:pandasDataFrame as ?poseType)
+    BIND(ajan-math-ns:sample(0, 640) as ?xValue9) .
+    BIND(ajan-math-ns:sample(0, 480) as ?yValue9) .
+    BIND(ajan-math-ns:sample(0, 640) as ?xValue10) .
+    BIND(ajan-math-ns:sample(0, 480) as ?yValue10) .
+    BIND(ajan-math-ns:sample(0, 640) as ?xValue11) .
+    BIND(ajan-math-ns:sample(0, 480) as ?yValue11) .
+    BIND(ajan-math-ns:sample(0, 640) as ?xValue12) .
+    BIND(ajan-math-ns:sample(0, 480) as ?yValue12) .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b639 a <http://www.ajan.de/behavior/asp-ns#RuleSetLocation>;
+  <http://www.ajan.de/behavior/asp-ns#ruleSet> <http://>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> "" .
+
+_:genid-71b22584687f472f85c720846214db6e-b640 rdf:first _:genid-71b22584687f472f85c720846214db6e-b519;
+  rdf:rest rdf:nil .
+
+_:genid-71b22584687f472f85c720846214db6e-b641 rdf:first _:genid-71b22584687f472f85c720846214db6e-b580;
+  rdf:rest rdf:nil .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#Action-3de9efb6-5ba6-4be6-bf9b-5be810aeec4c>
+  a <http://www.ajan.de/behavior/bt-ns#Action>;
+  <http://www.ajan.de/behavior/bt-ns#inputs> _:genid-71b22584687f472f85c720846214db6e-b642;
+  <http://www.ajan.de/behavior/bt-ns#definition> <http://localhost:8090/rdf4j/repositories/services#SA_f97cea53-5aa1-4bc7-9795-10b623ba8c62>;
+  <http://www.ajan.de/behavior/bt-ns#targetBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#evaluate> false;
+  rdfs:label "startLiveImage";
+  rdfs:comment "" .
+
+_:genid-71b22584687f472f85c720846214db6e-b642 rdf:first _:genid-71b22584687f472f85c720846214db6e-b498;
+  rdf:rest rdf:nil .
+
+_:genid-71b22584687f472f85c720846214db6e-b643 rdf:first _:genid-71b22584687f472f85c720846214db6e-b563;
+  rdf:rest rdf:nil .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#Action-ae2d86b8-a6f5-4d07-8caa-c97beefaa632>
+  a <http://www.ajan.de/behavior/bt-ns#Action>;
+  <http://www.ajan.de/behavior/bt-ns#inputs> _:genid-71b22584687f472f85c720846214db6e-b644;
+  <http://www.ajan.de/behavior/bt-ns#definition> <http://localhost:8090/rdf4j/repositories/services#SA_15d13ab3-95f8-45f1-a7ff-1635fc6613ec>;
+  <http://www.ajan.de/behavior/bt-ns#targetBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#evaluate> false;
+  rdfs:label "stopLiveImage";
+  rdfs:comment "" .
+
+_:genid-71b22584687f472f85c720846214db6e-b644 rdf:first _:genid-71b22584687f472f85c720846214db6e-b569;
+  rdf:rest rdf:nil .
+
+_:genid-71b22584687f472f85c720846214db6e-b645 rdf:first _:genid-71b22584687f472f85c720846214db6e-b581;
+  rdf:rest rdf:nil .
+
+_:genid-71b22584687f472f85c720846214db6e-b646 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#Action-186fd507-78e2-4eca-a943-56f91917af0c>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b647 .
+
+_:genid-71b22584687f472f85c720846214db6e-b647 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#Action-d388dc09-18fc-4201-a7e7-ae2af0af1ed4>;
+  rdf:rest rdf:nil .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#CreateProblem-cf3002f0-ec4d-432f-8ab4-f6b0c25c8e5c>
+  a <http://www.ajan.de/behavior/mdp-ns#createProblem>;
+  <http://www.ajan.de/behavior/mdp-ns#pomdp-problem-data> _:genid-71b22584687f472f85c720846214db6e-b612;
+  <http://www.ajan.de/behavior/mdp-ns#pomdp-problem-name> "AjanPOMDPProblem";
+  <http://www.ajan.de/behavior/mdp-ns#pomdpId> "0"^^xsd:int;
+  rdfs:comment "";
+  rdfs:label "defaultCreateProblem" .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#CreateState-292751e7-05c0-4193-9c5c-adb050c4fe87>
+  a <http://www.ajan.de/behavior/mdp-ns#CreateState>;
+  <http://www.ajan.de/behavior/mdp-ns#attributesQuery> _:genid-71b22584687f472f85c720846214db6e-b547;
+  <http://www.ajan.de/behavior/mdp-ns#toPrintQuery> _:genid-71b22584687f472f85c720846214db6e-b571;
+  <http://www.ajan.de/behavior/mdp-ns#pomdpId> "0"^^xsd:int;
+  <http://www.ajan.de/behavior/mdp-ns#stateId> "112"^^xsd:int;
+  <http://www.ajan.de/behavior/mdp-ns#stateName> "Person";
+  <http://www.ajan.de/behavior/mdp-ns#stateType> "env";
+  rdfs:comment "";
+  rdfs:label "personState" .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#CreateState-e149b014-7ce0-4440-b2e7-60c7593f48a4>
+  a <http://www.ajan.de/behavior/mdp-ns#CreateState>;
+  <http://www.ajan.de/behavior/mdp-ns#attributesQuery> _:genid-71b22584687f472f85c720846214db6e-b572;
+  <http://www.ajan.de/behavior/mdp-ns#toPrintQuery> _:genid-71b22584687f472f85c720846214db6e-b568;
+  <http://www.ajan.de/behavior/mdp-ns#pomdpId> "0"^^xsd:int;
+  <http://www.ajan.de/behavior/mdp-ns#stateId> "100"^^xsd:int;
+  <http://www.ajan.de/behavior/mdp-ns#stateName> "Drone";
+  <http://www.ajan.de/behavior/mdp-ns#stateType> "agent";
+  rdfs:comment "";
+  rdfs:label "droneState" .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#InitializeBelief-eec7606c-efee-404b-b7b5-1747c7974a84>
+  a <http://www.ajan.de/behavior/mdp-ns#InitializeBelief>;
+  <http://www.ajan.de/behavior/mdp-ns#beliefs> _:genid-71b22584687f472f85c720846214db6e-b648;
+  <http://www.ajan.de/behavior/mdp-ns#agentId> "100"^^xsd:int;
+  <http://www.ajan.de/behavior/mdp-ns#pomdpId> "0"^^xsd:int;
+  <http://www.ajan.de/behavior/mdp-ns#representation> "histogram";
+  rdfs:label "defaultInitializeBelief1";
+  rdfs:comment "" .
+
+_:genid-71b22584687f472f85c720846214db6e-b648 rdf:first _:genid-71b22584687f472f85c720846214db6e-b591;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b649 .
+
+_:genid-71b22584687f472f85c720846214db6e-b649 rdf:first _:genid-71b22584687f472f85c720846214db6e-b585;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b650 .
+
+_:genid-71b22584687f472f85c720846214db6e-b650 rdf:first _:genid-71b22584687f472f85c720846214db6e-b621;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b651 .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#InitializeModels-09a598cc-e925-4583-b771-206bf4232bbb>
+  a <http://www.ajan.de/behavior/mdp-ns#InitializeModels>;
+  <http://www.ajan.de/behavior/mdp-ns#pomdpId> "0"^^xsd:int;
+  rdfs:comment "";
+  rdfs:label "defaultInitializeModels" .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#InitializePOMDP-57853615-23d3-408f-a4c2-02ca48d0291c>
+  a <http://www.ajan.de/behavior/mdp-ns#InitializePOMDP>;
+  <http://www.ajan.de/behavior/bt-ns#targetBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/mdp-ns#pomdpId> "0"^^xsd:int;
+  rdfs:comment "";
+  rdfs:label "defaultInitializePOMDP" .
+
+_:genid-71b22584687f472f85c720846214db6e-b651 rdf:first _:genid-71b22584687f472f85c720846214db6e-b529;
+  rdf:rest rdf:nil .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#TransitionModel-2be3ae93-a62b-4927-9cdf-8f35f079552c>
+  a <http://www.ajan.de/behavior/mdp-ns#TransitionModel>;
+  <http://www.ajan.de/behavior/mdp-ns#associated-object> "Drone";
+  <http://www.ajan.de/behavior/mdp-ns#model-type> "env";
+  <http://www.ajan.de/behavior/mdp-ns#pomdpId> "0"^^xsd:int;
+  rdfs:comment "";
+  rdfs:label "DroneTransitionModel";
+  <http://www.ajan.de/behavior/mdp-ns#transition-argmax> _:genid-71b22584687f472f85c720846214db6e-b577;
+  <http://www.ajan.de/behavior/mdp-ns#transition-data> _:genid-71b22584687f472f85c720846214db6e-b628;
+  <http://www.ajan.de/behavior/mdp-ns#transition-model-attributes> _:genid-71b22584687f472f85c720846214db6e-b738;
+  <http://www.ajan.de/behavior/mdp-ns#transition-probability> _:genid-71b22584687f472f85c720846214db6e-b528;
+  <http://www.ajan.de/behavior/mdp-ns#transition-sample> _:genid-71b22584687f472f85c720846214db6e-b539 .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#InitializeStates-84d324f5-2532-44f8-8c84-207e7b8e6885>
+  a <http://www.ajan.de/behavior/mdp-ns#InitializeStates>;
+  <http://www.ajan.de/behavior/mdp-ns#pomdpId> "0"^^xsd:int;
+  rdfs:comment "";
+  rdfs:label "defaultInitializeStates" .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#ObservationModel-580417d2-1682-47d7-8325-4b190d121687>
+  a <http://www.ajan.de/behavior/mdp-ns#ObservationModel>;
+  <http://www.ajan.de/behavior/mdp-ns#observation-argmax> _:genid-71b22584687f472f85c720846214db6e-b574;
+  <http://www.ajan.de/behavior/mdp-ns#observation-data> _:genid-71b22584687f472f85c720846214db6e-b491;
+  <http://www.ajan.de/behavior/mdp-ns#observation-model-attributes> _:genid-71b22584687f472f85c720846214db6e-b658;
+  <http://www.ajan.de/behavior/mdp-ns#observation-probability> _:genid-71b22584687f472f85c720846214db6e-b486;
+  <http://www.ajan.de/behavior/mdp-ns#observation-sample> _:genid-71b22584687f472f85c720846214db6e-b638;
+  <http://www.ajan.de/behavior/mdp-ns#associated-object> "Person";
+  <http://www.ajan.de/behavior/mdp-ns#pomdpId> "0"^^xsd:int;
+  rdfs:comment "";
+  rdfs:label "PersonObservationModel" .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#TransitionModel-b21928c1-6b57-4bde-807e-c51266599f1b>
+  a <http://www.ajan.de/behavior/mdp-ns#TransitionModel>;
+  <http://www.ajan.de/behavior/mdp-ns#associated-object> "Person";
+  <http://www.ajan.de/behavior/mdp-ns#model-type> "env";
+  <http://www.ajan.de/behavior/mdp-ns#pomdpId> "0"^^xsd:int;
+  rdfs:comment "";
+  rdfs:label "PersonTransitionModel";
+  <http://www.ajan.de/behavior/mdp-ns#transition-argmax> _:genid-71b22584687f472f85c720846214db6e-b636;
+  <http://www.ajan.de/behavior/mdp-ns#transition-data> _:genid-71b22584687f472f85c720846214db6e-b590;
+  <http://www.ajan.de/behavior/mdp-ns#transition-model-attributes> _:genid-71b22584687f472f85c720846214db6e-b739;
+  <http://www.ajan.de/behavior/mdp-ns#transition-probability> _:genid-71b22584687f472f85c720846214db6e-b626;
+  <http://www.ajan.de/behavior/mdp-ns#transition-sample> _:genid-71b22584687f472f85c720846214db6e-b618 .
+
+_:genid-71b22584687f472f85c720846214db6e-b658 rdf:first _:genid-71b22584687f472f85c720846214db6e-b505;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b659 .
+
+_:genid-71b22584687f472f85c720846214db6e-b659 rdf:first _:genid-71b22584687f472f85c720846214db6e-b541;
+  rdf:rest rdf:nil .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#Sequence-41c6c690-42fb-44e3-ba25-6660da30bbb2>
+  a <http://www.ajan.de/behavior/bt-ns#Sequence>;
+  rdfs:label "defaultSequence";
+  <http://www.ajan.de/behavior/bt-ns#hasChildren> _:genid-71b22584687f472f85c720846214db6e-b695 .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#Sequence-160c9de6-0221-46ab-b442-a10522563e9f>
+  a <http://www.ajan.de/behavior/bt-ns#Sequence>;
+  rdfs:label "defaultSequence";
+  <http://www.ajan.de/behavior/bt-ns#hasChildren> _:genid-71b22584687f472f85c720846214db6e-b669 .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#BT_12c9cb7c-8b94-41e2-9c5f-fb090945249a>
+  a <http://www.ajan.de/behavior/bt-ns#BehaviorTree>, <http://www.ajan.de/behavior/bt-ns#Root>;
+  <http://www.ajan.de/behavior/bt-ns#hasChild> <http://localhost:8090/rdf4j/repositories/behaviors#Sequence-767705ce-ac25-4efa-b7b1-13b39b1ce0e5>;
+  rdfs:label "InitStates" .
+
+_:genid-71b22584687f472f85c720846214db6e-b660 rdf:first _:genid-71b22584687f472f85c720846214db6e-b526;
+  rdf:rest rdf:nil .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#TransitionModel-d4158cc2-787e-4250-abca-a79f3cedd0e7>
+  a <http://www.ajan.de/behavior/mdp-ns#TransitionModel>;
+  <http://www.ajan.de/behavior/mdp-ns#associated-object> "Person";
+  <http://www.ajan.de/behavior/mdp-ns#model-type> "agent";
+  <http://www.ajan.de/behavior/mdp-ns#pomdpId> "0"^^xsd:int;
+  rdfs:comment "";
+  rdfs:label "PersonTransitionModel";
+  <http://www.ajan.de/behavior/mdp-ns#transition-argmax> _:genid-71b22584687f472f85c720846214db6e-b559;
+  <http://www.ajan.de/behavior/mdp-ns#transition-data> _:genid-71b22584687f472f85c720846214db6e-b487;
+  <http://www.ajan.de/behavior/mdp-ns#transition-model-attributes> _:genid-71b22584687f472f85c720846214db6e-b740;
+  <http://www.ajan.de/behavior/mdp-ns#transition-probability> _:genid-71b22584687f472f85c720846214db6e-b635;
+  <http://www.ajan.de/behavior/mdp-ns#transition-sample> _:genid-71b22584687f472f85c720846214db6e-b506 .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#BT_e6ab4e8e-c8fc-425c-b4de-635403473ba3>
+  a <http://www.ajan.de/behavior/bt-ns#BehaviorTree>, <http://www.ajan.de/behavior/bt-ns#Root>;
+  <http://www.ajan.de/behavior/bt-ns#hasChild> <http://localhost:8090/rdf4j/repositories/behaviors#Sequence-7cd79006-fded-4e42-9931-fc65dc917149>;
+  rdfs:label "POMDP_Initialization" .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#TransitionModel-de7202c4-52b4-4d4c-89ad-327f8c79867e>
+  a <http://www.ajan.de/behavior/mdp-ns#TransitionModel>;
+  <http://www.ajan.de/behavior/mdp-ns#associated-object> "Drone";
+  <http://www.ajan.de/behavior/mdp-ns#model-type> "agent";
+  <http://www.ajan.de/behavior/mdp-ns#pomdpId> "0"^^xsd:int;
+  rdfs:comment "";
+  rdfs:label "DroneTransitionModel";
+  <http://www.ajan.de/behavior/mdp-ns#transition-argmax> _:genid-71b22584687f472f85c720846214db6e-b631;
+  <http://www.ajan.de/behavior/mdp-ns#transition-data> _:genid-71b22584687f472f85c720846214db6e-b601;
+  <http://www.ajan.de/behavior/mdp-ns#transition-model-attributes> _:genid-71b22584687f472f85c720846214db6e-b741;
+  <http://www.ajan.de/behavior/mdp-ns#transition-probability> _:genid-71b22584687f472f85c720846214db6e-b610;
+  <http://www.ajan.de/behavior/mdp-ns#transition-sample> _:genid-71b22584687f472f85c720846214db6e-b509 .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#RewardModel-0984d581-7452-4eb6-8ba2-6b2190c615f1>
+  a <http://www.ajan.de/behavior/mdp-ns#RewardModel>;
+  <http://www.ajan.de/behavior/mdp-ns#model-type> "env";
+  <http://www.ajan.de/behavior/mdp-ns#pomdpId> "0"^^xsd:int;
+  <http://www.ajan.de/behavior/mdp-ns#reward-argmax> _:genid-71b22584687f472f85c720846214db6e-b633;
+  <http://www.ajan.de/behavior/mdp-ns#reward-data> _:genid-71b22584687f472f85c720846214db6e-b500;
+  <http://www.ajan.de/behavior/mdp-ns#reward-model-attributes> _:genid-71b22584687f472f85c720846214db6e-b662;
+  <http://www.ajan.de/behavior/mdp-ns#reward-probability> _:genid-71b22584687f472f85c720846214db6e-b514;
+  <http://www.ajan.de/behavior/mdp-ns#reward-sample> _:genid-71b22584687f472f85c720846214db6e-b525;
+  rdfs:comment "Same Reward Model is used for both agent and environment but two instance is created";
+  rdfs:label "GestureRewardModel" .
+
+_:genid-71b22584687f472f85c720846214db6e-b662 rdf:first _:genid-71b22584687f472f85c720846214db6e-b579;
+  rdf:rest rdf:nil .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#RewardModel-c6956d7d-d721-4b8a-8fbf-850a932d8d82>
+  a <http://www.ajan.de/behavior/mdp-ns#RewardModel>;
+  <http://www.ajan.de/behavior/mdp-ns#reward-argmax> _:genid-71b22584687f472f85c720846214db6e-b573;
+  <http://www.ajan.de/behavior/mdp-ns#reward-data> _:genid-71b22584687f472f85c720846214db6e-b480;
+  <http://www.ajan.de/behavior/mdp-ns#reward-model-attributes> _:genid-71b22584687f472f85c720846214db6e-b665;
+  <http://www.ajan.de/behavior/mdp-ns#reward-probability> _:genid-71b22584687f472f85c720846214db6e-b564;
+  <http://www.ajan.de/behavior/mdp-ns#reward-sample> _:genid-71b22584687f472f85c720846214db6e-b560;
+  <http://www.ajan.de/behavior/mdp-ns#model-type> "agent";
+  <http://www.ajan.de/behavior/mdp-ns#pomdpId> "0"^^xsd:int;
+  rdfs:comment "Same Reward Model is used for both agent and environment but two instance is created";
+  rdfs:label "GestureRewardModel" .
+
+_:genid-71b22584687f472f85c720846214db6e-b665 rdf:first _:genid-71b22584687f472f85c720846214db6e-b497;
+  rdf:rest rdf:nil .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#Sequence-15f1c94c-faaf-4ebf-98c1-9768f6546344>
+  a <http://www.ajan.de/behavior/bt-ns#Sequence>;
+  <http://www.ajan.de/behavior/bt-ns#hasChildren> _:genid-71b22584687f472f85c720846214db6e-b666;
+  rdfs:label "defaultSequence" .
+
+_:genid-71b22584687f472f85c720846214db6e-b666 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#CreateState-292751e7-05c0-4193-9c5c-adb050c4fe87>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b667 .
+
+_:genid-71b22584687f472f85c720846214db6e-b667 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#CreateState-e149b014-7ce0-4440-b2e7-60c7593f48a4>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b668 .
+
+_:genid-71b22584687f472f85c720846214db6e-b668 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#InitializeStates-84d324f5-2532-44f8-8c84-207e7b8e6885>;
+  rdf:rest rdf:nil .
+
+_:genid-71b22584687f472f85c720846214db6e-b669 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#Sequence-33b3f239-56ff-455c-871f-3bd381b566b3>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b670 .
+
+_:genid-71b22584687f472f85c720846214db6e-b670 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#Update-40b4a2c0-8c1a-4845-87a8-38243831426f>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b671 .
+
+_:genid-71b22584687f472f85c720846214db6e-b671 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#Condition-59a535e2-4e61-4bda-9879-bafa9d1628f1>;
+  rdf:rest rdf:nil .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#Update-903ad886-20f3-4360-a4b0-9c859007efac>
+  a <http://www.ajan.de/behavior/bt-ns#Update>;
+  <http://www.ajan.de/behavior/bt-ns#useW3C> false;
+  rdfs:comment "";
+  rdfs:label "removeThePreviousEnvironmentState";
+  <http://www.ajan.de/behavior/bt-ns#query> _:genid-71b22584687f472f85c720846214db6e-b510 .
+
+_:genid-71b22584687f472f85c720846214db6e-b680 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#Update-903ad886-20f3-4360-a4b0-9c859007efac>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b681 .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#Update-a82883f0-fd71-4f7d-8ff2-435d765113dc>
+  a <http://www.ajan.de/behavior/bt-ns#Update>;
+  <http://www.ajan.de/behavior/bt-ns#useW3C> false;
+  rdfs:comment "";
+  rdfs:label "removeThePreviousObservation";
+  <http://www.ajan.de/behavior/bt-ns#query> _:genid-71b22584687f472f85c720846214db6e-b570 .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#Update-b278d46c-4bd5-4183-a561-ae7276ac5eb6>
+  a <http://www.ajan.de/behavior/bt-ns#Update>;
+  <http://www.ajan.de/behavior/bt-ns#useW3C> false;
+  rdfs:comment "";
+  rdfs:label "removeThePreviousPlannedAction";
+  <http://www.ajan.de/behavior/bt-ns#query> _:genid-71b22584687f472f85c720846214db6e-b595 .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#UpdateBelief-f704fe9d-e74d-43b1-ada7-3c6ddee520de>
+  a <http://www.ajan.de/behavior/mdp-ns#UpdateBelief>;
+  <http://www.ajan.de/behavior/mdp-ns#stateId> "100"^^xsd:int;
+  <http://www.ajan.de/behavior/mdp-ns#stateName> "PersonState";
+  rdfs:label "defaultUpdateBelief";
+  rdfs:comment "" .
+
+_:genid-71b22584687f472f85c720846214db6e-b681 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#Update-a82883f0-fd71-4f7d-8ff2-435d765113dc>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b682 .
+
+_:genid-71b22584687f472f85c720846214db6e-b682 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#Update-b278d46c-4bd5-4183-a561-ae7276ac5eb6>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b683 .
+
+_:genid-71b22584687f472f85c720846214db6e-b683 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#GetPlannedAction-ebe9d164-3723-4a34-90fe-2a47a6a49d5a>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b684 .
+
+_:genid-71b22584687f472f85c720846214db6e-b684 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#ActionSelector-b3225970-1ea9-4ef5-ac27-a4dbf87649db>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b685 .
+
+_:genid-71b22584687f472f85c720846214db6e-b685 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#GetObservationFromEnvironment-f800b1fb-15f1-43c2-9751-edeaa8c76ec6>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b686 .
+
+_:genid-71b22584687f472f85c720846214db6e-b686 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#GetEnvironmentState-2c4ffd0d-9699-4aa9-a1fb-a056b83dad95>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b687 .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#CreatePlanner-a0e6d547-afd2-4c01-ab9a-4bfd61fbcfd6>
+  a <http://www.ajan.de/behavior/mdp-ns#createPlanner>;
+  <http://www.ajan.de/behavior/mdp-ns#planner-discount-factor> "0.95"^^xsd:float;
+  <http://www.ajan.de/behavior/mdp-ns#planner-exploration-const> "1000"^^xsd:int;
+  <http://www.ajan.de/behavior/mdp-ns#planner-maxdepth> "10"^^xsd:int;
+  <http://www.ajan.de/behavior/mdp-ns#planner-name> "POUCT";
+  <http://www.ajan.de/behavior/mdp-ns#planner-numsims> "-1"^^xsd:int;
+  <http://www.ajan.de/behavior/mdp-ns#planner-planningtime> "-1"^^xsd:float;
+  <http://www.ajan.de/behavior/mdp-ns#planner-update-interval> "500"^^xsd:int;
+  <http://www.ajan.de/behavior/mdp-ns#pomdpId> "0"^^xsd:int;
+  rdfs:comment "";
+  rdfs:label "defaultCreatePlanner" .
+
+_:genid-71b22584687f472f85c720846214db6e-b687 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#ApplyEnvironmentTransition-495a0ca8-6638-436e-976a-0d2c368abfae>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b688 .
+
+_:genid-71b22584687f472f85c720846214db6e-b688 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#ClearAgentHistory-4284289d-e446-44bb-b47d-78c1acbd3b2c>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b689 .
+
+_:genid-71b22584687f472f85c720846214db6e-b689 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#UpdateAgentHistory-bb7a1c0f-5da2-4f6a-9990-bd155a1758d4>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b690 .
+
+_:genid-71b22584687f472f85c720846214db6e-b690 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#UpdateBelief-f704fe9d-e74d-43b1-ada7-3c6ddee520de>;
+  rdf:rest rdf:nil .
+
+_:genid-71b22584687f472f85c720846214db6e-b691 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#RewardModel-0984d581-7452-4eb6-8ba2-6b2190c615f1>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b692 .
+
+_:genid-71b22584687f472f85c720846214db6e-b692 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#TransitionModel-b21928c1-6b57-4bde-807e-c51266599f1b>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b693 .
+
+_:genid-71b22584687f472f85c720846214db6e-b693 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#TransitionModel-2be3ae93-a62b-4927-9cdf-8f35f079552c>;
+  rdf:rest rdf:nil .
+
+_:genid-71b22584687f472f85c720846214db6e-b695 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#CreateEnvironment-33f8ea6d-026e-4666-a61a-1be9cee6f874>;
+  rdf:rest rdf:nil .
+
+_:genid-71b22584687f472f85c720846214db6e-b706 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#CreateAction-1d34f447-8228-4825-9d7b-65f120de7101>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b707 .
+
+_:genid-71b22584687f472f85c720846214db6e-b707 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#CreateAction-10d0c582-1d85-4101-a08f-70677645b2d3>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b708 .
+
+_:genid-71b22584687f472f85c720846214db6e-b708 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#CreateAction-d10b96d9-118d-450c-8d2c-8a0434673090>;
+  rdf:rest rdf:nil .
+
+_:genid-71b22584687f472f85c720846214db6e-b709 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#BT_e6ab4e8e-c8fc-425c-b4de-635403473ba3>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b710 .
+
+_:genid-71b22584687f472f85c720846214db6e-b710 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#Action-3de9efb6-5ba6-4be6-bf9b-5be810aeec4c>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b711 .
+
+_:genid-71b22584687f472f85c720846214db6e-b711 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#Action-37774265-ae87-41bc-89a1-d4558a2dba5b>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b712 .
+
+_:genid-71b22584687f472f85c720846214db6e-b712 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#Update-dc5d51e4-1cad-4297-9238-6aa6b89cd820>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b713 .
+
+_:genid-71b22584687f472f85c720846214db6e-b713 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#Update-113fb1db-4f0e-414f-a816-01d38e184574>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b714 .
+
+_:genid-71b22584687f472f85c720846214db6e-b714 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#UntilSuccess-ea9e17db-04f8-4942-ab47-746cbdd2ae59>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b715 .
+
+_:genid-71b22584687f472f85c720846214db6e-b715 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#Action-a7f1e1ac-5b87-4d2f-bcc8-ee4fabcb65f7>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b716 .
+
+_:genid-71b22584687f472f85c720846214db6e-b716 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#Action-ae2d86b8-a6f5-4d07-8caa-c97beefaa632>;
+  rdf:rest rdf:nil .
+
+_:genid-71b22584687f472f85c720846214db6e-b717 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#InitializePOMDP-57853615-23d3-408f-a4c2-02ca48d0291c>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b718 .
+
+_:genid-71b22584687f472f85c720846214db6e-b718 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#Sequence-15f1c94c-faaf-4ebf-98c1-9768f6546344>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b719 .
+
+_:genid-71b22584687f472f85c720846214db6e-b719 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#Sequence-6c4d00a6-2375-4653-855e-8bcc77d88d6c>;
+  rdf:rest rdf:nil .
+
+_:genid-71b22584687f472f85c720846214db6e-b720 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#BT_12c9cb7c-8b94-41e2-9c5f-fb090945249a>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b721 .
+
+_:genid-71b22584687f472f85c720846214db6e-b721 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#Sequence-ff787f8b-a158-4e3b-b795-29dd3587774d>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b722 .
+
+_:genid-71b22584687f472f85c720846214db6e-b722 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#Sequence-3adc8206-9917-43fc-88dc-55076fb57901>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b723 .
+
+_:genid-71b22584687f472f85c720846214db6e-b723 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#InitializeModels-09a598cc-e925-4583-b771-206bf4232bbb>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b724 .
+
+_:genid-71b22584687f472f85c720846214db6e-b724 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#Sequence-cc7b62d1-0e8f-4703-a256-d1d3f4d77117>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b725 .
+
+_:genid-71b22584687f472f85c720846214db6e-b725 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#Sequence-41c6c690-42fb-44e3-ba25-6660da30bbb2>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b726 .
+
+_:genid-71b22584687f472f85c720846214db6e-b726 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#CreateProblem-cf3002f0-ec4d-432f-8ab4-f6b0c25c8e5c>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b727 .
+
+_:genid-71b22584687f472f85c720846214db6e-b727 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#CreatePlanner-a0e6d547-afd2-4c01-ab9a-4bfd61fbcfd6>;
+  rdf:rest rdf:nil .
+
+_:genid-71b22584687f472f85c720846214db6e-b728 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#InitializeBelief-eec7606c-efee-404b-b7b5-1747c7974a84>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b729 .
+
+_:genid-71b22584687f472f85c720846214db6e-b729 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#CreateAgent-73ca7067-6687-432a-baf3-cd2757e599fc>;
+  rdf:rest rdf:nil .
+
+_:genid-71b22584687f472f85c720846214db6e-b730 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#PolicyModel-7f3c66d9-464f-4470-9fed-43fb84ba6af0>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b731 .
+
+_:genid-71b22584687f472f85c720846214db6e-b731 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#ObservationModel-580417d2-1682-47d7-8325-4b190d121687>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b732 .
+
+_:genid-71b22584687f472f85c720846214db6e-b732 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#TransitionModel-d4158cc2-787e-4250-abca-a79f3cedd0e7>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b733 .
+
+_:genid-71b22584687f472f85c720846214db6e-b733 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#TransitionModel-de7202c4-52b4-4d4c-89ad-327f8c79867e>;
+  rdf:rest _:genid-71b22584687f472f85c720846214db6e-b734 .
+
+_:genid-71b22584687f472f85c720846214db6e-b734 rdf:first <http://localhost:8090/rdf4j/repositories/behaviors#RewardModel-c6956d7d-d721-4b8a-8fbf-850a932d8d82>;
+  rdf:rest rdf:nil .
+
+_:genid-71b22584687f472f85c720846214db6e-b738 rdf:first _:genid-71b22584687f472f85c720846214db6e-b533;
+  rdf:rest rdf:nil .
+
+_:genid-71b22584687f472f85c720846214db6e-b739 rdf:first _:genid-71b22584687f472f85c720846214db6e-b492;
+  rdf:rest rdf:nil .
+
+_:genid-71b22584687f472f85c720846214db6e-b740 rdf:first _:genid-71b22584687f472f85c720846214db6e-b518;
+  rdf:rest rdf:nil .
+
+_:genid-71b22584687f472f85c720846214db6e-b741 rdf:first _:genid-71b22584687f472f85c720846214db6e-b482;
+  rdf:rest rdf:nil .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#Update-113fb1db-4f0e-414f-a816-01d38e184574>
+  a <http://www.ajan.de/behavior/bt-ns#Update>;
+  <http://www.ajan.de/behavior/bt-ns#query> _:genid-71b22584687f472f85c720846214db6e-b537;
+  <http://www.ajan.de/behavior/bt-ns#useW3C> false;
+  rdfs:label "initializeNoOfSteps";
+  rdfs:comment "" .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#Update-40b4a2c0-8c1a-4845-87a8-38243831426f>
+  a <http://www.ajan.de/behavior/bt-ns#Update>;
+  <http://www.ajan.de/behavior/bt-ns#query> _:genid-71b22584687f472f85c720846214db6e-b614;
+  <http://www.ajan.de/behavior/bt-ns#useW3C> false;
+  rdfs:label "updateNumerOfSteps";
+  rdfs:comment "" .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#Update-dc5d51e4-1cad-4297-9238-6aa6b89cd820>
+  a <http://www.ajan.de/behavior/bt-ns#Update>;
+  <http://www.ajan.de/behavior/bt-ns#query> _:genid-71b22584687f472f85c720846214db6e-b629;
+  <http://www.ajan.de/behavior/bt-ns#useW3C> false;
+  rdfs:label "clearSteps";
+  rdfs:comment "" .
+
+_:genid-71b22584687f472f85c720846214db6e-b479 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#ExecutionKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+CONSTRUCT {
+pomdp-ns:State rdfs:value ?next_state .
+?next_state pomdp-ns:name ?state_name .
+?next_state pomdp-ns:type ?state_type .
+?next_state pomdp-ns:id ?state_id .
+?next_state pomdp-ns:attributes ?attribute_node .
+?next_state pomdp-ns:to_print ?to_print_node .
+?to_print_node rdfs:value \"gesture_found\" .
+?next_state pomdp-ns-key:id ?state_id .
+?attribute_node pomdp-ns-key:pose ?poseNode .
+?poseNode rdfs:type ?poseType .
+?poseNode rdfs:x ?xValue .
+?poseNode rdfs:y ?yValue .
+?attribute_node pomdp-ns-key:gesture_found ?gestureValue .
+}
+WHERE{
+    pomdp-ns:Environment pomdp-ns:State ?next_state .
+    BIND(BNODE() as ?to_print_node) .
+    pomdp-ns:POMDP rdfs:value ?currentProblem .
+    ?currentProblem pomdp-ns:plannedAction ?action .
+    ?next_state pomdp-ns:name ?state_name .
+    ?next_state pomdp-ns:type ?state_type .
+    ?next_state pomdp-ns:id ?state_id .
+    ?next_state pomdp-ns:attributes ?attribute_node .
+    ?attribute_node rdfs:type pomdp-ns:Environment .
+    ?attribute_node pomdp-ns-key:pose ?poseNode .
+    OPTIONAL {
+    ?poseNode rdfs:type ?poseType .
+    ?poseNode rdfs:x ?xValue .
+    ?poseNode rdfs:y ?yValue .
+    }
+    ?attribute_node pomdp-ns-key:gesture_found ?gesture .
+    {SELECT (COUNT(?keypoints) as ?count)
+        WHERE {
+            pomdp-ns:Observation pomdp-ns:attributes ?attributesNode .
+            ?attributesNode pomdp-ns-key:pose ?poseNode .
+            ?poseNode rdfs:value ?keypoints .
+    }}
+    BIND(IF(?count>0 && ?action=pomdp-ns1:Action_perceive, true, ?gesture) as ?gestureValue) .
+    ?attribute_node (pomdp-ns:|!pomdp-ns:) ?k .
+	?k ?p ?o .
+}   """ .
+
+_:genid-71b22584687f472f85c720846214db6e-b480 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#ExecutionKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+
+CONSTRUCT {
+    pomdp-ns:RewardModel pomdp-ns:attributes ?attributes .
+   ?attributes pomdp-ns-key:drone_id 100 .
+   ?attributes pomdp-ns-key:person_id rdf:nil .
+   ?attributes pomdp-ns-key:big 1000 .
+   ?attributes pomdp-ns-key:small 1 .
+}
+WHERE {
+   BIND(BNODE() AS ?attributes) .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b482 a <http://www.ajan.de/behavior/mdp-ns#attributes>;
+  <http://www.ajan.de/behavior/mdp-ns#attribute-name> "";
+  <http://www.ajan.de/behavior/mdp-ns#attribute-value> "" .
+
+_:genid-71b22584687f472f85c720846214db6e-b486 a <http://www.ajan.de/behavior/bt-ns#SelectQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """    PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+    PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+    PREFIX pomdp-ns-data:<http://www.dfki.de/pomdp-ns/POMDP/data/>
+    PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX ajan-math-ns:<http://www.ajan.de/ajan/functions/math-ns#>
+    
+    SELECT ?probability
+    WHERE {
+        pomdp-ns:current_action rdfs:value ?action .
+        pomdp-ns:Observation pomdp-ns:attributes ?attributesNode .
+        ?attributesNode pomdp-ns1:_pose ?pose .
+        pomdp-ns:next_state rdfs:value ?next_state .
+        ?next_state pomdp-ns:attributes ?stateAttributesNode .
+        ?stateAttributesNode pomdp-ns1:_gesture ?next_gesture .
+    
+        BIND(IF(?action != pomdp-ns1:Action_perceive && ?pose = rdfs:nil, 1.0,0.0) as ?probability) .
+        
+        BIND(5 as ?sigma) .
+        
+        BIND(ajan-math-ns:distance(10, 11) as ?testDistance) .
+        BIND(pomdp-ns-data:Point_9 as ?lwrist) .
+        BIND(pomdp-ns-data:Point_11 as ?lhip) .
+        BIND(pomdp-ns-data:Point_10 as ?rhip) .
+        BIND(pomdp-ns-data:Point_12 as ?rwrist) .
+        BIND(ajan-math-ns:distance(?lhip, ?lwrist) as ?leftDistance) .
+        BIND(ajan-math-ns:distance(?rhip, ?rwrist) as ?rightDistance) .
+        BIND(ajan-math-ns:calculate_near_probability(?leftDistance, ?sigma) as ?leftProbability) .
+        BIND(ajan-math-ns:calculate_near_probability(?rightDistance, ?sigma) as ?rightProbability) .
+        
+        BIND(IF(?action = pomdp-ns1:Action_perceive,
+                    IF(?pose = rdfs:nil, 1.0,
+                                            IF(?next_gesture = \"left\", ?leftProbability,
+                                            IF(?next_gesture = \"right\", ?rightProbability, 0.0))),?probability) 
+        as ?probability) .
+    }""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b487 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#ExecutionKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+
+CONSTRUCT {
+    pomdp-ns:TransitionModel pomdp-ns:attributes ?attributes .
+   ?attributes pomdp-ns-key:person_id 112 .
+   ?attributes pomdp-ns-key:epsilon 1e-9 .
+}
+WHERE {
+   BIND(BNODE() AS ?attributes) .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b491 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#ExecutionKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+
+CONSTRUCT {
+    pomdp-ns:ObservationModel pomdp-ns:attributes ?attributes .
+   ?attributes pomdp-ns-key:person_id 112 .
+   ?attributes pomdp-ns-key:epsilon 1 .
+}
+WHERE {
+   BIND(BNODE() AS ?attributes) .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b492 a <http://www.ajan.de/behavior/mdp-ns#attributes>;
+  <http://www.ajan.de/behavior/mdp-ns#attribute-name> "";
+  <http://www.ajan.de/behavior/mdp-ns#attribute-value> "" .
+
+_:genid-71b22584687f472f85c720846214db6e-b493 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#ExecutionKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+CONSTRUCT {
+pomdp-ns:Action rdfs:value ?actions .
+?s ?p ?o .
+}
+WHERE{
+    pomdp-ns:POMDP pomdp-ns:current ?currentPOMDP .
+    ?currentPOMDP pomdp-ns:Action ?actions .
+    ?actions (pomdp-ns:|!pomdp-ns:)* ?s .
+    ?s ?p ?o  .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b495 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#beliefBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#queryTemplate> "{\"id\":\"State Keys to Print Template (1 Key)\",\"title\":\"State Keys to Print Template (1 Key)\",\"description\":\"Template for Keys to Print Field. POMDP Service takes these string values as attribute key values to create a unique representation for States. Only one key is exposed. Switch to advanced view to use multiple keys.\",\"nodes\":[\"All\"],\"targetBase\":\"http://www.ajan.de/ajan-ns#AgentKnowledge\",\"query\":\"\",\"queryVariables\":\"state_id,to_print_node,key1,to_print_node)\",\"parameters\":[{\"label\":\"State ID\",\"variable\":\"state_id\",\"variableBinding\":\"112\",\"title\":\"State ID\",\"mode\":\"Input\",\"note\":\"\",\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]},{\"label\":\"Key Value\",\"variable\":\"key1\",\"variableBinding\":\"'gesture'\",\"title\":\"Key Value\",\"mode\":\"Input\",\"note\":\"Key value to be included in the State Representation\",\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]}]}";
+  <http://www.ajan.de/behavior/bt-ns#queryTemplateDefaultQuery> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:State_?state_id pomdp-ns:to_print ?to_print_node .
+    ?to_print_node rdfs:value ?key1 .
+}
+WHERE{
+	BIND(BNODE() as ?to_print_node) .
+}""";
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:State_112 pomdp-ns:to_print ?to_print_node .
+    ?to_print_node rdfs:value \"gesture\" .
+}
+WHERE{
+	BIND(BNODE() as ?to_print_node) .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b497 a <http://www.ajan.de/behavior/mdp-ns#attributes>;
+  <http://www.ajan.de/behavior/mdp-ns#attribute-name> "";
+  <http://www.ajan.de/behavior/mdp-ns#attribute-value> "" .
+
+_:genid-71b22584687f472f85c720846214db6e-b498 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>,
+    <http://www.ajan.de/behavior/bt-ns#Input>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> "CONSTRUCT WHERE {?s ?o ?p}" .
+
+_:genid-71b22584687f472f85c720846214db6e-b500 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#ExecutionKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+
+CONSTRUCT {
+    pomdp-ns:RewardModel pomdp-ns:attributes ?attributes .
+   ?attributes pomdp-ns-key:drone_id 100 .
+   ?attributes pomdp-ns-key:person_id 112 .
+   ?attributes pomdp-ns-key:big 1000 .
+   ?attributes pomdp-ns-key:small 1 .
+}
+WHERE {
+   BIND(BNODE() AS ?attributes) .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b502 a <http://www.ajan.de/behavior/bt-ns#SelectQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX mosim: <http://www.dfki.de/mosim-ns#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?port
+WHERE {
+  ?a rdf:type mosim:Avatar .
+  ?a mosim:clPort ?port .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b504 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#beliefBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX pomdp-data-ns:<http://www.dfki.de/pomdp-ns/POMDP/data/>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:State_100 pomdp-ns:attributes ?attributesNode .
+    ?attributesNode pomdp-ns-key:gesture_found false .
+    ?attributesNode pomdp-ns-key:pose ?poseNode .
+    ?poseNode rdfs:type pomdp-data-ns:2dVector .
+    ?poseNode rdfs:x 0 .
+    ?poseNode rdfs:y 0 .
+}
+WHERE{
+	BIND(BNODE() as ?attributesNode) .
+	BIND(BNODE() as ?poseNode) .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b505 a <http://www.ajan.de/behavior/mdp-ns#attributes>;
+  <http://www.ajan.de/behavior/mdp-ns#attribute-name> "person_id";
+  <http://www.ajan.de/behavior/mdp-ns#attribute-value> "112" .
+
+_:genid-71b22584687f472f85c720846214db6e-b506 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#ExecutionKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """   PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+    PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+    PREFIX pomdp-data-ns:<http://www.dfki.de/pomdp-ns/POMDP/data/>
+    PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+    CONSTRUCT {
+        pomdp-ns:State rdfs:value ?state .
+        ?state rdfs:type pomdp-ns:State .
+        ?state pomdp-ns:id ?stateId .
+        ?state pomdp-ns:name \"Person\" .
+        ?state pomdp-ns:type \"env\" .
+        ?state pomdp-ns:attributes ?attributes .
+        ?state pomdp-ns:to_print ?to_print_node .
+        ?to_print_node rdfs:value \"gesture\" .
+        ?attributes pomdp-ns1:_id ?stateId .
+
+        ?attributes pomdp-ns1:_gesture ?gestureValue .
+
+        ?attributes pomdp-ns1:_pose ?pose .
+        ?pose rdfs:type ?poseType .
+        ?pose rdfs:x ?xValue .
+        ?pose rdfs:y ?yValue .
+
+    }
+    WHERE{
+        pomdp-ns:current_state rdfs:value ?state .
+        pomdp-ns:current_action rdfs:value ?action .
+        ?state pomdp-ns:id ?stateId .
+        ?state pomdp-ns:attributes [
+        pomdp-ns1:_pose ?poseNode ;
+        pomdp-ns1:_gesture ?gesture ] .
+
+        OPTIONAL{    
+            ?poseNode rdfs:x ?xValue .
+            ?poseNode rdfs:y ?yValue .
+            BIND(pomdp-data-ns:2dVector as ?poseType) .
+            ?action pomdp-ns:attributes/pomdp-ns1:_motion ?motionType .
+        }
+
+        BIND(BNODE() as ?attributes) .
+        BIND(BNODE() as ?to_print_node) .
+        BIND(IF(?action=pomdp-ns1:Action_perceive, rdfs:nil, BNODE()) as ?pose) .
+
+        BIND(IF(?action=pomdp-ns1:Action_perceive, 
+                IF(RAND()>0.5,
+                    IF(RAND()>0.5, \"left\",rdfs:nil)
+                    ,\"right\"), 
+                ?gesture) as ?gestureValue) .
+        ?s ?p ?o  .
+    }""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b507 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#beliefBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:State_100 pomdp-ns:to_print ?to_print_node .
+    ?to_print_node rdfs:value \"gesture_found\" .
+}
+WHERE{
+	BIND(BNODE() as ?to_print_node) .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b509 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#ExecutionKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """    PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+    PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+    PREFIX pomdp-data-ns:<http://www.dfki.de/pomdp-ns/POMDP/data/>
+    PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+    CONSTRUCT {
+        pomdp-ns:State rdfs:value ?state .
+        ?state rdfs:type pomdp-ns:State .
+        ?state pomdp-ns:id ?stateId .
+        ?state pomdp-ns:name \"Drone\" .
+        ?state pomdp-ns:type \"agent\" .
+        ?state pomdp-ns:attributes ?attributes .
+        ?state pomdp-ns:to_print ?to_print_node .
+        ?to_print_node rdfs:value \"gesture_found\" .
+        ?attributes pomdp-ns1:_id ?stateId .
+
+        ?attributes pomdp-ns1:_gesture_found ?gestureValue .
+
+        ?attributes pomdp-ns1:_pose ?poseNew .
+        ?poseNew rdfs:type pomdp-data-ns:2dVector .
+        ?poseNew rdfs:x ?xValue .
+        ?poseNew rdfs:y ?yValue .
+
+    }
+    WHERE{
+        pomdp-ns:current_state rdfs:value ?state .
+        pomdp-ns:current_action rdfs:value ?action .
+        ?state pomdp-ns:id ?stateId .
+        [pomdp-ns1:_pose ?poseNode ;
+         pomdp-ns1:_gesture_found ?gesture ] .
+        
+        OPTIONAL {
+            ?poseNode rdfs:x ?xPose .
+            ?poseNode rdfs:y ?yPose .
+        }
+        
+        OPTIONAL{    
+            ?action pomdp-ns:attributes/pomdp-ns1:_motion ?motionType .
+        }
+
+        BIND(BNODE() as ?attributes) .
+        BIND(BNODE() as ?to_print_node) .
+        BIND(BNODE() as ?pose) .
+        
+        BIND(IF(?poseNode = rdfs:nil && ?action=pomdp-ns1:Action_perceive, rdfs:nil, ?pose) as ?poseNew) .
+
+        BIND(IF (?action=pomdp-ns1:Action_move && ?motionType =\"right\",
+                ?xPose+1,?xPose) as ?xValue) .
+        BIND(IF (?action=pomdp-ns1:Action_move && ?motionType =\"left\",
+                ?xPose-1,?xValue) as ?xValue) .
+        BIND(IF(?action=pomdp-ns1:Action_move,?yPose+1,?yPose) as ?yValue) .
+        BIND(IF(?action=pomdp-ns1:Action_perceive, 
+                IF(RAND()>0.5,\"true\"^^xsd:boolean,\"false\"^^xsd:boolean), 
+            \"false\"^^xsd:boolean) as ?gestureValue) .
+        ?s ?p ?o  .
+    }""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b510 a <http://www.ajan.de/behavior/bt-ns#UpdateQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#ExecutionKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+DELETE
+WHERE{
+    pomdp-ns:Environment pomdp-ns:State ?next_state .
+    ?attribute_node rdfs:type pomdp-ns:Environment .
+}  """ .
+
+_:genid-71b22584687f472f85c720846214db6e-b511 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#beliefBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#queryTemplate> "{\"id\":\"Action Keys to Print Template (1 Key)\",\"title\":\"Action Keys to Print Template (1 Key)\",\"description\":\"Template for Keys to Print Field. POMDP Service takes these string values as attribute key values to create a unique representation for Actions. Only one key is exposed. Switch to advanced view to use multiple keys.\",\"nodes\":[\"All\"],\"targetBase\":\"http://www.ajan.de/ajan-ns#AgentKnowledge\",\"query\":\"\",\"queryVariables\":\"action_name,to_print_node,key1,to_print_node)\",\"parameters\":[{\"label\":\"Action Name\",\"variable\":\"action_name\",\"variableBinding\":\"move\",\"title\":\"Action Name\",\"mode\":\"Input\",\"note\":\"\",\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]},{\"label\":\"Key 1\",\"variable\":\"key1\",\"variableBinding\":\"'motion'\",\"title\":\"Key 1\",\"mode\":\"Input\",\"note\":null,\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]}]}";
+  <http://www.ajan.de/behavior/bt-ns#queryTemplateDefaultQuery> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:Action_?action_name pomdp-ns:to_print ?to_print_node .
+    ?to_print_node rdfs:value ?key1 .
+}
+WHERE{
+	BIND(BNODE() as ?to_print_node) .
+}""";
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:Action_move pomdp-ns:to_print ?to_print_node .
+    ?to_print_node rdfs:value 'motion' .
+}
+WHERE{
+	BIND(BNODE() as ?to_print_node) .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b514 a <http://www.ajan.de/behavior/bt-ns#SelectQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """    PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+    PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+    PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    
+    SELECT ?probability
+    WHERE {
+        pomdp-ns:current_action rdfs:value ?action .
+        pomdp-ns:RewardModel pomdp-ns:attributes ?modelAttributesNode .
+        pomdp-ns:current_reward rdfs:value ?current_reward .
+        
+        OPTIONAL {
+        ?action pomdp-ns:attributes ?actionAttributeNode .
+        ?actionAttributeNode pomdp-ns1:_motion ?motionType .
+        }
+        
+        OPTIONAL {
+        ?modelAttributesNode pomdp-ns1:_drone_id ?droneId.
+        pomdp-ns:current_state rdfs:value ?currentOOState .
+        ?currentOOState rdfs:type pomdp-ns:OOState .
+        ?currentOOState rdfs:value ?currentDroneState .
+        ?currentDroneState pomdp-ns:id ?droneId .
+        }
+        
+        OPTIONAL {
+        ?modelAttributesNode pomdp-ns1:_person_id ?personId.
+        pomdp-ns:current_state rdfs:value ?currentOOState .
+        ?currentOOState rdfs:type pomdp-ns:OOState .
+        ?currentOOState rdfs:value ?currentPersonState .
+        ?currentPersonState pomdp-ns:id ?personId .
+        }
+        
+        OPTIONAL {
+        pomdp-ns:current_state rdfs:value ?currentDroneState .}
+        
+        pomdp-ns:next_state rdfs:value ?nextState .
+        
+        ?modelAttributesNode pomdp-ns1:_big ?bigReward .
+        BIND(0.0 as ?probability) .
+        BIND(0.0 as ?temp_reward) .
+        
+        OPTIONAL {
+        ?currentDroneState pomdp-ns:attributes ?cattributeNode .
+        ?cattributeNode rdfs:type pomdp-ns:current_state .
+        ?cattributeNode pomdp-ns1:_gesture_found ?current_gesture_found .
+        
+        ?currentDroneState pomdp-ns:attributes ?nattributeNode .
+        ?nattributeNode rdfs:type pomdp-ns:next_state .
+        ?nattributeNode pomdp-ns1:_gesture_found ?next_gesture_found .
+        }
+        
+        OPTIONAL {
+        ?currentPersonState pomdp-ns:attributes ?cpattributeNode .
+        ?cpattributeNode rdfs:type pomdp-ns:current_state .
+        ?cpattributeNode pomdp-ns1:_gesture ?person_current_gesture .
+        
+        ?currentPersonState pomdp-ns:attributes ?npattributeNode .
+        ?npattributeNode rdfs:type pomdp-ns:next_state .
+        ?npattributeNode pomdp-ns1:_gesture ?person_next_gesture .
+        }
+        
+        BIND (IF(?action = pomdp-ns1:Action_perceive &&
+        (!?current_gesture_found && ?next_gesture_found), ?temp_reward+?bigReward, ?temp_reward) as ?perceiveReward) .
+        
+        BIND (IF(?person_current_gesture != rdfs:nil && 
+        ?person_current_gesture = ?person_next_gesture &&
+        ?action = pomdp-ns1:Action_move,
+        IF(?person_current_gesture = ?motionType,?perceiveReward+?bigReward,?perceiveReward-?bigReward), ?perceiveReward)
+        as ?perceiveReward) .
+        
+        BIND(IF(?perceiveReward=?current_reward, 1.0, 0.0) as ?probability) .
+        
+    }""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b515 a <http://www.ajan.de/behavior/bt-ns#SelectQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX mosim: <http://www.dfki.de/mosim-ns#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ((xsd:int(?int) + 2) as ?port)
+WHERE {
+  ?a rdf:type mosim:Avatar .
+  ?a mosim:clPort ?int .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b518 a <http://www.ajan.de/behavior/mdp-ns#attributes>;
+  <http://www.ajan.de/behavior/mdp-ns#attribute-name> "";
+  <http://www.ajan.de/behavior/mdp-ns#attribute-value> "" .
+
+_:genid-71b22584687f472f85c720846214db6e-b519 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>,
+    <http://www.ajan.de/behavior/bt-ns#Input>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#ExecutionKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+CONSTRUCT{
+?current_pomdp pomdp-ns:plannedAction ?plannedAction .
+?plannedAction pomdp-ns:attributes ?a .
+?a ?p ?o .
+}
+WHERE{
+    pomdp-ns:POMDP pomdp-ns:current ?current_pomdp .
+    ?current_pomdp pomdp-ns:plannedAction ?plannedAction .
+    OPTIONAL {
+    ?plannedAction pomdp-ns:attributes ?a .
+    ?a rdfs:type pomdp-ns:plannedAction .
+    ?a ?p ?o .
+    }
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b522 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+
+CONSTRUCT {
+    pomdp-ns:Agent pomdp-ns1:attributes ?attributes .
+   ?attributes pomdp-ns-key:drone_id 100 .
+}
+WHERE {
+   BIND(BNODE() AS ?attributes) .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b524 a <http://www.ajan.de/behavior/clingo-ns#Constant>;
+  <http://www.ajan.de/behavior/clingo-ns#name> "";
+  <http://www.ajan.de/behavior/clingo-ns#value> "5" .
+
+_:genid-71b22584687f472f85c720846214db6e-b525 a <http://www.ajan.de/behavior/bt-ns#SelectQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """    PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+    PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+    PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    
+    SELECT ?sample
+    WHERE {
+        pomdp-ns:current_action rdfs:value ?action .
+        pomdp-ns:RewardModel pomdp-ns:attributes ?modelAttributesNode .
+        
+        OPTIONAL {
+        ?action pomdp-ns:attributes ?actionAttributeNode .
+        ?actionAttributeNode pomdp-ns1:_motion ?motionType .
+        }
+        
+        OPTIONAL {
+        ?modelAttributesNode pomdp-ns1:_drone_id ?droneId.
+        pomdp-ns:current_state rdfs:value ?currentOOState .
+        ?currentOOState rdfs:type pomdp-ns:OOState .
+        ?currentOOState rdfs:value ?currentDroneState .
+        ?currentDroneState pomdp-ns:id ?droneId .
+        }
+        
+        OPTIONAL {
+        ?modelAttributesNode pomdp-ns1:_person_id ?personId.
+        pomdp-ns:current_state rdfs:value ?currentOOState .
+        ?currentOOState rdfs:type pomdp-ns:OOState .
+        ?currentOOState rdfs:value ?currentPersonState .
+        ?currentPersonState pomdp-ns:id ?personId .
+        }
+        
+        OPTIONAL {
+        pomdp-ns:current_state rdfs:value ?currentDroneState .}
+        
+        pomdp-ns:next_state rdfs:value ?nextState .
+        
+        ?modelAttributesNode pomdp-ns1:_big ?bigReward .
+        BIND(0.0 as ?probability) .
+        BIND(0.0 as ?temp_reward) .
+        
+        OPTIONAL {
+        ?currentDroneState pomdp-ns:attributes ?cattributeNode .
+        ?cattributeNode rdfs:type pomdp-ns:current_state .
+        ?cattributeNode pomdp-ns1:_gesture_found ?current_gesture_found .
+        
+        ?currentDroneState pomdp-ns:attributes ?nattributeNode .
+        ?nattributeNode rdfs:type pomdp-ns:next_state .
+        ?nattributeNode pomdp-ns1:_gesture_found ?next_gesture_found .
+        }
+        
+        OPTIONAL {
+        ?currentPersonState pomdp-ns:attributes ?cpattributeNode .
+        ?cpattributeNode rdfs:type pomdp-ns:current_state .
+        ?cpattributeNode pomdp-ns1:_gesture ?person_current_gesture .
+        
+        ?currentPersonState pomdp-ns:attributes ?npattributeNode .
+        ?npattributeNode rdfs:type pomdp-ns:next_state .
+        ?npattributeNode pomdp-ns1:_gesture ?person_next_gesture .
+        }
+        
+        BIND (IF(?action = pomdp-ns1:Action_perceive &&
+        (!?current_gesture_found && ?next_gesture_found), ?temp_reward+?bigReward, ?temp_reward) as ?perceiveReward) .
+        
+        BIND (IF(?person_current_gesture != rdfs:nil && 
+        ?person_current_gesture = ?person_next_gesture &&
+        ?action = pomdp-ns1:Action_move,
+        IF(?person_current_gesture = ?motionType,?perceiveReward+?bigReward,?perceiveReward-?bigReward), ?perceiveReward)
+        as ?perceiveReward) .
+        
+        BIND(?perceiveReward as ?sample) .
+        
+    }""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b526 a <http://www.ajan.de/behavior/mdp-ns#attributes>;
+  <http://www.ajan.de/behavior/mdp-ns#attribute-name> "";
+  <http://www.ajan.de/behavior/mdp-ns#attribute-value> "" .
+
+_:genid-71b22584687f472f85c720846214db6e-b527 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#beliefBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#queryTemplate> "{\"id\":\"Action Keys to Print Template (None)\",\"title\":\"Action Keys to Print Template (None)\",\"description\":\"Template for Keys to Print Field. POMDP Service takes these string values as attribute key values to create a unique representation for Actions. Choose this if the action has no keys to be chosen for representation.\",\"nodes\":[\"All\"],\"targetBase\":\"http://www.ajan.de/ajan-ns#AgentKnowledge\",\"query\":\"\",\"queryVariables\":\"action_name,to_print_node,to_print_node)\",\"parameters\":[{\"label\":\"Action Name\",\"variable\":\"action_name\",\"variableBinding\":\"perceive\",\"title\":\"Action Name\",\"mode\":\"Input\",\"note\":null,\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]}]}";
+  <http://www.ajan.de/behavior/bt-ns#queryTemplateDefaultQuery> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:Action_?action_name pomdp-ns:to_print ?to_print_node .
+}
+WHERE{
+	BIND(rdfs:nil as ?to_print_node) .
+}""";
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:Action_perceive pomdp-ns:to_print ?to_print_node .
+}
+WHERE{
+	BIND(rdfs:nil as ?to_print_node) .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b528 a <http://www.ajan.de/behavior/bt-ns#SelectQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?probability
+WHERE{
+    BIND(1e-9 as ?probability) .
+
+    pomdp-ns:next_state rdf:value ?next_state .
+    pomdp-ns:current_state rdf:value ?current_state .
+
+    FILTER(?next_state = ?current_state) .
+
+    [ rdf:type pomdp-ns:next_state ;
+     pomdp-ns1:_gesture_found ?next_gesture ] .
+
+    [ rdf:type pomdp-ns:current_state ;
+     pomdp-ns1:_gesture_found ?current_gesture ] .
+
+    BIND(IF(?next_gesture=?current_gesture, true, false) as ?gesture_equal) .
+
+    BIND(IF(?next_state=?current_state && ?gesture_equal, 1-1e-9, 1e-9) as ?probability) .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b529 a <http://www.ajan.de/behavior/mdp-ns#belief>;
+  <http://www.ajan.de/behavior/mdp-ns#attributesQuery> _:genid-71b22584687f472f85c720846214db6e-b530;
+  <http://www.ajan.de/behavior/mdp-ns#state-id> "100"^^xsd:int;
+  <http://www.ajan.de/behavior/mdp-ns#state-name> "Drone";
+  <http://www.ajan.de/behavior/mdp-ns#state-probability> "1.0"^^xsd:float;
+  <http://www.ajan.de/behavior/mdp-ns#state-type> "agent";
+  <http://www.ajan.de/behavior/mdp-ns#toPrintQuery> _:genid-71b22584687f472f85c720846214db6e-b531 .
+
+_:genid-71b22584687f472f85c720846214db6e-b530 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#beliefBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX pomdp-data-ns:<http://www.dfki.de/pomdp-ns/POMDP/data/>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:State_100 pomdp-ns:attributes ?attributesNode .
+    ?attributesNode pomdp-ns-key:gesture_found false .
+    ?attributesNode pomdp-ns-key:pose ?poseNode .
+    ?poseNode rdfs:type pomdp-data-ns:2dVector .
+    ?poseNode rdfs:x 0 .
+    ?poseNode rdfs:y 0 .
+}
+WHERE{
+	BIND(BNODE() as ?attributesNode) .
+	BIND(BNODE() as ?poseNode) .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b531 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#beliefBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:State_100 pomdp-ns:to_print ?to_print_node .
+    ?to_print_node rdfs:value \"gesture_found\" .
+}
+WHERE{
+	BIND(BNODE() as ?to_print_node) .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b533 a <http://www.ajan.de/behavior/mdp-ns#attributes>;
+  <http://www.ajan.de/behavior/mdp-ns#attribute-name> "";
+  <http://www.ajan.de/behavior/mdp-ns#attribute-value> "" .
+
+_:genid-71b22584687f472f85c720846214db6e-b537 a <http://www.ajan.de/behavior/bt-ns#UpdateQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#ExecutionKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns: <http://www.dfki.de/pomdp-ns#>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+INSERT {
+  pomdp-ns:steps rdfs:value 0 .
+}
+WHERE {
+  FILTER NOT EXISTS { pomdp-ns:steps rdfs:value ?counter . }
+}
+""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b538 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#beliefBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> "" .
+
+_:genid-71b22584687f472f85c720846214db6e-b539 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """    PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+    PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+    PREFIX pomdp-data-ns:<http://www.dfki.de/pomdp-ns/POMDP/data/>
+    PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+    CONSTRUCT {
+        pomdp-ns:State rdfs:value ?state .
+        ?state rdfs:type pomdp-ns:State .
+        ?state pomdp-ns:id ?stateId .
+        ?state pomdp-ns:name \"Drone\" .
+        ?state pomdp-ns:type \"agent\" .
+        ?state pomdp-ns:attributes ?attributes .
+        ?state pomdp-ns:to_print ?to_print_node .
+        ?to_print_node rdfs:value \"gesture_found\" .
+        ?attributes pomdp-ns1:_id ?stateId .
+
+        ?attributes pomdp-ns1:_gesture_found ?gestureValue .
+
+        ?attributes pomdp-ns1:_pose ?poseNew .
+        ?poseNew rdfs:type pomdp-data-ns:2dVector .
+        ?poseNew rdfs:x ?xValue .
+        ?poseNew rdfs:y ?yValue .
+
+    }
+    WHERE{
+        pomdp-ns:current_state rdfs:value ?state .
+        pomdp-ns:current_action rdfs:value ?action .
+        ?state pomdp-ns:id ?stateId .
+        [pomdp-ns1:_pose ?poseNode ;
+         pomdp-ns1:_gesture_found ?gesture ] .
+        
+        OPTIONAL {
+            ?poseNode rdfs:x ?xPose .
+            ?poseNode rdfs:y ?yPose .
+        }
+        
+        OPTIONAL{    
+            ?action pomdp-ns:attributes/pomdp-ns1:_motion ?motionType .
+        }
+
+        BIND(BNODE() as ?attributes) .
+        BIND(BNODE() as ?to_print_node) .
+        BIND(BNODE() as ?pose) .
+        
+        BIND(IF(?poseNode = rdfs:nil && ?action=pomdp-ns1:Action_perceive, rdfs:nil, ?pose) as ?poseNew) .
+
+        BIND(IF (?action=pomdp-ns1:Action_move && ?motionType =\"right\",
+                ?xPose+1,?xPose) as ?xValue) .
+        BIND(IF (?action=pomdp-ns1:Action_move && ?motionType =\"left\",
+                ?xPose-1,?xValue) as ?xValue) .
+        BIND(IF(?action=pomdp-ns1:Action_move,?yPose+1,?yPose) as ?yValue) .
+        BIND(IF(?action=pomdp-ns1:Action_perceive, 
+                IF(RAND()>0.5,\"true\"^^xsd:boolean,\"false\"^^xsd:boolean), 
+            \"false\"^^xsd:boolean) as ?gestureValue) .
+        ?s ?p ?o  .
+    }""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b541 a <http://www.ajan.de/behavior/mdp-ns#attributes>;
+  <http://www.ajan.de/behavior/mdp-ns#attribute-name> "epsilon";
+  <http://www.ajan.de/behavior/mdp-ns#attribute-value> "1e-9" .
+
+_:genid-71b22584687f472f85c720846214db6e-b545 a <http://www.ajan.de/behavior/bt-ns#AskQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#ExecutionKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX xsd:<http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+ASK
+WHERE{
+	pomdp-ns:POMDP pomdp-ns:id \"0\"^^xsd:int .
+	pomdp-ns:POMDP pomdp-ns:current ?curentPOMDP .
+	?curentPOMDP pomdp-ns:plannedAction ?action .
+	pomdp-ns:Environment pomdp-ns:State ?envstate .
+	?envstate pomdp-ns:attributes ?attributeNode .
+	?attributeNode rdfs:type pomdp-ns:Environment .
+	?attributeNode pomdp-ns-key:gesture_found ?gesture_found .
+	 pomdp-ns:steps rdfs:value ?noOfSteps .
+	BIND(IF(?gesture_found=\"true\"^^xsd:boolean && ?action=pomdp-ns1:Action_move || ?noOfSteps >= 3 , true, false) as ?exit) .
+	FILTER(?exit=true) .
+}""" .
+
+<http://localhost:8090/rdf4j/repositories/behaviors#UntilSuccess-ea9e17db-04f8-4942-ab47-746cbdd2ae59>
+  a <http://www.ajan.de/behavior/bt-ns#UntilSuccess>;
+  rdfs:label "defaultUntilSuccess";
+  <http://www.ajan.de/behavior/bt-ns#hasChild> <http://localhost:8090/rdf4j/repositories/behaviors#Sequence-160c9de6-0221-46ab-b442-a10522563e9f> .
+
+_:genid-71b22584687f472f85c720846214db6e-b546 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#beliefBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> "" .
+
+_:genid-71b22584687f472f85c720846214db6e-b547 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#beliefBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#queryTemplate> "{\"id\":\"State Attribute Template (2 Key)\",\"title\":\"State Attribute Template (2 Key)\",\"description\":\"Template for State Attributes. Only two parameter values is added in this template. But duplicate them according to your needs.\",\"nodes\":[\"All\"],\"targetBase\":\"http://www.ajan.de/ajan-ns#AgentKnowledge\",\"query\":\"\",\"queryVariables\":\"state_id,attributesNode,key1,value1,key2,value2,attributesNode)\",\"parameters\":[{\"label\":\"State ID:\",\"variable\":\"state_id\",\"variableBinding\":\"112\",\"title\":\"State ID:\",\"mode\":\"Input\",\"note\":null,\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]},{\"label\":\"Paramter 1\",\"variable\":\"key1\",\"variableBinding\":\"gesture\",\"title\":\"Paramter 1\",\"mode\":\"Input\",\"note\":null,\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]},{\"label\":\"Value for Parameter 1\",\"variable\":\"value1\",\"variableBinding\":\"rdfs:nil\",\"title\":\"Value for Parameter 1\",\"mode\":\"Input\",\"note\":null,\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]},{\"label\":\"Parameter Name 2\",\"variable\":\"key2\",\"variableBinding\":\"pose\",\"title\":\"Parameter Name 2\",\"mode\":\"Input\",\"note\":\"\",\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]},{\"label\":\"Value for Parameter 2\",\"variable\":\"value2\",\"variableBinding\":\"rdfs:nil\",\"title\":\"Value for Parameter 2\",\"mode\":\"Input\",\"note\":null,\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]}]}";
+  <http://www.ajan.de/behavior/bt-ns#queryTemplateDefaultQuery> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:State_?state_id pomdp-ns:attributes ?attributesNode .
+    ?attributesNode pomdp-ns-key:?key1 ?value1 .
+    ?attributesNode pomdp-ns-key:?key2 ?value2 .
+}
+WHERE{
+	BIND(BNODE() as ?attributesNode) .
+}""";
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:State_112 pomdp-ns:attributes ?attributesNode .
+    ?attributesNode pomdp-ns-key:gesture rdfs:nil .
+    ?attributesNode pomdp-ns-key:pose rdfs:nil .
+}
+WHERE{
+	BIND(BNODE() as ?attributesNode) .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b548 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#beliefBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> "" .
+
+_:genid-71b22584687f472f85c720846214db6e-b550 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#beliefBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#queryTemplate> "{\"id\":\"Action Attribute Template (1 Key)\",\"title\":\"Action Attribute Template (1 Key)\",\"description\":\"Template for Action Attributes. Only one parameter is allowed in the template. Inspect the query and add more if needed.\",\"nodes\":[\"All\"],\"targetBase\":\"http://www.ajan.de/ajan-ns#AgentKnowledge\",\"query\":\"\",\"queryVariables\":\"action_name,attributesNode,key1,value1,attributesNode)\",\"parameters\":[{\"label\":\"Action Name\",\"variable\":\"action_name\",\"variableBinding\":\"move\",\"title\":\"Action Name\",\"mode\":\"Input\",\"note\":null,\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]},{\"label\":\"Parameter 1\",\"variable\":\"key1\",\"variableBinding\":\"motion\",\"title\":\"Parameter 1\",\"mode\":\"Input\",\"note\":null,\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]},{\"label\":\"Value for Parameter 1\",\"variable\":\"value1\",\"variableBinding\":\"'right'\",\"title\":\"Value for Parameter 1\",\"mode\":\"Input\",\"note\":null,\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]}]}";
+  <http://www.ajan.de/behavior/bt-ns#queryTemplateDefaultQuery> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:Action_?action_name pomdp-ns:attributes ?attributesNode .
+    ?attributesNode pomdp-ns-key:?key1 ?value1 .
+}
+WHERE{
+	BIND(BNODE() as ?attributesNode) .
+}""";
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:Action_move pomdp-ns:attributes ?attributesNode .
+    ?attributesNode pomdp-ns-key:motion 'right' .
+}
+WHERE{
+	BIND(BNODE() as ?attributesNode) .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b553 a <http://www.ajan.de/behavior/mdp-ns#belief>;
+  <http://www.ajan.de/behavior/mdp-ns#attributesQuery> _:genid-71b22584687f472f85c720846214db6e-b554;
+  <http://www.ajan.de/behavior/mdp-ns#state-id> "0"^^xsd:int;
+  <http://www.ajan.de/behavior/mdp-ns#state-name> "";
+  <http://www.ajan.de/behavior/mdp-ns#state-probability> "0.0"^^xsd:float;
+  <http://www.ajan.de/behavior/mdp-ns#state-type> "env";
+  <http://www.ajan.de/behavior/mdp-ns#toPrintQuery> _:genid-71b22584687f472f85c720846214db6e-b555 .
+
+_:genid-71b22584687f472f85c720846214db6e-b554 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#beliefBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> "" .
+
+_:genid-71b22584687f472f85c720846214db6e-b555 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#beliefBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> "" .
+
+_:genid-71b22584687f472f85c720846214db6e-b559 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """    PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+    PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+    PREFIX pomdp-data-ns:<http://www.dfki.de/pomdp-ns/POMDP/data/>
+    PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+    CONSTRUCT {
+        pomdp-ns:State rdfs:value ?state .
+        ?state rdfs:type pomdp-ns:State .
+        ?state pomdp-ns:id ?stateId .
+        ?state pomdp-ns:name ?stateName .
+        ?state pomdp-ns:type ?stateType .
+        ?state pomdp-ns:attributes ?attributes .
+        ?state pomdp-ns:to_print ?to_print_node .
+        ?to_print_node rdfs:value \"gesture\" .
+        ?attributes pomdp-ns1:_id ?stateId .
+
+        ?attributes pomdp-ns1:_gesture ?gestureValue .
+
+        ?attributes pomdp-ns1:_pose ?pose .
+        ?pose rdfs:type ?poseType .
+        ?pose rdfs:x ?xValue .
+        ?pose rdfs:y ?yValue .
+
+    }
+    WHERE{
+        pomdp-ns:current_state rdfs:value ?state .
+        ?state pomdp-ns:name ?stateName .
+        ?state pomdp-ns:type ?stateType .
+
+        pomdp-ns:current_action rdfs:value ?action .
+        ?state pomdp-ns:id ?stateId .
+        ?state pomdp-ns:attributes ?attributesNode .
+        ?attributesNode pomdp-ns1:_pose ?poseNode .
+        ?attributesNode pomdp-ns1:_gesture ?gesture .
+
+        OPTIONAL{    
+            ?poseNode rdfs:x ?xValue .
+            ?poseNode rdfs:y ?yValue .
+            BIND(pomdp-data-ns:2dVector as ?poseType) .
+            ?action pomdp-ns:attributes ?actionAttributes .
+            ?actionAttributes pomdp-ns1:_motion ?motionType .
+        }
+
+        BIND(BNODE() as ?attributes) .
+        BIND(BNODE() as ?to_print_node) .
+        BIND(IF(?action=pomdp-ns1:Action_perceive, rdfs:nil, BNODE()) as ?pose) .
+
+        BIND(IF(?action=pomdp-ns1:Action_perceive, 
+                IF(RAND()>0.5,
+                    IF(RAND()>0.5, \"left\",rdfs:nil)
+                    ,\"right\"), 
+                ?gesture) as ?gestureValue) .
+        ?s ?p ?o  .
+    }""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b560 a <http://www.ajan.de/behavior/bt-ns#SelectQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """    PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+    PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+    PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    
+    SELECT ?sample
+    WHERE {
+        pomdp-ns:current_action rdfs:value ?action .
+        pomdp-ns:RewardModel pomdp-ns:attributes ?modelAttributesNode .
+        
+        OPTIONAL {
+        ?action pomdp-ns:attributes ?actionAttributeNode .
+        ?actionAttributeNode pomdp-ns1:_motion ?motionType .
+        }
+        
+        OPTIONAL {
+        ?modelAttributesNode pomdp-ns1:_drone_id ?droneId.
+        pomdp-ns:current_state rdfs:value ?currentOOState .
+        ?currentOOState rdfs:type pomdp-ns:OOState .
+        ?currentOOState rdfs:value ?currentDroneState .
+        ?currentDroneState pomdp-ns:id ?droneId .
+        }
+        
+        OPTIONAL {
+        ?modelAttributesNode pomdp-ns1:_person_id ?personId.
+        pomdp-ns:current_state rdfs:value ?currentOOState .
+        ?currentOOState rdfs:type pomdp-ns:OOState .
+        ?currentOOState rdfs:value ?currentPersonState .
+        ?currentPersonState pomdp-ns:id ?personId .
+        }
+        
+        OPTIONAL {
+        pomdp-ns:current_state rdfs:value ?currentDroneState .}
+        
+        pomdp-ns:next_state rdfs:value ?nextState .
+        
+        ?modelAttributesNode pomdp-ns1:_big ?bigReward .
+        BIND(0.0 as ?probability) .
+        BIND(0.0 as ?temp_reward) .
+        
+        OPTIONAL {
+        ?currentDroneState pomdp-ns:attributes ?cattributeNode .
+        ?cattributeNode rdfs:type pomdp-ns:current_state .
+        ?cattributeNode pomdp-ns1:_gesture_found ?current_gesture_found .
+        
+        ?currentDroneState pomdp-ns:attributes ?nattributeNode .
+        ?nattributeNode rdfs:type pomdp-ns:next_state .
+        ?nattributeNode pomdp-ns1:_gesture_found ?next_gesture_found .
+        }
+        
+        OPTIONAL {
+        ?currentPersonState pomdp-ns:attributes ?cpattributeNode .
+        ?cpattributeNode rdfs:type pomdp-ns:current_state .
+        ?cpattributeNode pomdp-ns1:_gesture ?person_current_gesture .
+        
+        ?currentPersonState pomdp-ns:attributes ?npattributeNode .
+        ?npattributeNode rdfs:type pomdp-ns:next_state .
+        ?npattributeNode pomdp-ns1:_gesture ?person_next_gesture .
+        }
+        
+        BIND (IF(?action = pomdp-ns1:Action_perceive &&
+        (!?current_gesture_found && ?next_gesture_found), ?temp_reward+?bigReward, ?temp_reward) as ?perceiveReward) .
+        
+        BIND (IF(?person_current_gesture != rdfs:nil && 
+        ?person_current_gesture = ?person_next_gesture &&
+        ?action = pomdp-ns1:Action_move,
+        IF(?person_current_gesture = ?motionType,?perceiveReward+?bigReward,?perceiveReward-?bigReward), ?perceiveReward)
+        as ?perceiveReward) .
+        
+        BIND(?perceiveReward as ?sample) .
+        
+    }""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b561 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#beliefBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#queryTemplate> "{\"id\":\"State Attribute Template (2 Key)\",\"title\":\"State Attribute Template (2 Key)\",\"description\":\"Template for State Attributes. Only two parameter values is added in this template. But duplicate them according to your needs.\",\"nodes\":[\"All\"],\"targetBase\":\"http://www.ajan.de/ajan-ns#AgentKnowledge\",\"query\":\"\",\"queryVariables\":\"state_id,attributesNode,key1,value1,key2,value2,attributesNode)\",\"parameters\":[{\"label\":\"State ID:\",\"variable\":\"state_id\",\"variableBinding\":\"112\",\"title\":\"State ID:\",\"mode\":\"Input\",\"note\":null,\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]},{\"label\":\"Paramter 1\",\"variable\":\"key1\",\"variableBinding\":\"gesture\",\"title\":\"Paramter 1\",\"mode\":\"Input\",\"note\":null,\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]},{\"label\":\"Value for Parameter 1\",\"variable\":\"value1\",\"variableBinding\":\"rdfs:nil\",\"title\":\"Value for Parameter 1\",\"mode\":\"Input\",\"note\":null,\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]},{\"label\":\"Parameter Name 2\",\"variable\":\"key2\",\"variableBinding\":\"pose\",\"title\":\"Parameter Name 2\",\"mode\":\"Input\",\"note\":\"\",\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]},{\"label\":\"Value for Parameter 2\",\"variable\":\"value2\",\"variableBinding\":\"rdfs:nil\",\"title\":\"Value for Parameter 2\",\"mode\":\"Input\",\"note\":null,\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]}]}";
+  <http://www.ajan.de/behavior/bt-ns#queryTemplateDefaultQuery> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:State_?state_id pomdp-ns:attributes ?attributesNode .
+    ?attributesNode pomdp-ns-key:?key1 ?value1 .
+    ?attributesNode pomdp-ns-key:?key2 ?value2 .
+}
+WHERE{
+	BIND(BNODE() as ?attributesNode) .
+}""";
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:State_112 pomdp-ns:attributes ?attributesNode .
+    ?attributesNode pomdp-ns-key:gesture rdfs:nil .
+    ?attributesNode pomdp-ns-key:pose rdfs:nil .
+}
+WHERE{
+	BIND(BNODE() as ?attributesNode) .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b562 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#ExecutionKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """    PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+    PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+    PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    CONSTRUCT {pomdp-ns:Action rdf:value ?actionNode .
+        ?actionNode pomdp-ns:attributes ?attributeNode .
+        ?attributeNode ?attribute ?attrValue .
+    } WHERE {
+        [pomdp-ns1:_gesture_found ?gesture_found] .
+        [pomdp-ns1:_gesture ?gesture] .
+    BIND( IF(?gesture_found && ?gesture!=rdf:nil, pomdp-ns1:Action_move, pomdp-ns1:Action_perceive) as ?actionNode).
+    
+    OPTIONAL {
+    FILTER(?gesture_found && ?gesture!=rdf:nil) .
+    {SELECT DISTINCT ?attributeNode WHERE {
+    ?actionNode pomdp-ns:attributes ?attributeNode .
+    }ORDER BY RAND() LIMIT 1}
+    ?attributeNode ?attribute ?attrValue . 
+    }
+    }""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b563 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>,
+    <http://www.ajan.de/behavior/bt-ns#Input>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> "CONSTRUCT WHERE {?s ?o ?p}" .
+
+_:genid-71b22584687f472f85c720846214db6e-b564 a <http://www.ajan.de/behavior/bt-ns#SelectQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """    PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+    PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+    PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    
+    SELECT ?probability
+    WHERE {
+        pomdp-ns:current_action rdfs:value ?action .
+        pomdp-ns:RewardModel pomdp-ns:attributes ?modelAttributesNode .
+        pomdp-ns:current_reward rdfs:value ?current_reward .
+        
+        OPTIONAL {
+        ?action pomdp-ns:attributes ?actionAttributeNode .
+        ?actionAttributeNode pomdp-ns1:_motion ?motionType .
+        }
+        
+        OPTIONAL {
+        ?modelAttributesNode pomdp-ns1:_drone_id ?droneId.
+        pomdp-ns:current_state rdfs:value ?currentOOState .
+        ?currentOOState rdfs:type pomdp-ns:OOState .
+        ?currentOOState rdfs:value ?currentDroneState .
+        ?currentDroneState pomdp-ns:id ?droneId .
+        }
+        
+        OPTIONAL {
+        ?modelAttributesNode pomdp-ns1:_person_id ?personId.
+        pomdp-ns:current_state rdfs:value ?currentOOState .
+        ?currentOOState rdfs:type pomdp-ns:OOState .
+        ?currentOOState rdfs:value ?currentPersonState .
+        ?currentPersonState pomdp-ns:id ?personId .
+        }
+        
+        OPTIONAL {
+        pomdp-ns:current_state rdfs:value ?currentDroneState .}
+        
+        pomdp-ns:next_state rdfs:value ?nextState .
+        
+        ?modelAttributesNode pomdp-ns1:_big ?bigReward .
+        BIND(0.0 as ?probability) .
+        BIND(0.0 as ?temp_reward) .
+        
+        OPTIONAL {
+        ?currentDroneState pomdp-ns:attributes ?cattributeNode .
+        ?cattributeNode rdfs:type pomdp-ns:current_state .
+        ?cattributeNode pomdp-ns1:_gesture_found ?current_gesture_found .
+        
+        ?currentDroneState pomdp-ns:attributes ?nattributeNode .
+        ?nattributeNode rdfs:type pomdp-ns:next_state .
+        ?nattributeNode pomdp-ns1:_gesture_found ?next_gesture_found .
+        }
+        
+        OPTIONAL {
+        ?currentPersonState pomdp-ns:attributes ?cpattributeNode .
+        ?cpattributeNode rdfs:type pomdp-ns:current_state .
+        ?cpattributeNode pomdp-ns1:_gesture ?person_current_gesture .
+        
+        ?currentPersonState pomdp-ns:attributes ?npattributeNode .
+        ?npattributeNode rdfs:type pomdp-ns:next_state .
+        ?npattributeNode pomdp-ns1:_gesture ?person_next_gesture .
+        }
+        
+        BIND (IF(?action = pomdp-ns1:Action_perceive &&
+        (!?current_gesture_found && ?next_gesture_found), ?temp_reward+?bigReward, ?temp_reward) as ?perceiveReward) .
+        
+        BIND (IF(?person_current_gesture != rdfs:nil && 
+        ?person_current_gesture = ?person_next_gesture &&
+        ?action = pomdp-ns1:Action_move,
+        IF(?person_current_gesture = ?motionType,?perceiveReward+?bigReward,?perceiveReward-?bigReward), ?perceiveReward)
+        as ?perceiveReward) .
+        
+        BIND(IF(?perceiveReward=?current_reward, 1.0, 0.0) as ?probability) .
+        
+    }""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b565 a <http://www.ajan.de/behavior/mdp-ns#belief>;
+  <http://www.ajan.de/behavior/mdp-ns#attributesQuery> _:genid-71b22584687f472f85c720846214db6e-b566;
+  <http://www.ajan.de/behavior/mdp-ns#state-id> "0"^^xsd:int;
+  <http://www.ajan.de/behavior/mdp-ns#state-name> "";
+  <http://www.ajan.de/behavior/mdp-ns#state-probability> "0.0"^^xsd:float;
+  <http://www.ajan.de/behavior/mdp-ns#state-type> "env";
+  <http://www.ajan.de/behavior/mdp-ns#toPrintQuery> _:genid-71b22584687f472f85c720846214db6e-b567 .
+
+_:genid-71b22584687f472f85c720846214db6e-b568 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>;
+  <http://www.ajan.de/behavior/bt-ns#beliefBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#queryTemplate> "{\"id\":\"State Keys to Print Template (1 Key)\",\"title\":\"State Keys to Print Template (1 Key)\",\"description\":\"Template for Keys to Print Field. POMDP Service takes these string values as attribute key values to create a unique representation for States. Only one key is exposed. Switch to advanced view to use multiple keys.\",\"nodes\":[\"All\"],\"targetBase\":\"http://www.ajan.de/ajan-ns#AgentKnowledge\",\"query\":\"\",\"queryVariables\":\"state_id,to_print_node,key1,to_print_node)\",\"parameters\":[{\"label\":\"State ID\",\"variable\":\"state_id\",\"variableBinding\":\"100\",\"title\":\"State ID\",\"mode\":\"Input\",\"note\":\"\",\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]},{\"label\":\"Key Value\",\"variable\":\"key1\",\"variableBinding\":\"'gesture_found'\",\"title\":\"Key Value\",\"mode\":\"Input\",\"note\":\"Key value to be included in the State Representation\",\"sparql\":{\"repo\":\"http://localhost:8090/rdf4j/repositories/test_knowledge\",\"query\":\"SELECT%20?label%20?dataValue%20?dataType%20WHERE%20%7B%20...%20%7D\"},\"possibleValues\":[]}]}";
+  <http://www.ajan.de/behavior/bt-ns#queryTemplateDefaultQuery> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:State_?state_id pomdp-ns:to_print ?to_print_node .
+    ?to_print_node rdfs:value ?key1 .
+}
+WHERE{
+	BIND(BNODE() as ?to_print_node) .
+}""";
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns1:<http://www.dfki.de/pomdp-ns/>
+PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX pomdp-ns-key:<http://www.dfki.de/pomdp-ns/_>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+CONSTRUCT {
+    pomdp-ns1:State_100 pomdp-ns:to_print ?to_print_node .
+    ?to_print_node rdfs:value \"gesture_found\" .
+}
+WHERE{
+	BIND(BNODE() as ?to_print_node) .
+}""" .
+
+_:genid-71b22584687f472f85c720846214db6e-b569 a <http://www.ajan.de/behavior/bt-ns#ConstructQuery>,
+    <http://www.ajan.de/behavior/bt-ns#Input>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#AgentKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> "CONSTRUCT WHERE {?s ?o ?p}" .
+
+_:genid-71b22584687f472f85c720846214db6e-b570 a <http://www.ajan.de/behavior/bt-ns#UpdateQuery>;
+  <http://www.ajan.de/behavior/bt-ns#originBase> <http://www.ajan.de/ajan-ns#ExecutionKnowledge>;
+  <http://www.ajan.de/behavior/bt-ns#sparql> """PREFIX pomdp-ns:<http://www.dfki.de/pomdp-ns#>
+PREFIX rdfs:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+DELETE {?s ?p ?o}
+WHERE{
+    pomdp-ns:Observation ?rel ?key .
+    ?key (pomdp-ns:|!pomdp-ns:)* ?o .
+    ?s ?p ?o .
+}""" .

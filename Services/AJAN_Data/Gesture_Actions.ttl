@@ -1,0 +1,646 @@
+@prefix ajan: <http://www.ajan.de/ajan-ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix actn: <http://www.ajan.de/actn#> .
+@prefix rdf4j: <http://rdf4j.org/schema/rdf4j#> .
+@prefix sesame: <http://www.openrdf.org/schema/sesame#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+
+<http://localhost:8090/rdf4j/repositories/services#SA_e17aa5ad-0f36-47b9-bd9b-01a442f02973>
+  a actn:ServiceAction;
+  actn:communication actn:Synchronous;
+  actn:consumes _:genid-7934e58592ff4e758c1bf449ff00830e-D22CBF9BD18A547D61A2966ABDF33550,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-D22CBF9BD18A547D61A2966ABDF33550;
+  actn:runBinding <http://localhost:8090/rdf4j/repositories/services#Binding_b2686513-ace8-4b6b-807c-6c8071f86cd5>;
+  actn:produces _:genid-7934e58592ff4e758c1bf449ff00830e-824AB36098924527DFEF68C954F25063,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-824AB36098924527DFEF68C954F25063;
+  actn:variables _:genid-7934e58592ff4e758c1bf449ff00830e-6455498DEAC9E876A5BBFC4FB700F39A,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-6455498DEAC9E876A5BBFC4FB700F39A;
+  rdfs:label "perceive" .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-D22CBF9BD18A547D61A2966ABDF33550 a actn:Consumable;
+  actn:sparql "ASK WHERE {?s ?p ?o}" .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-824AB36098924527DFEF68C954F25063 a actn:Producible;
+  actn:sparql "ASK WHERE {FILTER(1=1)}" .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-6455498DEAC9E876A5BBFC4FB700F39A rdf:first
+    _:genid-7934e58592ff4e758c1bf449ff00830e-9350C727DBDD43D894A48AA40AEB5ED5;
+  rdf:rest _:genid-7934e58592ff4e758c1bf449ff00830e-CCB91E344AE6C560A5D1A7CA02F7B0F0 .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-D22CBF9BD18A547D61A2966ABDF33550 a actn:Consumable;
+  actn:sparql "ASK WHERE {?s ?p ?o}" .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-824AB36098924527DFEF68C954F25063 a actn:Producible;
+  actn:sparql "ASK WHERE {FILTER(1=1)}" .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-6455498DEAC9E876A5BBFC4FB700F39A rdf:first
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-9350C727DBDD43D894A48AA40AEB5ED5;
+  rdf:rest _:genid-ba35fe4e37ae4a0c8a048689124f72bb-CCB91E344AE6C560A5D1A7CA02F7B0F0 .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-9350C727DBDD43D894A48AA40AEB5ED5 a actn:ActionVariable;
+  <http://spinrdf.org/sp#varName> "s" .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-9350C727DBDD43D894A48AA40AEB5ED5 a actn:ActionVariable;
+  <http://spinrdf.org/sp#varName> "s" .
+
+<http://localhost:8090/rdf4j/repositories/services#Binding_b2686513-ace8-4b6b-807c-6c8071f86cd5>
+  a actn:Binding, <http://www.w3.org/2006/http#Request>;
+  <http://www.w3.org/2006/http#httpVersion> "1.1";
+  <http://www.w3.org/2006/http#mthd> <http://www.w3.org/2008/http-methods#POST>;
+  <http://www.w3.org/2006/http#body> _:genid-7934e58592ff4e758c1bf449ff00830e-40E6B9AE1C5B17590CFCFA35EB0C1A4B,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-40E6B9AE1C5B17590CFCFA35EB0C1A4B;
+  <http://www.w3.org/2006/http#headers> _:genid-7934e58592ff4e758c1bf449ff00830e-0716F8E9A51881E75C0F59C9F7D406B5,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-0716F8E9A51881E75C0F59C9F7D406B5;
+  actn:headers "";
+  <http://www.w3.org/2006/http#requestURI> <http://127.0.0.1:5002/airsim_controller/perceive> .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-40E6B9AE1C5B17590CFCFA35EB0C1A4B a actn:Payload;
+  actn:sparql "CONSTRUCT {?s ?p ?o} WHERE {?s ?p ?o}" .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-0716F8E9A51881E75C0F59C9F7D406B5 rdf:first
+    _:genid-7934e58592ff4e758c1bf449ff00830e-8116A71D9F7F929B157178BC2DB05927;
+  rdf:rest _:genid-7934e58592ff4e758c1bf449ff00830e-88E6328BB2386343C8A0416081928F3D .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-40E6B9AE1C5B17590CFCFA35EB0C1A4B a actn:Payload;
+  actn:sparql "CONSTRUCT {?s ?p ?o} WHERE {?s ?p ?o}" .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-0716F8E9A51881E75C0F59C9F7D406B5 rdf:first
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-8116A71D9F7F929B157178BC2DB05927;
+  rdf:rest _:genid-ba35fe4e37ae4a0c8a048689124f72bb-88E6328BB2386343C8A0416081928F3D .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-8116A71D9F7F929B157178BC2DB05927 a <http://www.w3.org/2006/http#Header>;
+  <http://www.w3.org/2006/http#fieldValue> "text/turtle";
+  <http://www.w3.org/2006/http#hdrName> <http://www.w3.org/2008/http-headers#accept> .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-88E6328BB2386343C8A0416081928F3D rdf:first
+    _:genid-7934e58592ff4e758c1bf449ff00830e-0E62E7C25322050D0EF081E8BD84FE22;
+  rdf:rest rdf:nil .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-8116A71D9F7F929B157178BC2DB05927 a <http://www.w3.org/2006/http#Header>;
+  <http://www.w3.org/2006/http#fieldValue> "text/turtle";
+  <http://www.w3.org/2006/http#hdrName> <http://www.w3.org/2008/http-headers#accept> .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-88E6328BB2386343C8A0416081928F3D rdf:first
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-0E62E7C25322050D0EF081E8BD84FE22;
+  rdf:rest rdf:nil .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-0E62E7C25322050D0EF081E8BD84FE22 a <http://www.w3.org/2006/http#Header>;
+  <http://www.w3.org/2006/http#fieldValue> "text/turtle";
+  <http://www.w3.org/2006/http#hdrName> <http://www.w3.org/2008/http-headers#content-type> .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-0E62E7C25322050D0EF081E8BD84FE22 a <http://www.w3.org/2006/http#Header>;
+  <http://www.w3.org/2006/http#fieldValue> "text/turtle";
+  <http://www.w3.org/2006/http#hdrName> <http://www.w3.org/2008/http-headers#content-type> .
+
+<http://localhost:8090/rdf4j/repositories/services#SA_bf984428-305d-4979-a095-9a6ab0ffd61e>
+  a actn:ServiceAction;
+  actn:communication actn:Synchronous;
+  actn:consumes _:genid-7934e58592ff4e758c1bf449ff00830e-B6CA0E793A9B61F55C24E8EEA87C684B,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-B6CA0E793A9B61F55C24E8EEA87C684B;
+  actn:runBinding <http://localhost:8090/rdf4j/repositories/services#Binding_ff9fa626-41f0-4254-bd9f-fd7fbce801f2>;
+  actn:produces _:genid-7934e58592ff4e758c1bf449ff00830e-CD76C7D02337A1EF1CEB4E4A55A54638,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-CD76C7D02337A1EF1CEB4E4A55A54638;
+  actn:variables _:genid-7934e58592ff4e758c1bf449ff00830e-9A33E2F8762F0145D184EDE5C99F5A20,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-9A33E2F8762F0145D184EDE5C99F5A20;
+  rdfs:label "Takeoff" .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-B6CA0E793A9B61F55C24E8EEA87C684B a actn:Consumable;
+  actn:sparql "ASK WHERE {?s ?p ?o}" .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-CD76C7D02337A1EF1CEB4E4A55A54638 a actn:Producible;
+  actn:sparql "ASK WHERE {FILTER(1=1)}" .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-9A33E2F8762F0145D184EDE5C99F5A20 rdf:first
+    _:genid-7934e58592ff4e758c1bf449ff00830e-6FF7D5D01D35896B4B3431561377CE17;
+  rdf:rest _:genid-7934e58592ff4e758c1bf449ff00830e-5106C29AB1CC6F503710B5265A98330D .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-B6CA0E793A9B61F55C24E8EEA87C684B a actn:Consumable;
+  actn:sparql "ASK WHERE {?s ?p ?o}" .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-CD76C7D02337A1EF1CEB4E4A55A54638 a actn:Producible;
+  actn:sparql "ASK WHERE {FILTER(1=1)}" .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-9A33E2F8762F0145D184EDE5C99F5A20 rdf:first
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-6FF7D5D01D35896B4B3431561377CE17;
+  rdf:rest _:genid-ba35fe4e37ae4a0c8a048689124f72bb-5106C29AB1CC6F503710B5265A98330D .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-6FF7D5D01D35896B4B3431561377CE17 a actn:ActionVariable;
+  <http://spinrdf.org/sp#varName> "s" .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-6FF7D5D01D35896B4B3431561377CE17 a actn:ActionVariable;
+  <http://spinrdf.org/sp#varName> "s" .
+
+<http://localhost:8090/rdf4j/repositories/services#Binding_ff9fa626-41f0-4254-bd9f-fd7fbce801f2>
+  a actn:Binding, <http://www.w3.org/2006/http#Request>;
+  <http://www.w3.org/2006/http#httpVersion> "1.1";
+  <http://www.w3.org/2006/http#mthd> <http://www.w3.org/2008/http-methods#POST>;
+  <http://www.w3.org/2006/http#body> _:genid-7934e58592ff4e758c1bf449ff00830e-286C0FF178C3E36217A1D0CF143A1A66,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-286C0FF178C3E36217A1D0CF143A1A66;
+  <http://www.w3.org/2006/http#headers> _:genid-7934e58592ff4e758c1bf449ff00830e-BB03AE07E5FB7646FE0E6CFE5E571A2A,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-BB03AE07E5FB7646FE0E6CFE5E571A2A;
+  actn:headers "";
+  <http://www.w3.org/2006/http#requestURI> <http://localhost:5002/airsim_controller/takeoff> .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-286C0FF178C3E36217A1D0CF143A1A66 a actn:Payload;
+  actn:sparql "CONSTRUCT {?s ?p ?o} WHERE {?s ?p ?o}" .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-BB03AE07E5FB7646FE0E6CFE5E571A2A rdf:first
+    _:genid-7934e58592ff4e758c1bf449ff00830e-48655E16CA47F922CC337382BF7A97B8;
+  rdf:rest _:genid-7934e58592ff4e758c1bf449ff00830e-B12389BDD5AE940B253D53B0E1CEC7B8 .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-286C0FF178C3E36217A1D0CF143A1A66 a actn:Payload;
+  actn:sparql "CONSTRUCT {?s ?p ?o} WHERE {?s ?p ?o}" .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-BB03AE07E5FB7646FE0E6CFE5E571A2A rdf:first
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-48655E16CA47F922CC337382BF7A97B8;
+  rdf:rest _:genid-ba35fe4e37ae4a0c8a048689124f72bb-B12389BDD5AE940B253D53B0E1CEC7B8 .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-48655E16CA47F922CC337382BF7A97B8 a <http://www.w3.org/2006/http#Header>;
+  <http://www.w3.org/2006/http#fieldValue> "text/turtle";
+  <http://www.w3.org/2006/http#hdrName> <http://www.w3.org/2008/http-headers#accept> .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-B12389BDD5AE940B253D53B0E1CEC7B8 rdf:first
+    _:genid-7934e58592ff4e758c1bf449ff00830e-B33A52298DC03118BEADD86218B7DBFA;
+  rdf:rest rdf:nil .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-48655E16CA47F922CC337382BF7A97B8 a <http://www.w3.org/2006/http#Header>;
+  <http://www.w3.org/2006/http#fieldValue> "text/turtle";
+  <http://www.w3.org/2006/http#hdrName> <http://www.w3.org/2008/http-headers#accept> .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-B12389BDD5AE940B253D53B0E1CEC7B8 rdf:first
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-B33A52298DC03118BEADD86218B7DBFA;
+  rdf:rest rdf:nil .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-B33A52298DC03118BEADD86218B7DBFA a <http://www.w3.org/2006/http#Header>;
+  <http://www.w3.org/2006/http#fieldValue> "text/turtle";
+  <http://www.w3.org/2006/http#hdrName> <http://www.w3.org/2008/http-headers#content-type> .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-B33A52298DC03118BEADD86218B7DBFA a <http://www.w3.org/2006/http#Header>;
+  <http://www.w3.org/2006/http#fieldValue> "text/turtle";
+  <http://www.w3.org/2006/http#hdrName> <http://www.w3.org/2008/http-headers#content-type> .
+
+<http://localhost:8090/rdf4j/repositories/services#SA_704b978b-f18c-4ef4-a944-3bb616a2589d>
+  a actn:ServiceAction;
+  actn:communication actn:Synchronous;
+  actn:consumes _:genid-7934e58592ff4e758c1bf449ff00830e-ECE371392920F69C841850077071BE3D,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-ECE371392920F69C841850077071BE3D;
+  actn:runBinding <http://localhost:8090/rdf4j/repositories/services#Binding_063944a6-94b4-4ad6-a7fd-8803705a882f>;
+  actn:produces _:genid-7934e58592ff4e758c1bf449ff00830e-C9E94C90121C16482CC81BFFB4DC71B7,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-C9E94C90121C16482CC81BFFB4DC71B7;
+  actn:variables _:genid-7934e58592ff4e758c1bf449ff00830e-110FAEF22BE1EE4131257D9DA40ECF31,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-110FAEF22BE1EE4131257D9DA40ECF31;
+  rdfs:label "move-right" .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-ECE371392920F69C841850077071BE3D a actn:Consumable;
+  actn:sparql "ASK WHERE {?s ?p ?o}" .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-C9E94C90121C16482CC81BFFB4DC71B7 a actn:Producible;
+  actn:sparql "ASK WHERE {FILTER(1=1)}" .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-110FAEF22BE1EE4131257D9DA40ECF31 rdf:first
+    _:genid-7934e58592ff4e758c1bf449ff00830e-B8DA0663D53992AB005665BC56CC0C59;
+  rdf:rest _:genid-7934e58592ff4e758c1bf449ff00830e-757FFF7CAF75048B16273095A6B95DB3 .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-ECE371392920F69C841850077071BE3D a actn:Consumable;
+  actn:sparql "ASK WHERE {?s ?p ?o}" .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-C9E94C90121C16482CC81BFFB4DC71B7 a actn:Producible;
+  actn:sparql "ASK WHERE {FILTER(1=1)}" .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-110FAEF22BE1EE4131257D9DA40ECF31 rdf:first
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-B8DA0663D53992AB005665BC56CC0C59;
+  rdf:rest _:genid-ba35fe4e37ae4a0c8a048689124f72bb-757FFF7CAF75048B16273095A6B95DB3 .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-B8DA0663D53992AB005665BC56CC0C59 a actn:ActionVariable;
+  <http://spinrdf.org/sp#varName> "s" .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-B8DA0663D53992AB005665BC56CC0C59 a actn:ActionVariable;
+  <http://spinrdf.org/sp#varName> "s" .
+
+<http://localhost:8090/rdf4j/repositories/services#Binding_063944a6-94b4-4ad6-a7fd-8803705a882f>
+  a actn:Binding, <http://www.w3.org/2006/http#Request>;
+  <http://www.w3.org/2006/http#httpVersion> "1.1";
+  <http://www.w3.org/2006/http#mthd> <http://www.w3.org/2008/http-methods#POST>;
+  <http://www.w3.org/2006/http#body> _:genid-7934e58592ff4e758c1bf449ff00830e-58D94CAE3B55992CDEA12E6F496488E4,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-58D94CAE3B55992CDEA12E6F496488E4;
+  <http://www.w3.org/2006/http#headers> _:genid-7934e58592ff4e758c1bf449ff00830e-7BD1DE551571C86567310322DE1883D8,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-7BD1DE551571C86567310322DE1883D8;
+  actn:headers "";
+  <http://www.w3.org/2006/http#requestURI> <http://127.0.0.1:5002/airsim_controller/move-one-step-right> .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-58D94CAE3B55992CDEA12E6F496488E4 a actn:Payload;
+  actn:sparql "CONSTRUCT {?s ?p ?o} WHERE {?s ?p ?o}" .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-7BD1DE551571C86567310322DE1883D8 rdf:first
+    _:genid-7934e58592ff4e758c1bf449ff00830e-0638014514AC459D4B98B0F17793F334;
+  rdf:rest _:genid-7934e58592ff4e758c1bf449ff00830e-08525B05054FB6A8E3EC565FB201951D .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-58D94CAE3B55992CDEA12E6F496488E4 a actn:Payload;
+  actn:sparql "CONSTRUCT {?s ?p ?o} WHERE {?s ?p ?o}" .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-7BD1DE551571C86567310322DE1883D8 rdf:first
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-0638014514AC459D4B98B0F17793F334;
+  rdf:rest _:genid-ba35fe4e37ae4a0c8a048689124f72bb-08525B05054FB6A8E3EC565FB201951D .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-0638014514AC459D4B98B0F17793F334 a <http://www.w3.org/2006/http#Header>;
+  <http://www.w3.org/2006/http#fieldValue> "text/turtle";
+  <http://www.w3.org/2006/http#hdrName> <http://www.w3.org/2008/http-headers#accept> .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-08525B05054FB6A8E3EC565FB201951D rdf:first
+    _:genid-7934e58592ff4e758c1bf449ff00830e-6BAF89EB1B22353860B5A223021CF25F;
+  rdf:rest rdf:nil .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-0638014514AC459D4B98B0F17793F334 a <http://www.w3.org/2006/http#Header>;
+  <http://www.w3.org/2006/http#fieldValue> "text/turtle";
+  <http://www.w3.org/2006/http#hdrName> <http://www.w3.org/2008/http-headers#accept> .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-08525B05054FB6A8E3EC565FB201951D rdf:first
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-6BAF89EB1B22353860B5A223021CF25F;
+  rdf:rest rdf:nil .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-6BAF89EB1B22353860B5A223021CF25F a <http://www.w3.org/2006/http#Header>;
+  <http://www.w3.org/2006/http#fieldValue> "text/turtle";
+  <http://www.w3.org/2006/http#hdrName> <http://www.w3.org/2008/http-headers#content-type> .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-6BAF89EB1B22353860B5A223021CF25F a <http://www.w3.org/2006/http#Header>;
+  <http://www.w3.org/2006/http#fieldValue> "text/turtle";
+  <http://www.w3.org/2006/http#hdrName> <http://www.w3.org/2008/http-headers#content-type> .
+
+<http://localhost:8090/rdf4j/repositories/services#SA_22482d6e-7aa3-41af-aa35-0f20c23ded4c>
+  a actn:ServiceAction;
+  actn:communication actn:Synchronous;
+  actn:consumes _:genid-7934e58592ff4e758c1bf449ff00830e-1C035F1E4540AAAC5E2847A99489CA08,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-1C035F1E4540AAAC5E2847A99489CA08;
+  actn:runBinding <http://localhost:8090/rdf4j/repositories/services#Binding_2dfe0c13-1c06-4cbb-9ef5-dc40aa0e686c>;
+  actn:produces _:genid-7934e58592ff4e758c1bf449ff00830e-2C61FE430BF20844C92C800A6F0EA9F5,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-2C61FE430BF20844C92C800A6F0EA9F5;
+  actn:variables _:genid-7934e58592ff4e758c1bf449ff00830e-A6FC86709024B9AB81D527F5D7C2548F,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-A6FC86709024B9AB81D527F5D7C2548F;
+  rdfs:label "move-left" .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-1C035F1E4540AAAC5E2847A99489CA08 a actn:Consumable;
+  actn:sparql "ASK WHERE {?s ?p ?o}" .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-2C61FE430BF20844C92C800A6F0EA9F5 a actn:Producible;
+  actn:sparql "ASK WHERE {FILTER(1=1)}" .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-A6FC86709024B9AB81D527F5D7C2548F rdf:first
+    _:genid-7934e58592ff4e758c1bf449ff00830e-AB1A68D5F515CCFA30628AB8ACB01FAD;
+  rdf:rest _:genid-7934e58592ff4e758c1bf449ff00830e-D2E2035D1941A81295379F0B2AB6880D .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-1C035F1E4540AAAC5E2847A99489CA08 a actn:Consumable;
+  actn:sparql "ASK WHERE {?s ?p ?o}" .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-2C61FE430BF20844C92C800A6F0EA9F5 a actn:Producible;
+  actn:sparql "ASK WHERE {FILTER(1=1)}" .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-A6FC86709024B9AB81D527F5D7C2548F rdf:first
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-AB1A68D5F515CCFA30628AB8ACB01FAD;
+  rdf:rest _:genid-ba35fe4e37ae4a0c8a048689124f72bb-D2E2035D1941A81295379F0B2AB6880D .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-AB1A68D5F515CCFA30628AB8ACB01FAD a actn:ActionVariable;
+  <http://spinrdf.org/sp#varName> "s" .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-AB1A68D5F515CCFA30628AB8ACB01FAD a actn:ActionVariable;
+  <http://spinrdf.org/sp#varName> "s" .
+
+<http://localhost:8090/rdf4j/repositories/services#Binding_2dfe0c13-1c06-4cbb-9ef5-dc40aa0e686c>
+  a actn:Binding, <http://www.w3.org/2006/http#Request>;
+  <http://www.w3.org/2006/http#httpVersion> "1.1";
+  <http://www.w3.org/2006/http#mthd> <http://www.w3.org/2008/http-methods#POST>;
+  <http://www.w3.org/2006/http#body> _:genid-7934e58592ff4e758c1bf449ff00830e-13C3CF7AE968F20CEE5771DA2E6DFD0D,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-13C3CF7AE968F20CEE5771DA2E6DFD0D;
+  <http://www.w3.org/2006/http#headers> _:genid-7934e58592ff4e758c1bf449ff00830e-7B07C39996A5931284288C8A5B08C729,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-7B07C39996A5931284288C8A5B08C729;
+  actn:headers "";
+  <http://www.w3.org/2006/http#requestURI> <http://127.0.0.1:5002/airsim_controller/move-one-step-left> .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-13C3CF7AE968F20CEE5771DA2E6DFD0D a actn:Payload;
+  actn:sparql "CONSTRUCT {?s ?p ?o} WHERE {?s ?p ?o}" .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-7B07C39996A5931284288C8A5B08C729 rdf:first
+    _:genid-7934e58592ff4e758c1bf449ff00830e-3469CFE6A31A43C3EF808B64A98B6784;
+  rdf:rest _:genid-7934e58592ff4e758c1bf449ff00830e-666E0B3445031D61092749029B3C78C1 .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-13C3CF7AE968F20CEE5771DA2E6DFD0D a actn:Payload;
+  actn:sparql "CONSTRUCT {?s ?p ?o} WHERE {?s ?p ?o}" .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-7B07C39996A5931284288C8A5B08C729 rdf:first
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-3469CFE6A31A43C3EF808B64A98B6784;
+  rdf:rest _:genid-ba35fe4e37ae4a0c8a048689124f72bb-666E0B3445031D61092749029B3C78C1 .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-3469CFE6A31A43C3EF808B64A98B6784 a <http://www.w3.org/2006/http#Header>;
+  <http://www.w3.org/2006/http#fieldValue> "text/turtle";
+  <http://www.w3.org/2006/http#hdrName> <http://www.w3.org/2008/http-headers#accept> .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-666E0B3445031D61092749029B3C78C1 rdf:first
+    _:genid-7934e58592ff4e758c1bf449ff00830e-6744E76BC044E46E2757FF2E6849B60E;
+  rdf:rest rdf:nil .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-3469CFE6A31A43C3EF808B64A98B6784 a <http://www.w3.org/2006/http#Header>;
+  <http://www.w3.org/2006/http#fieldValue> "text/turtle";
+  <http://www.w3.org/2006/http#hdrName> <http://www.w3.org/2008/http-headers#accept> .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-666E0B3445031D61092749029B3C78C1 rdf:first
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-6744E76BC044E46E2757FF2E6849B60E;
+  rdf:rest rdf:nil .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-6744E76BC044E46E2757FF2E6849B60E a <http://www.w3.org/2006/http#Header>;
+  <http://www.w3.org/2006/http#fieldValue> "text/turtle";
+  <http://www.w3.org/2006/http#hdrName> <http://www.w3.org/2008/http-headers#content-type> .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-6744E76BC044E46E2757FF2E6849B60E a <http://www.w3.org/2006/http#Header>;
+  <http://www.w3.org/2006/http#fieldValue> "text/turtle";
+  <http://www.w3.org/2006/http#hdrName> <http://www.w3.org/2008/http-headers#content-type> .
+
+<http://localhost:8090/rdf4j/repositories/services#SA_7f50489e-d815-459e-aefb-b27e55403c9c>
+  a actn:ServiceAction;
+  actn:communication actn:Synchronous;
+  actn:consumes _:genid-7934e58592ff4e758c1bf449ff00830e-D3D46AEC6097F7050C1EE6B99C8363F8,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-D3D46AEC6097F7050C1EE6B99C8363F8;
+  actn:runBinding <http://localhost:8090/rdf4j/repositories/services#Binding_49d64855-e665-43f1-883b-fd40ece98fde>;
+  actn:produces _:genid-7934e58592ff4e758c1bf449ff00830e-106B8A11737707A4D6981E03B671033A,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-106B8A11737707A4D6981E03B671033A;
+  actn:variables _:genid-7934e58592ff4e758c1bf449ff00830e-2A632BE7FAF30F6A38EF1E413C960BDC,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-2A632BE7FAF30F6A38EF1E413C960BDC;
+  rdfs:label "turn" .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-D3D46AEC6097F7050C1EE6B99C8363F8 a actn:Consumable;
+  actn:sparql "ASK WHERE {?s ?p ?o}" .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-106B8A11737707A4D6981E03B671033A a actn:Producible;
+  actn:sparql "ASK WHERE {?s ?p ?o}" .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-2A632BE7FAF30F6A38EF1E413C960BDC rdf:first
+    _:genid-7934e58592ff4e758c1bf449ff00830e-B5D74F7F99B4954F72B4726456D0154C;
+  rdf:rest _:genid-7934e58592ff4e758c1bf449ff00830e-B80AB01D5EE6EC0AAA7A302925BD540B .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-D3D46AEC6097F7050C1EE6B99C8363F8 a actn:Consumable;
+  actn:sparql "ASK WHERE {?s ?p ?o}" .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-106B8A11737707A4D6981E03B671033A a actn:Producible;
+  actn:sparql "ASK WHERE {?s ?p ?o}" .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-2A632BE7FAF30F6A38EF1E413C960BDC rdf:first
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-B5D74F7F99B4954F72B4726456D0154C;
+  rdf:rest _:genid-ba35fe4e37ae4a0c8a048689124f72bb-B80AB01D5EE6EC0AAA7A302925BD540B .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-B5D74F7F99B4954F72B4726456D0154C a actn:ActionVariable;
+  <http://spinrdf.org/sp#varName> "s" .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-B5D74F7F99B4954F72B4726456D0154C a actn:ActionVariable;
+  <http://spinrdf.org/sp#varName> "s" .
+
+<http://localhost:8090/rdf4j/repositories/services#Binding_49d64855-e665-43f1-883b-fd40ece98fde>
+  a actn:Binding, <http://www.w3.org/2006/http#Request>;
+  <http://www.w3.org/2006/http#httpVersion> "1.1";
+  <http://www.w3.org/2006/http#mthd> <http://www.w3.org/2008/http-methods#POST>;
+  <http://www.w3.org/2006/http#body> _:genid-7934e58592ff4e758c1bf449ff00830e-A676EDBC2178A63B1C7C626819A28320,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-A676EDBC2178A63B1C7C626819A28320;
+  <http://www.w3.org/2006/http#headers> _:genid-7934e58592ff4e758c1bf449ff00830e-024A191CC75387057309AE28EF96AA30,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-024A191CC75387057309AE28EF96AA30;
+  actn:headers "";
+  <http://www.w3.org/2006/http#requestURI> <http://localhost:5002/airsim_controller/turn-one-step-rdf> .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-A676EDBC2178A63B1C7C626819A28320 a actn:Payload;
+  actn:sparql "CONSTRUCT {?s ?p ?o} WHERE {?s ?p ?o}" .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-024A191CC75387057309AE28EF96AA30 rdf:first
+    _:genid-7934e58592ff4e758c1bf449ff00830e-69C564BBCD076AE91BFFDB7386AC8C1E;
+  rdf:rest _:genid-7934e58592ff4e758c1bf449ff00830e-BE51E1C1FDDCC872B6D066A4BFD2E617 .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-A676EDBC2178A63B1C7C626819A28320 a actn:Payload;
+  actn:sparql "CONSTRUCT {?s ?p ?o} WHERE {?s ?p ?o}" .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-024A191CC75387057309AE28EF96AA30 rdf:first
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-69C564BBCD076AE91BFFDB7386AC8C1E;
+  rdf:rest _:genid-ba35fe4e37ae4a0c8a048689124f72bb-BE51E1C1FDDCC872B6D066A4BFD2E617 .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-69C564BBCD076AE91BFFDB7386AC8C1E a <http://www.w3.org/2006/http#Header>;
+  <http://www.w3.org/2006/http#fieldValue> "text/turtle";
+  <http://www.w3.org/2006/http#hdrName> <http://www.w3.org/2008/http-headers#accept> .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-BE51E1C1FDDCC872B6D066A4BFD2E617 rdf:first
+    _:genid-7934e58592ff4e758c1bf449ff00830e-D5C072EFF34DBA95D4CB9167A9F45C11;
+  rdf:rest rdf:nil .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-69C564BBCD076AE91BFFDB7386AC8C1E a <http://www.w3.org/2006/http#Header>;
+  <http://www.w3.org/2006/http#fieldValue> "text/turtle";
+  <http://www.w3.org/2006/http#hdrName> <http://www.w3.org/2008/http-headers#accept> .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-BE51E1C1FDDCC872B6D066A4BFD2E617 rdf:first
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-D5C072EFF34DBA95D4CB9167A9F45C11;
+  rdf:rest rdf:nil .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-D5C072EFF34DBA95D4CB9167A9F45C11 a <http://www.w3.org/2006/http#Header>;
+  <http://www.w3.org/2006/http#fieldValue> "text/turtle";
+  <http://www.w3.org/2006/http#hdrName> <http://www.w3.org/2008/http-headers#content-type> .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-D5C072EFF34DBA95D4CB9167A9F45C11 a <http://www.w3.org/2006/http#Header>;
+  <http://www.w3.org/2006/http#fieldValue> "text/turtle";
+  <http://www.w3.org/2006/http#hdrName> <http://www.w3.org/2008/http-headers#content-type> .
+
+<http://localhost:8090/rdf4j/repositories/services#SA_af40a3aa-5f5b-4acf-b102-a7257c1612e7>
+  a actn:ServiceAction;
+  actn:communication actn:Synchronous;
+  actn:consumes _:genid-7934e58592ff4e758c1bf449ff00830e-F6C1EBDC4380F939B5010B4D847619C9,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-F6C1EBDC4380F939B5010B4D847619C9;
+  actn:runBinding <http://localhost:8090/rdf4j/repositories/services#Binding_cb210521-4724-4e59-b985-0d2e50674339>;
+  actn:produces _:genid-7934e58592ff4e758c1bf449ff00830e-1B1EAF226958A8ED1DCE531ECF65AB73,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-1B1EAF226958A8ED1DCE531ECF65AB73;
+  actn:variables _:genid-7934e58592ff4e758c1bf449ff00830e-697234B66588FCA170AD67F48A5080DB,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-697234B66588FCA170AD67F48A5080DB;
+  rdfs:label "getVisibleShelves" .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-F6C1EBDC4380F939B5010B4D847619C9 a actn:Consumable;
+  actn:sparql "ASK WHERE {?s ?p ?o}" .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-1B1EAF226958A8ED1DCE531ECF65AB73 a actn:Producible;
+  actn:sparql "ASK WHERE {?s ?p ?o}" .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-697234B66588FCA170AD67F48A5080DB rdf:first
+    _:genid-7934e58592ff4e758c1bf449ff00830e-377E03F983EB99584D460EFA54695E35;
+  rdf:rest _:genid-7934e58592ff4e758c1bf449ff00830e-EC8804B68328055A7501841781063D8E .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-F6C1EBDC4380F939B5010B4D847619C9 a actn:Consumable;
+  actn:sparql "ASK WHERE {?s ?p ?o}" .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-1B1EAF226958A8ED1DCE531ECF65AB73 a actn:Producible;
+  actn:sparql "ASK WHERE {?s ?p ?o}" .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-697234B66588FCA170AD67F48A5080DB rdf:first
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-377E03F983EB99584D460EFA54695E35;
+  rdf:rest _:genid-ba35fe4e37ae4a0c8a048689124f72bb-EC8804B68328055A7501841781063D8E .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-377E03F983EB99584D460EFA54695E35 a actn:ActionVariable;
+  <http://spinrdf.org/sp#varName> "s" .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-EC8804B68328055A7501841781063D8E rdf:first
+    _:genid-7934e58592ff4e758c1bf449ff00830e-9A1AB4E01AE8D22D168863B643845FC6;
+  rdf:rest _:genid-7934e58592ff4e758c1bf449ff00830e-C35D7683803587FA1632FBF606B65F4F .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-377E03F983EB99584D460EFA54695E35 a actn:ActionVariable;
+  <http://spinrdf.org/sp#varName> "s" .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-EC8804B68328055A7501841781063D8E rdf:first
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-9A1AB4E01AE8D22D168863B643845FC6;
+  rdf:rest _:genid-ba35fe4e37ae4a0c8a048689124f72bb-C35D7683803587FA1632FBF606B65F4F .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-9A1AB4E01AE8D22D168863B643845FC6 a actn:ActionVariable;
+  <http://spinrdf.org/sp#varName> "p" .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-C35D7683803587FA1632FBF606B65F4F rdf:first
+    _:genid-7934e58592ff4e758c1bf449ff00830e-E29A49093266CD53EE15095B5BB61B8D;
+  rdf:rest rdf:nil .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-9A1AB4E01AE8D22D168863B643845FC6 a actn:ActionVariable;
+  <http://spinrdf.org/sp#varName> "p" .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-C35D7683803587FA1632FBF606B65F4F rdf:first
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-E29A49093266CD53EE15095B5BB61B8D;
+  rdf:rest rdf:nil .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-E29A49093266CD53EE15095B5BB61B8D a actn:ActionVariable;
+  <http://spinrdf.org/sp#varName> "o" .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-E29A49093266CD53EE15095B5BB61B8D a actn:ActionVariable;
+  <http://spinrdf.org/sp#varName> "o" .
+
+<http://localhost:8090/rdf4j/repositories/services#Binding_cb210521-4724-4e59-b985-0d2e50674339>
+  a actn:Binding, <http://www.w3.org/2006/http#Request>;
+  <http://www.w3.org/2006/http#httpVersion> "1.1";
+  <http://www.w3.org/2006/http#mthd> <http://www.w3.org/2008/http-methods#POST>;
+  <http://www.w3.org/2006/http#body> _:genid-7934e58592ff4e758c1bf449ff00830e-921B2F6E55C8D2C04CC7CFFBF36A7AA0,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-921B2F6E55C8D2C04CC7CFFBF36A7AA0;
+  <http://www.w3.org/2006/http#headers> _:genid-7934e58592ff4e758c1bf449ff00830e-3F5A514A8C5C2BE8DA9EA4EA6B1C9A93,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-3F5A514A8C5C2BE8DA9EA4EA6B1C9A93;
+  actn:headers "";
+  <http://www.w3.org/2006/http#requestURI> <http://192.168.178.154:5002/Unity-service/get-visible-objects-rdf> .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-921B2F6E55C8D2C04CC7CFFBF36A7AA0 a actn:Payload;
+  actn:sparql "CONSTRUCT {?s ?p ?o} WHERE {?s ?p ?o}" .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-3F5A514A8C5C2BE8DA9EA4EA6B1C9A93 rdf:first
+    _:genid-7934e58592ff4e758c1bf449ff00830e-48C638EA9A9375F8D6E03869BF56E5D2;
+  rdf:rest _:genid-7934e58592ff4e758c1bf449ff00830e-B4729DA39B1F762CC0FD6504DE27A6BC .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-921B2F6E55C8D2C04CC7CFFBF36A7AA0 a actn:Payload;
+  actn:sparql "CONSTRUCT {?s ?p ?o} WHERE {?s ?p ?o}" .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-3F5A514A8C5C2BE8DA9EA4EA6B1C9A93 rdf:first
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-48C638EA9A9375F8D6E03869BF56E5D2;
+  rdf:rest _:genid-ba35fe4e37ae4a0c8a048689124f72bb-B4729DA39B1F762CC0FD6504DE27A6BC .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-48C638EA9A9375F8D6E03869BF56E5D2 a <http://www.w3.org/2006/http#Header>;
+  <http://www.w3.org/2006/http#fieldValue> "text/turtle";
+  <http://www.w3.org/2006/http#hdrName> <http://www.w3.org/2008/http-headers#accept> .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-B4729DA39B1F762CC0FD6504DE27A6BC rdf:first
+    _:genid-7934e58592ff4e758c1bf449ff00830e-4F4FADA91AD30EF21BF5B7A4EB803A6B;
+  rdf:rest rdf:nil .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-48C638EA9A9375F8D6E03869BF56E5D2 a <http://www.w3.org/2006/http#Header>;
+  <http://www.w3.org/2006/http#fieldValue> "text/turtle";
+  <http://www.w3.org/2006/http#hdrName> <http://www.w3.org/2008/http-headers#accept> .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-B4729DA39B1F762CC0FD6504DE27A6BC rdf:first
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-4F4FADA91AD30EF21BF5B7A4EB803A6B;
+  rdf:rest rdf:nil .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-4F4FADA91AD30EF21BF5B7A4EB803A6B a <http://www.w3.org/2006/http#Header>;
+  <http://www.w3.org/2006/http#fieldValue> "text/turtle";
+  <http://www.w3.org/2006/http#hdrName> <http://www.w3.org/2008/http-headers#content-type> .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-4F4FADA91AD30EF21BF5B7A4EB803A6B a <http://www.w3.org/2006/http#Header>;
+  <http://www.w3.org/2006/http#fieldValue> "text/turtle";
+  <http://www.w3.org/2006/http#hdrName> <http://www.w3.org/2008/http-headers#content-type> .
+
+<http://localhost:8090/rdf4j/repositories/services#SA_585c376f-d1a5-42aa-ae4f-d373723e1ea2>
+  a actn:ServiceAction;
+  actn:communication actn:Synchronous;
+  actn:consumes _:genid-7934e58592ff4e758c1bf449ff00830e-931E6E49F0692B7FC0D3082EF6BD4CC7,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-931E6E49F0692B7FC0D3082EF6BD4CC7;
+  actn:runBinding <http://localhost:8090/rdf4j/repositories/services#Binding_6d1e5c0a-09f5-4668-8ed8-1ce4b966e64c>;
+  actn:produces _:genid-7934e58592ff4e758c1bf449ff00830e-AE5739C362E14155C2643CE3CE75261D,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-AE5739C362E14155C2643CE3CE75261D;
+  actn:variables _:genid-7934e58592ff4e758c1bf449ff00830e-59232248A701E240275CEB2391680F20,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-59232248A701E240275CEB2391680F20;
+  rdfs:label "moveToLocation" .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-931E6E49F0692B7FC0D3082EF6BD4CC7 a actn:Consumable;
+  actn:sparql "ASK WHERE {?s ?p ?o}" .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-AE5739C362E14155C2643CE3CE75261D a actn:Producible;
+  actn:sparql "ASK WHERE {FILTER(1=1)}" .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-59232248A701E240275CEB2391680F20 rdf:first
+    _:genid-7934e58592ff4e758c1bf449ff00830e-B7A35E2A6CD19F775B64D54B19E870A9;
+  rdf:rest _:genid-7934e58592ff4e758c1bf449ff00830e-747CB708261C4C1BBB970D2A927F0D19 .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-931E6E49F0692B7FC0D3082EF6BD4CC7 a actn:Consumable;
+  actn:sparql "ASK WHERE {?s ?p ?o}" .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-AE5739C362E14155C2643CE3CE75261D a actn:Producible;
+  actn:sparql "ASK WHERE {FILTER(1=1)}" .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-59232248A701E240275CEB2391680F20 rdf:first
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-B7A35E2A6CD19F775B64D54B19E870A9;
+  rdf:rest _:genid-ba35fe4e37ae4a0c8a048689124f72bb-747CB708261C4C1BBB970D2A927F0D19 .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-B7A35E2A6CD19F775B64D54B19E870A9 a actn:ActionVariable;
+  <http://spinrdf.org/sp#varName> "s" .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-B7A35E2A6CD19F775B64D54B19E870A9 a actn:ActionVariable;
+  <http://spinrdf.org/sp#varName> "s" .
+
+<http://localhost:8090/rdf4j/repositories/services#Binding_6d1e5c0a-09f5-4668-8ed8-1ce4b966e64c>
+  a actn:Binding, <http://www.w3.org/2006/http#Request>;
+  <http://www.w3.org/2006/http#httpVersion> "1.1";
+  <http://www.w3.org/2006/http#mthd> <http://www.w3.org/2008/http-methods#POST>;
+  <http://www.w3.org/2006/http#body> _:genid-7934e58592ff4e758c1bf449ff00830e-CE6BCF2A535EECFD506920DA7A0B6CBD,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-CE6BCF2A535EECFD506920DA7A0B6CBD;
+  <http://www.w3.org/2006/http#headers> _:genid-7934e58592ff4e758c1bf449ff00830e-0E475E9710BFF9894C07E94AC5820817,
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-0E475E9710BFF9894C07E94AC5820817;
+  actn:headers "";
+  <http://www.w3.org/2006/http#requestURI> <http://127.0.0.1:5002/airsim_controller/move-rdf> .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-CE6BCF2A535EECFD506920DA7A0B6CBD a actn:Payload;
+  actn:sparql "CONSTRUCT {?s ?p ?o} WHERE {?s ?p ?o}" .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-0E475E9710BFF9894C07E94AC5820817 rdf:first
+    _:genid-7934e58592ff4e758c1bf449ff00830e-97DC07950067E95A298B66CD17B72D71;
+  rdf:rest _:genid-7934e58592ff4e758c1bf449ff00830e-778B2A9231DCB65E56239D0550206D83 .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-CE6BCF2A535EECFD506920DA7A0B6CBD a actn:Payload;
+  actn:sparql "CONSTRUCT {?s ?p ?o} WHERE {?s ?p ?o}" .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-0E475E9710BFF9894C07E94AC5820817 rdf:first
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-97DC07950067E95A298B66CD17B72D71;
+  rdf:rest _:genid-ba35fe4e37ae4a0c8a048689124f72bb-778B2A9231DCB65E56239D0550206D83 .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-97DC07950067E95A298B66CD17B72D71 a <http://www.w3.org/2006/http#Header>;
+  <http://www.w3.org/2006/http#fieldValue> "text/turtle";
+  <http://www.w3.org/2006/http#hdrName> <http://www.w3.org/2008/http-headers#accept> .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-778B2A9231DCB65E56239D0550206D83 rdf:first
+    _:genid-7934e58592ff4e758c1bf449ff00830e-01BA64BEEF9DC395E193C64DA1EECCB3;
+  rdf:rest rdf:nil .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-97DC07950067E95A298B66CD17B72D71 a <http://www.w3.org/2006/http#Header>;
+  <http://www.w3.org/2006/http#fieldValue> "text/turtle";
+  <http://www.w3.org/2006/http#hdrName> <http://www.w3.org/2008/http-headers#accept> .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-778B2A9231DCB65E56239D0550206D83 rdf:first
+    _:genid-ba35fe4e37ae4a0c8a048689124f72bb-01BA64BEEF9DC395E193C64DA1EECCB3;
+  rdf:rest rdf:nil .
+
+_:genid-7934e58592ff4e758c1bf449ff00830e-01BA64BEEF9DC395E193C64DA1EECCB3 a <http://www.w3.org/2006/http#Header>;
+  <http://www.w3.org/2006/http#fieldValue> "text/turtle";
+  <http://www.w3.org/2006/http#hdrName> <http://www.w3.org/2008/http-headers#content-type> .
+
+_:genid-ba35fe4e37ae4a0c8a048689124f72bb-01BA64BEEF9DC395E193C64DA1EECCB3 a <http://www.w3.org/2006/http#Header>;
+  <http://www.w3.org/2006/http#fieldValue> "text/turtle";
+  <http://www.w3.org/2006/http#hdrName> <http://www.w3.org/2008/http-headers#content-type> .
