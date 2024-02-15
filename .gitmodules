@@ -13,3 +13,6 @@
 [submodule "Services/AJAN-service"]
 	path = Services/AJAN-service
 	url = https://github.com/aantakli/AJAN-service.git
+[submodule "Services/AJAN-editor"]
+	path = Services/AJAN-editor
+	url = https://github.com/aantakli/AJAN-editor.git
