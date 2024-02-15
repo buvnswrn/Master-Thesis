@@ -19,3 +19,9 @@
 [submodule "Services/Deprecated/AJAN_DESPOT"]
 	path = Services/Deprecated/AJAN_DESPOT
 	url = https://github.com/buvnswrn/AJAN_DESPOT.git
+[submodule "Services/Deprecated/pomdp_py_test"]
+	path = Services/Deprecated/pomdp_py_test
+	url = https://github.com/buvnswrn/pomdp_py_native.git
+[submodule "Additional/pomdp_py_test"]
+	path = Additional/pomdp_py_test
+	url = https://github.com/buvnswrn/pomdp_py_native.git
